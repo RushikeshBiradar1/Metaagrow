@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+  <test thread-count="5" parallel="classes" name="Test">
+<classes>
+      <class name="Roles_and_Permissions.Deactivate_Role_Test"/>
+      <class name="Department.departmentTest1"/>
+      <class name="Roles_and_Permissions.Roles"/>
+      <class name="Assets.Add_Assets_Test"/>
+    
+      <class name="Properties.Property_Filter_Test"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

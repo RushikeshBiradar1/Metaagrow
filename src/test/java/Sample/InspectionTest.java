@@ -1,0 +1,147 @@
+package Sample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
+
+import com.MetaaGrow.Generic_Utility.BaseClass;
+import com.MetaaGrow.Generic_Utility.Date_Formats;
+import com.MetaaGrow.Generic_Utility.WebDriver_Utility;
+import com.MetaaGrow.ObjectRepository.HomePage;
+import com.MetaaGrow.ObjectRepository.Tickets;
+
+public class InspectionTest extends BaseClass {
+	@Test
+	public void Inspection() throws Throwable
+	{
+		HomePage hp = new HomePage(driver);
+		hp.ClickOnInspectionsLinkText();
+		WebDriver_Utility wb = new WebDriver_Utility();
+		wb.ImplicitlyWait(driver);
+		//wb.maximizeTheBrowser(driver);
+//		driver.findElement(By.xpath("//button[normalize-space()='Previous']")).click();
+//		driver.findElement(By.xpath("//button[normalize-space()='Today']")).click();
+//		driver.findElement(By.xpath("//label[@for='301669check']")).click();
+	//	driver.findElement(By.xpath("//span[normalize-space()='Download Pdf']")).click();
+//		Thread.sleep(4000);
+//		driver.findElement(By.xpath("//span[normalize-space()='Email']")).click();
+//		driver.findElement(By.xpath("//input[@placeholder='Enter email address']")).sendKeys("gehTERRRRRRETRTTYR@gmail.com");
+//		driver.findElement(By.xpath("//button[normalize-space()='Send']")).click();
+//		driver.findElement(By.xpath("//button[@id='navigattohome']")).click();
+	//	driver.findElement(By.xpath("//button[@id='cancelEmailPopup']")).click();
+//		driver.findElement(By.xpath("//span[.='Filter']")).click();
+//		driver.findElement(By.xpath("//span[.='Select Property']")).click();
+//		driver.findElement(By.xpath("(//input[@name='autocomplete'])[1]")).sendKeys("CSML");
+//		driver.findElement(By.xpath("//a[.='CSML']")).click();
+//		driver.findElement(By.xpath("//input[@placeholder='Schedule Name']")).sendKeys("Anil");
+//		driver.findElement(By.xpath("//span[normalize-space()='Select User']")).click();
+//		driver.findElement(By.xpath("//a[.='Anil']")).click();
+//		Thread.sleep(4000);
+//		driver.findElement(By.xpath("//span[normalize-space()='Apply']"));
+//		driver.findElement(By.xpath("//span[normalize-space()='Clear']"));
+//		driver.findElement(By.xpath("(//li[@title='Wwe'])[1]")).click();
+//	driver.findElement(By.xpath("//span[@class='blue']")).click();
+//	Tickets t = new Tickets(driver);
+//	t.Clickon_Property_Dropdown_On_New_Ticket_Page(" The PlayOnDigital");
+//	Thread.sleep(3000);
+//	t.ClickON_Select_Department_Dropdown_On_New_Ticket_Page(" Housekeeping");
+//	Thread.sleep(2000);
+//	t.ClickOn_User_Or_Team_DRopdown_On_New_Ticket_Page_By_VisibleText(" we");
+//Thread.sleep(5000);
+//	driver.findElement(By.xpath("//span[normalize-space()='Close']")).click();
+//		Thread.sleep(3000);
+//	driver.findElement(By.xpath("(//span[normalize-space()="Manage Checklist's"])[1]")).click();
+//	Thread.sleep(3000);
+//	driver.findElement(By.xpath("(//label[@for='3355check'])[1]")).click();
+//	driver.findElement(By.xpath("//span[normalize-space()='Duplicate to another Property']")).click();
+//	driver.findElement(By.xpath("//input[@type='text']")).sendKeys("RRRRRRRRRRRRT");
+//	WebElement d = driver.findElement(By.xpath("//select[@id='Housekeeping']"));
+//	Select sel=new Select(d);
+//	sel.selectByVisibleText(" Housekeeping");
+//	WebElement l = driver.findElement(By.xpath("//select[@class='form-control normalSelect ng-pristine ng-valid ng-touched']"));
+//	Select sel2=new Select(l);
+//	sel2.selectByVisibleText(" ANDHERI");
+//	driver.findElement(By.xpath("//span[normalize-space()='Duplicate']")).click();
+//	driver.findElement(By.xpath("//span[normalize-space()='Cancel']")).click();
+//	driver.findElement(By.xpath("//button[contains(text(),'Inactive')]")).click();
+//	driver.findElement(By.xpath("//button[normalize-space()='Active']")).click();
+		//filter
+//	driver.findElement(By.xpath("//input[@placeholder='Checklist Name']")).sendKeys("ufygk");
+//	driver.findElement(By.xpath("//span[.='Select department']")).click();
+//	driver.findElement(By.xpath("(//input[@id='custom'])[3]")).sendKeys("search department");
+//	driver.findElement(By.xpath("//a[.='Operations']")).click();
+//	driver.findElement(By.xpath("//span[normalize-space()='Create Checklist']")).click();
+//	Thread.sleep(2000);
+	
+	//driver.findElement(By.xpath("//input[@placeholder='Enter text']")).sendKeys("CheklistTTTTTTTTTTT244444444");
+//	       WebElement p = driver.findElement(By.xpath("(//select[@name='department'])[1]"));
+//	       Select sel=new Select(p);
+//	       sel.selectByVisibleText(" Xtreme Aqua");
+//	      WebElement d = driver.findElement(By.xpath("(//select[@name='department'])[2]"));
+//	      Select sel1=new Select(d);
+//	      sel1.selectByVisibleText(" Housekeeping");
+//	      driver.findElement(By.xpath("//input[@name='Section Name']")).sendKeys("YGUHIGYHJ");
+//	      driver.findElement(By.xpath("//input[@placeholder='Enter Question Name']")).sendKeys("YTUYJGHK");
+//	      driver.findElement(By.xpath("//span[.='Select Response']")).click();
+//	      driver.findElement(By.xpath("//a[.='Text Field']")).click();
+//	      driver.findElement(By.xpath("//img[@alt='checkbox check']")).click();
+//	      driver.findElement(By.xpath("//textarea[@placeholder='Enter Description']")).sendKeys("JGKHJNVJYGUHJBHv");
+//	      driver.findElement(By.xpath("//img[@alt='Add button']")).click();
+//	      Thread.sleep(2000);
+//	     driver.findElement(By.xpath("//a[@title='Add new Section']//img[@alt='Add']")).click();
+//	     driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
+//	     driver.findElement(By.xpath("//span[normalize-space()='Create Checklist']")).click();
+//	     driver.findElement(By.xpath("//button[@id='backClicked']")).click();
+//	     driver.findElement(By.xpath("//span[@title='November Checklist Of Bowling Asset']")).click();
+//	     driver.findElement(By.xpath("//span[normalize-space()='Edit Checklist']")).click();
+	     driver.findElement(By.xpath("//span[normalize-space()='Manage Schedules']")).click();
+//	     driver.findElement(By.xpath("//label[@for='8658check']")).click();
+//	     driver.findElement(By.xpath("//span[normalize-space()='Print QR Code']")).click();
+//	     driver.findElement(By.xpath("//button[normalize-space()='Ok']")).click();
+	//     driver.findElement(By.xpath("//span[@title='Daily new 18']")).click();
+	  //   driver.findElement(By.xpath("//span[normalize-space()='Edit Schedule']")).click();
+//	     driver.findElement(By.xpath("//span[.='Filter']")).click();
+//	     driver.findElement(By.xpath("//span[normalize-space()='Select Property']")).click();
+//	     driver.findElement(By.xpath("(//input[@id='custom'])[1]")).sendKeys("Xtreme Arcade & Bowling Zone");
+//	     driver.findElement(By.xpath("//a[normalize-space()='Xtreme Arcade & Bowling Zone']")).click();
+//	     driver.findElement(By.xpath("//input[@placeholder='Schedule Name']")).sendKeys("RRTTTTTTTTTTTT");
+//	     driver.findElement(By.xpath("//input[@placeholder='Checklist Name']")).sendKeys("dytfjghkd,");
+//	     driver.findElement(By.xpath("//span[normalize-space()='Select Assigned To']")).click();
+//	     driver.findElement(By.xpath("(//input[@id='custom'])[4]")).sendKeys("Abdulla");
+//	     driver.findElement(By.xpath("//a[normalize-space()='Abdulla']")).click();
+//	     Thread.sleep(5000);
+	     driver.findElement(By.xpath("//span[normalize-space()='Create Schedule']")).click();
+	     WebElement p = driver.findElement(By.xpath("//select[@formcontrolname='property']"));
+	     Select sel=new Select(p);
+	     sel.selectByVisibleText("Xtreme Aqua");
+	     WebElement i = driver.findElement(By.xpath("//select[@formcontrolname='inspection']"));
+	     Select sel1=new Select(i);
+	     sel1.selectByVisibleText("Soft Play Operation Checklist");
+	   WebElement l = driver.findElement(By.xpath("//select[@formcontrolname='location']"));
+	   Select sel2=new Select(l);
+	   sel2.selectByVisibleText("Trampoline Zone");
+	   driver.findElement(By.xpath("//input[@formcontrolname='name']")).sendKeys("drytfugjhvgcfuyik");
+	  // driver.findElement(By.xpath("//label[@for='transferType']//span[@class='slider']")).click();
+	   driver.findElement(By.xpath("//span[.='Set a Frequency']")).click();
+	   driver.findElement(By.xpath("//a[normalize-space()='Daily']")).click();
+	   
+//	  Date_Formats d = new Date_Formats();
+//	  d.StartDate_OnCreate_a_Schedule_Page(driver);
+//	  Thread.sleep(3000);
+//	  d.EndDate_On_Create_a_Schedule_Page(driver);
+	  driver.findElement(By.xpath("//label[normalize-space()='QR Scan Mandatory']")).click();
+	  driver.findElement(By.xpath("//label[normalize-space()='Random Mandatory Photo']")).click();
+	 WebElement a = driver.findElement(By.xpath("//select[@formcontrolname='assignee']"));
+	 Select sel4=new Select(a);
+	 sel4.selectByVisibleText(" Habib");
+	 driver.findElement(By.xpath("//label[@for='transferType2']//span[@class='slider']")).click();
+	WebElement r = driver.findElement(By.xpath("//select[@formcontrolname='reminderTime']"));
+	Select sel5=new Select(r);
+	sel5.selectByVisibleText("5:30 am");
+	driver.findElement(By.xpath("//span[normalize-space()='Create Schedule']")).click();
+driver.findElement(By.xpath("//button[@id='backClicked']")).click();	
+	 Thread.sleep(8000);
+	}
+
+}

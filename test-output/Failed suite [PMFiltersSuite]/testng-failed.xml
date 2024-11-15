@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [PMFiltersSuite]]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"/>
+  </listeners>
+  <test thread-count="5" parallel="classes" name="Test(failed)(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.Metaagrow.Maintenance.Maintenance_Filter_Test">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="Upcoming_FilterByAsset_TC_PM16"/>
+          <include name="Upcoming_FilterByAllUpcomingPage_TC_PM19"/>
+          <include name="beforeTest"/>
+          <include name="PMTemplateInactivePage_FilterByAssetTest_PM39"/>
+          <include name="afterSuite"/>
+          <include name="beforeMethod"/>
+          <include name="Completed_FilterByClearButtonTest_TC_PM26"/>
+          <include name="afterTest"/>
+          <include name="Completed_FilterByAssignedTo_TC_PM24"/>
+          <include name="PMTemplateInactivePage_FilterByTemplateName_TC_PM40"/>
+          <include name="PMTemplateFilterByAssetTest_PM34"/>
+          <include name="PMTemplateInactivePage_FilterByStartAndEndDate_TC_PM42"/>
+          <include name="Completed_FilterByAllUpcomingPage_TC_PM25"/>
+          <include name="Overdue_FilterByClearButtonTest_TC_PM14"/>
+          <include name="Completed_FilterByStartAndEndDate_TC_27"/>
+          <include name="PMTemplate_FilterByTemplateName_TC_PM35"/>
+          <include name="PMTemplateInactivePage_FilterByClearButtonTest_TC_PM43"/>
+          <include name="PMTemplate_FilterByClearButtonTest_TC_PM38"/>
+          <include name="afterClass"/>
+          <include name="Upcoming_FilterByAssignedTo_TC_PM18"/>
+          <include name="setExtent"/>
+          <include name="beforeClass"/>
+          <include name="PMTemplate_FilterByStartAndEndDate_TC_PM37"/>
+          <include name="PMTemplate_FilterByAssignedTo_TC_PM36"/>
+          <include name="PMTemplateInactivePage_FilterByAssignedTo_TC_PM41"/>
+          <include name="Upcoming_FilterBy_PMName_TC_PM17"/>
+        </methods>
+      </class> <!-- com.Metaagrow.Maintenance.Maintenance_Filter_Test -->
+    </classes>
+  </test> <!-- Test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [PMFiltersSuite]] -->
