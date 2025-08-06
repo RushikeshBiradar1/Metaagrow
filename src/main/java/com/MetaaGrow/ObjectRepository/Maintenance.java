@@ -6,6 +6,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,8 +24,8 @@ public class Maintenance {
 
 
 	//Declaration
-	@FindBy(xpath = "//section[@class='action-block']//button[2]")private WebElement Overdue_Button;
-	@FindBy(xpath = "//section[@class='action-block']//button[3]")private WebElement Upcoming_Button;
+	@FindBy(id = "overdue")private WebElement Overdue_Button;
+	@FindBy(xpath = "//button[@id='upcoming']")private WebElement Upcoming_Button;
 	@FindBy(id = "finished")private WebElement Completed_Button;
 	@FindBy(xpath = "//section[@class='action-block']//button[1]")private WebElement Today_Button;
 	@FindBy(xpath = "//span[.='Filter']")private WebElement Filter_Tab_Maintenance_HomePage;
@@ -49,7 +50,7 @@ public class Maintenance {
 	@FindBy(xpath = "//span[.='Create Template']")private WebElement Create_Template_Tab;
 	@FindBy(xpath = "(//span[normalize-space()='Create Fresh Template'])[1]")private WebElement Create_Fresh_Template_Tab;
 	@FindBy(xpath = "(//input[@formcontrolname='name'])[1]")private WebElement Template_Name_TextField;
-	@FindBy(xpath = "//select[@formcontrolname='selectFrequency']")private WebElement select_Frequency_Dropdown;
+	@FindBy(xpath = "(//select[contains(@class, 'form-control')])[4]")private WebElement select_Frequency_Dropdown;
 	@FindBy(xpath = "//a[.='Custom']")private WebElement Select_Frequency_By_Costom;
 	@FindBy(xpath = "//a[.='Daily']")private WebElement Frequency_Daily;
 	@FindBy(xpath = "//a[.='Weekly']")private WebElement weekly_Frequency;
@@ -91,7 +92,7 @@ public class Maintenance {
 	@FindBy(xpath = "//input[@formcontrolname='responceSearch']")private WebElement response_SearchBox;
 	@FindBy(xpath = "//span[.='Add a Response']")private WebElement Add_a_Response_Icon;
 	@FindBy(xpath = "//span[.='Yes / No']")private WebElement Yes_No_Response;
-	@FindBy(xpath="//span[normalize-space()='Add another']")private WebElement Add_anotherIcon;
+	@FindBy(xpath="//img[@alt=\"Add button\"]")private WebElement Add_anotherIcon;
 	@FindBy(xpath = "//form[@class='ng-dirty ng-touched ng-valid']//button[@type='submit']")private WebElement NextButton_On_CreatePM_Page;
 	@FindBy(xpath = "(//span[normalize-space()='Submit'])[1]")private WebElement SubimtButton_OnTemplateSummeryPage;
 	@FindBy(xpath = "(//button[@type='button'][normalize-space()='Ok'])[2]")private WebElement OkButton_On_MaintenanceCreatedSuccessfully_Popup;
@@ -877,7 +878,7 @@ public class Maintenance {
 	public void End_Date(WebDriver driver) throws Throwable {
 		// Click on the End Date input field to open the date picker
 		LocalDate today = LocalDate.now();
-		LocalDate endDate = today.plusDays(9);
+		LocalDate endDate = today.plusDays(8);
 
 		String targetMonthYear = endDate.format(DateTimeFormatter.ofPattern("MMM-yyyy"));
 		String targetDay = String.valueOf(endDate.getDayOfMonth());
@@ -1006,6 +1007,56 @@ public class Maintenance {
          System.out.println("after click");
 
      }
+	 
+	 public void selectTodayStartDate_OnEditPMTemplate(WebDriver driver) throws InterruptedException {
+		 LocalDate today = LocalDate.now();
+		 LocalDate tomorrow = today.plusDays(1); // Calculate tomorrow's date
+		 String targetMonthYear = tomorrow.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2025"
+		 String targetDay = String.valueOf(tomorrow.getDayOfMonth()); // e.g., "1"
+
+		 System.out.println(targetDay);
+		 System.out.println(targetMonthYear);
+
+		 // Click on the Start Date input field to open the date picker
+		 driver.findElement(By.xpath("//input[@formcontrolname='startDate']")).click();
+
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+		 // Loop until the target month-year is displayed
+		 boolean monthYearFound = false;
+		 while (!monthYearFound) {
+		     // Extract the text of the currently displayed month-year in the date picker
+		     WebElement monthYearElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Adjust the XPath as needed
+		     String displayedMonthYear = monthYearElement.getText().trim(); // Format should be "Feb-2025"
+		     System.out.println(displayedMonthYear);
+		     
+		     // Check if the displayed month-year matches the target month-year
+		     if (displayedMonthYear.equals(targetMonthYear)) {
+		         monthYearFound = true; // Exit the loop if the target month-year is reached
+		     } else {
+		         // Click on the right arrow to navigate to the next month (adjust if using left arrow)
+		         WebElement nextMonthButton = driver.findElement(By.xpath("//button[@aria-label='Next month']")); // Adjust the XPath as needed
+		         nextMonthButton.click();
+		         Thread.sleep(1000); // Wait for the month-year to change
+		     }
+		 }
+
+		 // Click on the day in the date picker
+		 driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+		}
 
 
-}
+		    public void addQuestion(WebDriverWait w, JavascriptExecutor js, WebElement sectionCard){
+		        WebElement btn = sectionCard.findElement(By.cssSelector("a.addChecklistQuestion"));
+		        js.executeScript("arguments[0].scrollIntoView(true);", btn);
+		        w.until(ExpectedConditions.elementToBeClickable(btn)).click();
+		    }
+		    public  void addSection(WebDriverWait w, JavascriptExecutor js){
+		        WebElement btn = w.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.addChecklistSection")));
+		        js.executeScript("arguments[0].scrollIntoView(true);", btn);
+		        btn.click();
+		    }
+		    
+	 }
+
+

@@ -66,6 +66,11 @@
 
 
 
-	</dependencies>
+  	<dependency>
+  		<groupId>MG_MB</groupId>
+  		<artifactId>MG_MB</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
   
 </project>

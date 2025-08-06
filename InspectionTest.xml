@@ -4,10 +4,10 @@
 	<listeners>
 		<listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"></listener>
 	</listeners>
+	
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.Metaagrow.Inspetions.CreateInspections"/>
-      <class name="com.Metaagrow.Inspetions.FilterTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

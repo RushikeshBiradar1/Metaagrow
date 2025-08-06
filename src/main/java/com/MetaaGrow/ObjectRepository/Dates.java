@@ -1,4 +1,7 @@
 package com.MetaaGrow.ObjectRepository;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class Dates {
@@ -76,6 +79,35 @@ public class Dates {
 	            driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
 	            System.out.println("after click");
 
+	        }
+	        public void SelectTodaysDate(WebDriver driver) throws Throwable
+	        {
+	     	   LocalDate targetDate = LocalDate.now().plusDays(0);
+	     	    
+	     	    // Format the target month and day
+	     	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	     	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	     	    // Click on the Start Date input field to open the date picker
+	     	    driver.findElement(By.xpath("//input[@placeholder='Enter Scheduled Date']")).click();
+	     	    Thread.sleep(3000);
+
+	     	    // Loop until the target month is displayed
+	     	    while (true) {
+	     	        // Extract the text of the currently displayed month in the date picker
+	     	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	     	        // Check if the displayed month matches the target month
+	     	        if (displayedMonth.equals(targetMonth)) {
+	     	            break; // Exit the loop if the target month is reached
+	     	        } else {
+	     	            // Click on the right arrow to navigate to the next month
+	     	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	     	        }
+	     	    }
+
+	     	    // Select the day
+	     	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
 	        }
 	    
 

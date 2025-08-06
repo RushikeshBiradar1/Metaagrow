@@ -1,14 +1,22 @@
 package com.MetaaGrow.Generic_Utility;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -277,7 +285,7 @@ public class WebDriver_Utility {
 		System.out.println(existingText);
 		int length = existingText.length();
 		for (int i = 0; i < length; i++) {
-			TextFieldField.sendKeys(Keys.BACK_SPACE);
+		TextFieldField.sendKeys(Keys.BACK_SPACE);
 		}
 	}
 	
@@ -340,6 +348,24 @@ public class WebDriver_Utility {
 				}
 			
 				driver.switchTo().window(parentWindowHandle);
+	}
+	
+	public void windowSwitch(WebDriver driver) throws InterruptedException {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.numberOfWindowsToBe(2)); // Wait until a new window opens
+
+	    String parentWindowHandle = driver.getWindowHandle();
+	    Set<String> allWindowHandles = driver.getWindowHandles();
+
+	    for (String windowHandle : allWindowHandles) {
+	        if (!windowHandle.equals(parentWindowHandle)) {
+	            driver.switchTo().window(windowHandle); // Switch to new window
+	            System.out.println("Switched to new window: " + windowHandle);
+	            return; // Exit the method after switching
+	        }
+	    }
+
+	    System.out.println("No new window found to switch.");
 	}
 	
 	  public void performActionIfClickable(WebDriver driver, String Enter_PathOf_Element) {
@@ -436,5 +462,34 @@ public class WebDriver_Utility {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public LinkedHashMap<String, List<String>> loadSectionsAndQuestions(String ExcelPath, String SheetName) throws Throwable {
+        LinkedHashMap<String, List<String>> dataMap = new LinkedHashMap<>();
+        FileInputStream fis = new FileInputStream(ExcelPath);
+        Workbook wb = WorkbookFactory.create(fis);
+         Sheet sh = wb.getSheet(SheetName);
+
+        int lastRow = sh.getLastRowNum();
+
+        for (int i = 1; i <= lastRow; i++) { // assuming row 0 is header
+            Row row = sh.getRow(i);
+            if (row == null) continue;
+
+            Cell sectionCell = row.getCell(0);
+            Cell questionCell = row.getCell(1);
+
+            if (sectionCell == null || questionCell == null) continue;
+
+            String section = sectionCell.getStringCellValue().trim();
+            String question = questionCell.getStringCellValue().trim();
+
+            dataMap.computeIfAbsent(section, k -> new java.util.ArrayList<>()).add(question);
+        }
+
+        wb.close();
+        fis.close();
+
+        return dataMap;
     }
 }

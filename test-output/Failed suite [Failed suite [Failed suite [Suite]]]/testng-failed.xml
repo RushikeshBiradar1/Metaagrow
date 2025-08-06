@@ -4,60 +4,23 @@
   <listeners>
     <listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"/>
   </listeners>
-  <test thread-count="5" name="MaintenanceTest(failed)(failed)(failed)(failed)">
+  <test thread-count="5" name="Asssets(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.Metaagrow.Maintenance.CreateMaintenanceTest">
+      <class name="com.Metaagrow.Assets.CreateAssetTest">
         <methods>
           <include name="afterMethod"/>
           <include name="afterTest"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
-          <include name="EditPMStartDate_EndDateTest_PM31"/>
           <include name="afterSuite"/>
           <include name="beforeClass"/>
           <include name="beforeTest"/>
-          <include name="RaiseTicketFromTodaysPMQuestions_TCPM44"/>
+          <include name="CreateAssetWithAllField"/>
+          <include name="AssetTranferTest"/>
+          <include name="ReturnTranferAssetTest"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.Metaagrow.Maintenance.CreateMaintenanceTest -->
-      <class name="com.Metaagrow.Maintenance.Maintenance_Filter_Test">
-        <methods>
-          <include name="afterMethod"/>
-          <include name="Upcoming_FilterByAsset_TC_PM16"/>
-          <include name="Upcoming_FilterByStartAndEndDate_TC_21"/>
-          <include name="Upcoming_FilterByAllUpcomingPage_TC_PM19"/>
-          <include name="Overdue_FilterBy_PMName_TC_PM11"/>
-          <include name="beforeTest"/>
-          <include name="Todays_FilterPM_Name_TC_PM6"/>
-          <include name="PMTemplateInactivePage_FilterByAssetTest_PM39"/>
-          <include name="Completed_FilterBy_PMName_TC_PM23"/>
-          <include name="Todays_FilterByAsset_TC_PM5"/>
-          <include name="Completed_FilterByAsset_TC_PM22"/>
-          <include name="Todays_FilterByClearButtonTest_TC_PM9"/>
-          <include name="afterSuite"/>
-          <include name="beforeMethod"/>
-          <include name="Completed_FilterByClearButtonTest_TC_PM26"/>
-          <include name="afterTest"/>
-          <include name="Completed_FilterByAssignedTo_TC_PM24"/>
-          <include name="PMTemplateInactivePage_FilterByTemplateName_TC_PM40"/>
-          <include name="PMTemplateFilterByAssetTest_PM34"/>
-          <include name="PMTemplateInactivePage_FilterByStartAndEndDate_TC_PM42"/>
-          <include name="Completed_FilterByAllUpcomingPage_TC_PM25"/>
-          <include name="Completed_FilterByStartAndEndDate_TC_27"/>
-          <include name="PMTemplate_FilterByTemplateName_TC_PM35"/>
-          <include name="PMTemplateInactivePage_FilterByClearButtonTest_TC_PM43"/>
-          <include name="PMTemplate_FilterByClearButtonTest_TC_PM38"/>
-          <include name="afterClass"/>
-          <include name="Upcoming_FilterByAssignedTo_TC_PM18"/>
-          <include name="setExtent"/>
-          <include name="beforeClass"/>
-          <include name="PMTemplate_FilterByStartAndEndDate_TC_PM37"/>
-          <include name="PMTemplate_FilterByAssignedTo_TC_PM36"/>
-          <include name="PMTemplateInactivePage_FilterByAssignedTo_TC_PM41"/>
-          <include name="Upcoming_FilterBy_PMName_TC_PM17"/>
-          <include name="Todays_FilterByAllTodaysPage_TC_PM8"/>
-        </methods>
-      </class> <!-- com.Metaagrow.Maintenance.Maintenance_Filter_Test -->
+      </class> <!-- com.Metaagrow.Assets.CreateAssetTest -->
     </classes>
-  </test> <!-- MaintenanceTest(failed)(failed)(failed)(failed) -->
+  </test> <!-- Asssets(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Suite]]]] -->

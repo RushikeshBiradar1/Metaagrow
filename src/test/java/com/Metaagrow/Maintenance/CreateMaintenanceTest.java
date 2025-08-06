@@ -26,6 +26,8 @@ import com.MetaaGrow.ObjectRepository.LoginPage;
 import com.MetaaGrow.ObjectRepository.Maintenance;
 import com.MetaaGrow.ObjectRepository.Tickets;
 
+import io.appium.java_client.functions.ExpectedCondition;
+
 public class CreateMaintenanceTest extends BaseClass{
 
 
@@ -39,6 +41,8 @@ public class CreateMaintenanceTest extends BaseClass{
 		wb.ImplicitlyWait(driver);
 		wb.maximizeTheBrowser(driver);
 		HomePage hp = new HomePage(driver);
+		 WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		 wait1.until(ExpectedConditions.elementToBeClickable(hp.getMaintenanceLinkText()));
 		hp.ClickOnMaintenanceLinkText();
 		Maintenance pm = new Maintenance(driver);
 		pm.ClickOn_PM_Template_Tab();
@@ -51,25 +55,36 @@ public class CreateMaintenanceTest extends BaseClass{
 		Thread.sleep(2000);
 		pm.CLickon_Select_Property_Dropdown("Thane");
 		pm.selectTodayDate_OnStartDateOnCreatePMTemplate(driver);
+		Thread.sleep(2000);
 		pm.End_Date(driver);
+		Thread.sleep(2000);
+//		wb.EscapeMethod(driver);
+//		Thread.sleep(4000);
+		wait1.until(ExpectedConditions.elementToBeClickable(pm.getselect_Frequency_Dropdown()));
 		pm.select_FrequencyByText("Daily");
+		Thread.sleep(1000);
+		
+		 wait1.until(ExpectedConditions.elementToBeClickable(pm.getAssigned_UserOn_CreatePM()));
 		pm.CLickOn_Assigned_UserOn_CreatePM(driver);
 		wb.SelectMultiUserCheckBox(driver, "Ghassan Assi");
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
-		Excel_Utility ex = new Excel_Utility();
+		pm.CLickOn_Assigned_UserOn_CreatePM(driver);
+		
+		driver.findElement(By.id("checklistSectionName")).sendKeys("First section Enterd");		Excel_Utility ex = new Excel_Utility();
 		File_Utility file = new File_Utility();
 		int rowcount = ex.getLastRowcountFromExcel("Sheet1", iPathConstant.ExcelFilePath);
 		System.out.println(rowcount);
-		for (int i = 1; i <= rowcount; i++) {
+		for (int i = 2; i <= rowcount; i++) {
 			String Questions = ex.ReadDataFromExcel(iPathConstant.ExcelFilePath, "Sheet1", i, 0);
 
 			//Wait
 			try {
 	            // Wait for up to 10 seconds for the web element to be visible
 	            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//li[@class='col-6']/descendant::div[@class='form-group']/descendant::input[@formcontrolname='name'])[" + i + "]")));
+	            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@placeholder='Enter'])[" + i + "]")));
+//	            (//li[@class='col-6']/descendant::div[@class='form-group']/descendant::input[@formcontrolname='name'])[" + i + "]
 	            
-	            WebElement inputField = driver.findElement(By.xpath("(//li[@class='col-6']/descendant::div[@class='form-group']/descendant::input[@formcontrolname='name'])[" + i + "]"));
+	            WebElement inputField = driver.findElement(By.xpath("(//input[@placeholder='Enter'])[" + i + "]"));
 				inputField.sendKeys(Questions);
 
 	        } catch (Exception e) {
@@ -93,11 +108,12 @@ public class CreateMaintenanceTest extends BaseClass{
 
 			try {
 	            // Wait for up to 10 seconds for the web element to be visible
+				 int mcIndex = i - 1;
 	            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[.='Multiple Choice'])[" + i + "]")));
+	            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[.='Multiple Choice'])[" + mcIndex + "]")));
 	            
 	         // Select "Multiple Choice" from the dropdown
-				WebElement multipleChoiceOption = driver.findElement(By.xpath("(//a[.='Multiple Choice'])[" + i + "]"));
+				WebElement multipleChoiceOption = driver.findElement(By.xpath("(//a[.='Multiple Choice'])[" + mcIndex + "]"));
 				multipleChoiceOption.click();
 
 	        } catch (Exception e) {
@@ -248,23 +264,28 @@ public class CreateMaintenanceTest extends BaseClass{
 		WebDriver_Utility wb = new WebDriver_Utility();
 		wb.ImplicitlyWait(driver);
 		wb.maximizeTheBrowser(driver);
-
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		HomePage hp = new HomePage(driver);
+		wait.until(ExpectedConditions.elementToBeClickable(hp.getMaintenanceLinkText()));	
 		hp.ClickOnMaintenanceLinkText();
 		Maintenance pm = new Maintenance(driver);
 		pm.ClickOn_PM_Template_Tab();
 		pm.ClickOn_ActionButton();
 		pm.ClickOn_Editbutton_OnAction();
-
-		pm.selectTodayDate_OnStartDateOnEditPMTemplate(driver);
+		Thread.sleep(1000);
+		pm.selectTodayStartDate_OnEditPMTemplate(driver);
+		Thread.sleep(2000);
 		 wb.EscapeMethod(driver);
 		pm.End_Date(driver);
-
+		Thread.sleep(2000);
+		 wb.EscapeMethod(driver);
+wait.until(ExpectedConditions.elementToBeClickable(pm.getSubmitButton_OnEditPmTemplate()));
 		pm.CLickOn_SubmitButton_OnEditPmTemplate();
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	
 		By buttonLocator = By.xpath("(//button[@type='button'][normalize-space()='Ok'])[1]");
 		WebElement button1 = wait.until(ExpectedConditions.elementToBeClickable(buttonLocator));
+		Thread.sleep(2000);
 		pm.clickOn_OkButton_OnMaintenanceChecklistUpdated_SuccessfullyPage();
 
 		String PMName = driver.findElement(By.xpath("(//span[@class='emailEllapsis'])[11]")).getText();
@@ -278,7 +299,8 @@ public class CreateMaintenanceTest extends BaseClass{
 		WebElement startDateElement = driver.findElement(By.xpath("(//span[@class='emailEllapsis'])[16]"));
 		String displayedStartDate = startDateElement.getText();
 		LocalDate today = LocalDate.now();
-		String expectedStartDate = today.format(DateTimeFormatter.ofPattern("d MMM, yyyy"));
+		LocalDate tomorrow = today.plusDays(1); // Calculate tomorrow's date
+		String expectedStartDate = tomorrow.format(DateTimeFormatter.ofPattern("d MMM, yyyy"));
 		Assert.assertEquals(displayedStartDate, expectedStartDate, "The selected start date is incorrect.");
 
 		Thread.sleep(3000);
@@ -286,7 +308,7 @@ public class CreateMaintenanceTest extends BaseClass{
 		String displayedEndDate = endDateElement.getText();
 
 		// Calculate the expected end date
-		LocalDate endDate = today.plusDays(9);
+		LocalDate endDate = today.plusDays(8);
 
 		// Format the expected end date
 		DateTimeFormatter formatter = new DateTimeFormatterBuilder()
@@ -376,7 +398,7 @@ public class CreateMaintenanceTest extends BaseClass{
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMaintenanceLinkText();
 		Maintenance pm = new Maintenance(driver);
-		driver.findElement(By.xpath("(//span[contains(@title, 'Bowling Maintenance')])[1]")).click();
+		driver.findElement(By.xpath("(//span[contains(@title, 'Super MVP3 Maintenance')])[1]")).click();
 //		driver.findElement(By.xpath("(//span[@class='blue'][normalize-space()='Raise Ticket'])[1]")).click();
 		pm.CLickon_RaiseTicketIcon_OnFirstQuestion();
 		Tickets ticket = new Tickets(driver);

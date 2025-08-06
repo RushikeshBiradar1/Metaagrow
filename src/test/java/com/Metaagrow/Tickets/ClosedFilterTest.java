@@ -93,10 +93,10 @@ public class ClosedFilterTest extends BaseClass{
 		driver.findElement(By.xpath("(//li[@id='custom']//a[.='"+AssignedTo+"'])[2]")).click();
 		tkt.ClickOn_Filter_Apply_Button();
 
-		WebElement AssignedToNameName = driver.findElement(By.xpath("(//ul[@class='tr'])[2]//li[.='Siraj']"));
+		WebElement AssignedToNameName = driver.findElement(By.xpath("//span[@title='Siraj']"));
 
 		// Assert that the element is displayed
-		Assert.assertTrue(AssignedToNameName.isDisplayed(),"High Priority is not displayed on the listing page.");
+		Assert.assertTrue(AssignedToNameName.isDisplayed(),"Assigned To Siraj is not displayed on the listing page.");
 
 	}
 	@Test()
@@ -148,7 +148,7 @@ public class ClosedFilterTest extends BaseClass{
 		Tickets tkt = new Tickets(driver);
 		tkt.ClickOn_Closed_Button();
 		tkt.CLockOn_Filter_Icon();
-		tkt.ClickON_Filter_By_Title_TextField("Lane 2 TV No4 not working");
+		tkt.ClickOn_ClosedFilterByTitle("Lane 2 TV No4 not working");
 		tkt.ClickOn_Filter_Apply_Button();
 	}
 	

@@ -21,7 +21,7 @@ import com.MetaaGrow.ObjectRepository.Tickets;
 
 public class RaiseNewTicketTest extends BaseClass{
 
-	@Test()
+	@Test(priority = 1)
 	public void GeneralTicketTest_TC_TKT1() throws Throwable 
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -52,7 +52,7 @@ public class RaiseNewTicketTest extends BaseClass{
 		
 		tkt.ClickOn_Ok_Button_On_Confirmation_Page();
 	}
-	@Test()
+	@Test(priority = 2)
 	public void BreakdownTicketAndCloseSameTicketTest_TC_TKT2() throws Throwable 
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -155,7 +155,7 @@ public class RaiseNewTicketTest extends BaseClass{
 		    
 	}
 	
-	@Test()
+	@Test(priority = 3)
 	public void GeneralTicketwithAssetTest_TC_TKT3() throws Throwable 
 	{
 		LoginPage lp = new LoginPage(driver);

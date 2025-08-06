@@ -222,8 +222,52 @@ public class Assets {
 	@FindBy(xpath = "(//input[@placeholder='Remark'])[1]")private WebElement RemarkTextFieldOnAssetStatus;
 	@FindBy(xpath = "(//button[@type='button'][normalize-space()='Save'])[1]")private WebElement SaveButtonOnRemark;
 	@FindBy(xpath = "//div[@id='successPopUp']//button[@type='button'][normalize-space()='Ok']")private WebElement OkButton_LostSuccess;
+	@FindBy(xpath = "//select[@id='raiseNewTicketTicketType']")private WebElement TicketType;
+	@FindBy(xpath = "//button[@id='custom']//span[.='Select parts']")private WebElement  PartsDropdownOn_AttachPartsPage;
+	@FindBy(xpath = "//button[@class='button btn-primary']//span[.='Save']")private WebElement SaveButton_OnAttachPartsPage;
+	@FindBy(xpath = "//button[@id='backClicked']")private WebElement OkButton_OnAsset_part_associated_successfully;
+	@FindBy(xpath = "//span[.='Create Schedule']")private WebElement CReateScheduleBUtton_OnPAT;
+	@FindBy(xpath = "//select[@formcontrolname='property']")private WebElement PropertyDropwnOn_ScheduleYourPAT_TestingPage;
+	@FindBy(xpath = "//span[.='Select Asset']")private WebElement SelectAssetbuttonOn_ScheduleYourPAT_TestingPage;
+	@FindBy(xpath = "//span[.='Select User']")private WebElement SelectUserButton_On_ScheduleYourPAT_TestingPage;
+	@FindBy(xpath = "//select[@formcontrolname='frequency']")private WebElement FrequencyDropdown_On_ScheduleYourPAT_TestingPage;
+	@FindBy(xpath = "//span[.='Create Schedule']")private WebElement CreateScheduleButton_On_ScheduleYourPAT_TestingPage;;
+	@FindBy(xpath = "//button[@id='backClicked']")private WebElement NoButton_OnPATSCheduledSuccess;
 	
 	
+	public WebElement getCReateScheduleBUtton_OnPAT() {
+		return CReateScheduleBUtton_OnPAT;
+	}
+	public WebElement getPropertyDropwnOn_ScheduleYourPAT_TestingPage() {
+		return PropertyDropwnOn_ScheduleYourPAT_TestingPage;
+	}
+	public WebElement getSelectAssetbuttonOn_ScheduleYourPAT_TestingPage() {
+		return SelectAssetbuttonOn_ScheduleYourPAT_TestingPage;
+	}
+	public WebElement getSelectUserButton_On_ScheduleYourPAT_TestingPage() {
+		return SelectUserButton_On_ScheduleYourPAT_TestingPage;
+	}
+	public WebElement getFrequencyDropdown_On_ScheduleYourPAT_TestingPage() {
+		return FrequencyDropdown_On_ScheduleYourPAT_TestingPage;
+	}
+	public WebElement getCreateScheduleButton_On_ScheduleYourPAT_TestingPage() {
+		return CreateScheduleButton_On_ScheduleYourPAT_TestingPage;
+	}
+	public WebElement getNoButton_OnPATSCheduledSuccess() {
+		return NoButton_OnPATSCheduledSuccess;
+	}
+	public WebElement getPartsDropdownOn_AttachPartsPage() {
+		return PartsDropdownOn_AttachPartsPage;
+	}
+	public WebElement getSaveButton_OnAttachPartsPage() {
+		return SaveButton_OnAttachPartsPage;
+	}
+	public WebElement getOkButton_OnAsset_part_associated_successfully() {
+		return OkButton_OnAsset_part_associated_successfully;
+	}
+	public WebElement getTicketType() {
+		return TicketType;
+	}
 	public WebElement getSaveButtonOnRemark() {
 		return SaveButtonOnRemark;
 	}
@@ -1756,6 +1800,53 @@ public class Assets {
    {
 	   OkButton_LostSuccess.click();
    }
+   public void SelectTicketType(String Text)
+   {
+	  Select sel=new Select(TicketType);
+	  sel.selectByVisibleText(Text);
+   }
+   public void ClickOn_PartsDropdownOn_AttachPartsPage()
+   {
+	   PartsDropdownOn_AttachPartsPage.click();
+   }
+   public void ClickoN_SaveButton_OnAttachPartsPage()
+   {
+	   SaveButton_OnAttachPartsPage.click();
+   }
+   public void ClickOn_OkButton_OnAsset_part_associated_successfully()
+   {
+	   OkButton_OnAsset_part_associated_successfully.click();
+   }
+   public void clickOn_CReateScheduleBUtton_OnPAT()
+   {
+	   CReateScheduleBUtton_OnPAT.click();
+   }
+   public void Select_PropertyDropwnOn_ScheduleYourPAT_TestingPage(String Enter_PropertyName)
+   {
+	   Select sel=new Select(PropertyDropwnOn_ScheduleYourPAT_TestingPage);
+	   sel.selectByVisibleText(Enter_PropertyName);
+   }
+   public void Click_SelectAssetbuttonOn_ScheduleYourPAT_TestingPage()
+   {
+	   SelectAssetbuttonOn_ScheduleYourPAT_TestingPage.click();
+   }
+   public void ClickOn_SelectUserButton_On_ScheduleYourPAT_TestingPage()
+   {
+	   SelectUserButton_On_ScheduleYourPAT_TestingPage.click();
+   }
+   public void Select_FrequencyDropdown_On_ScheduleYourPAT_TestingPage(String Enter_Frequency)
+   {
+	   Select sel=new Select(FrequencyDropdown_On_ScheduleYourPAT_TestingPage);
+	   sel.selectByVisibleText(Enter_Frequency);
+   }
+   public void ClickOn_CreateScheduleButton_On_ScheduleYourPAT_TestingPage()
+   {
+	   CreateScheduleButton_On_ScheduleYourPAT_TestingPage.click();
+   }
+   public void CLickOn_NoButton_OnPATSCheduledSuccess()
+   {
+	   NoButton_OnPATSCheduledSuccess.click();
+   }
    
    public void SelectTodaysPurchaseDate(WebDriver driver) throws Throwable
    {
@@ -1936,5 +2027,187 @@ public class Assets {
 	    // Select the day
 	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
    }
+   
+   public void DateOfTransfer_OnAssetTransfer(WebDriver driver) throws Throwable
+   {
+	   LocalDate targetDate = LocalDate.now().plusDays(0);
+	    
+	    // Format the target month and day
+	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	    // Click on the Start Date input field to open the date picker
+	    driver.findElement(By.xpath("(//input[@placeholder='DD-MM-YYYY'])[1]")).click();
+	    Thread.sleep(3000);
+
+	    // Loop until the target month is displayed
+	    while (true) {
+	        // Extract the text of the currently displayed month in the date picker
+	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	        // Check if the displayed month matches the target month
+	        if (displayedMonth.equals(targetMonth)) {
+	            break; // Exit the loop if the target month is reached
+	        } else {
+	            // Click on the right arrow to navigate to the next month
+	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	        }
+	    }
+
+	    // Select the day
+	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+   
+   public void ExpectedReturnDate_OnAssetTransfer(WebDriver driver) throws Throwable
+   {
+	   LocalDate targetDate = LocalDate.now().plusDays(0);
+	    
+	    // Format the target month and day
+	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	    // Click on the Start Date input field to open the date picker
+	    driver.findElement(By.xpath("(//input[@placeholder='DD-MM-YYYY'])[2]")).click();
+	    Thread.sleep(3000);
+
+	    // Loop until the target month is displayed
+	    while (true) {
+	        // Extract the text of the currently displayed month in the date picker
+	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	        // Check if the displayed month matches the target month
+	        if (displayedMonth.equals(targetMonth)) {
+	            break; // Exit the loop if the target month is reached
+	        } else {
+	            // Click on the right arrow to navigate to the next month
+	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	        }
+	    }
+
+	    // Select the day
+	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+   
+   public void Tenure_StartDate_OnSchedulePATPage(WebDriver driver) throws Throwable
+   {
+	   LocalDate targetDate = LocalDate.now().plusDays(0);
+	    
+	    // Format the target month and day
+	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	    // Click on the Start Date input field to open the date picker
+	    driver.findElement(By.xpath("//input[@placeholder='Enter Start Date']")).click();
+	    Thread.sleep(3000);
+
+	    // Loop until the target month is displayed
+	    while (true) {
+	        // Extract the text of the currently displayed month in the date picker
+	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	        // Check if the displayed month matches the target month
+	        if (displayedMonth.equals(targetMonth)) {
+	            break; // Exit the loop if the target month is reached
+	        } else {
+	            // Click on the right arrow to navigate to the next month
+	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	        }
+	    }
+
+	    // Select the day
+	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+   
+   public void Tenure_EndDate_OnSchedulePATPage(WebDriver driver) throws Throwable
+   {
+	   LocalDate targetDate = LocalDate.now().plusDays(365);
+	    
+	    // Format the target month and day
+	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	    // Click on the Start Date input field to open the date picker
+	    driver.findElement(By.xpath("//input[@placeholder='Enter End Date']")).click();
+	    Thread.sleep(3000);
+
+	    // Loop until the target month is displayed
+	    while (true) {
+	        // Extract the text of the currently displayed month in the date picker
+	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	        // Check if the displayed month matches the target month
+	        if (displayedMonth.equals(targetMonth)) {
+	            break; // Exit the loop if the target month is reached
+	        } else {
+	            // Click on the right arrow to navigate to the next month
+	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	        }
+	    }
+
+	    // Select the day
+	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+   
+   public void TodaysScheduledDate_OnSchedulePATPage(WebDriver driver) throws Throwable
+   {
+	   LocalDate targetDate = LocalDate.now().plusDays(0);
+	    
+	    // Format the target month and day
+	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	    // Click on the Start Date input field to open the date picker
+	    driver.findElement(By.xpath("//input[@placeholder='Enter Scheduled Date']")).click();
+	    Thread.sleep(3000);
+
+	    // Loop until the target month is displayed
+	    while (true) {
+	        // Extract the text of the currently displayed month in the date picker
+	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	        // Check if the displayed month matches the target month
+	        if (displayedMonth.equals(targetMonth)) {
+	            break; // Exit the loop if the target month is reached
+	        } else {
+	            // Click on the right arrow to navigate to the next month
+	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	        }
+	    }
+
+	    // Select the day
+	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+   
+   public void UpcomingScheduledDate_OnSchedulePATPage(WebDriver driver) throws Throwable
+   {
+	   LocalDate targetDate = LocalDate.now().plusDays(5);
+	    
+	    // Format the target month and day
+	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	    // Click on the Start Date input field to open the date picker
+	    driver.findElement(By.xpath("//input[@placeholder='Enter Scheduled Date']")).click();
+	    Thread.sleep(3000);
+
+	    // Loop until the target month is displayed
+	    while (true) {
+	        // Extract the text of the currently displayed month in the date picker
+	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	        // Check if the displayed month matches the target month
+	        if (displayedMonth.equals(targetMonth)) {
+	            break; // Exit the loop if the target month is reached
+	        } else {
+	            // Click on the right arrow to navigate to the next month
+	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	        }
+	    }
+
+	    // Select the day
+	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+   
+   
    
 }

@@ -9,11 +9,10 @@
           <include name="afterTest"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
-          <include name="EditPMStartDate_EndDateTest_PM31"/>
+          <include name="createPMWithMndatoryField_PM28"/>
           <include name="afterSuite"/>
           <include name="beforeClass"/>
           <include name="beforeTest"/>
-          <include name="RaiseTicketFromTodaysPMQuestions_TCPM44"/>
           <include name="beforeMethod"/>
         </methods>
       </class> <!-- com.Metaagrow.Maintenance.CreateMaintenanceTest -->

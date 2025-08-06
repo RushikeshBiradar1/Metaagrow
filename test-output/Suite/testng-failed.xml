@@ -4,9 +4,23 @@
   <listeners>
     <listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Tickets(failed)">
     <classes>
-      <class name="com.crm.Department.FilterDepartmentTest">
+      <class name="com.Metaagrow.Tickets.NotValidFilterTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="AssignedToTest_TC_TKT34"/>
+          <include name="afterTest"/>
+          <include name="StartDateEndDateTest_TC_TKT38"/>
+          <include name="afterClass"/>
+          <include name="setExtent"/>
+          <include name="afterSuite"/>
+          <include name="beforeClass"/>
+          <include name="beforeTest"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- com.Metaagrow.Tickets.NotValidFilterTest -->
+      <class name="com.Metaagrow.Tickets.ClosedFilterTest">
         <methods>
           <include name="afterMethod"/>
           <include name="afterTest"/>
@@ -15,11 +29,10 @@
           <include name="afterSuite"/>
           <include name="beforeClass"/>
           <include name="beforeTest"/>
-          <include name="InactivePageFilterTest_TC_D3"/>
-          <include name="InactivePageClearFilterTest_TC_D4"/>
           <include name="beforeMethod"/>
+          <include name="StartDateEndDateTest_TC_TKT24"/>
         </methods>
-      </class> <!-- com.crm.Department.FilterDepartmentTest -->
+      </class> <!-- com.Metaagrow.Tickets.ClosedFilterTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Tickets(failed) -->
 </suite> <!-- Failed suite [Suite] -->

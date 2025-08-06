@@ -33,7 +33,6 @@ public class Upcoming_FiltersTest extends BaseClass{
 		Maintenance pm = new Maintenance(driver);
 		pm.ClickOn_Upcoming_Button();
 
-
 	}
 	
 	@Test(priority = 16)
@@ -80,7 +79,7 @@ public class Upcoming_FiltersTest extends BaseClass{
 		pm.ClickOn_Filter_By_PM_Name_TextField("Bowling Maintenance");
 		pm.ClickOn_Apply_Button();
 
-		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Ma...'])[11]")).isDisplayed(), "PM is not showing in List");
+		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Ma...'])[1]")).isDisplayed(), "PM is not showing in List");
 	}
 	@Test(priority = 18)
 	public void Upcoming_FilterByAssignedTo_TC_PM18() throws Throwable
@@ -142,7 +141,7 @@ public class Upcoming_FiltersTest extends BaseClass{
 		Assert.assertTrue(element.isDisplayed(), "PM is not showing in List");
 
 		// verify PM name
-		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Ma...'])[11]")).isDisplayed(), "PM is not showing in List");
+		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Ma...'])[1]")).isDisplayed(), "PM is not showing in List");
 
 		// verify assiged user
 		WebElement element1 = driver.findElement(By.xpath("(//li[@title='Rishikesh,Mikhail,Ghassan Assi,Agney'])[1]"));
@@ -168,15 +167,17 @@ public class Upcoming_FiltersTest extends BaseClass{
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMaintenanceLinkText();
 		Maintenance pm = new Maintenance(driver);
-		pm.ClickOn_Overdue_Button();
+		pm.ClickOn_Upcoming_Button();
 
 		pm.ClickOn_Filter_Tab_Maintenance_HomePage();
 		pm.ClickOn_Filter_By_PM_Name_TextField("Bowling Maintenance");
 		pm.ClickOn_Apply_Button();
+		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Ma...'])[1]")).isDisplayed(), "PM is not showing in List");
 
-		Assert.assertTrue(driver.findElement(By.xpath("//span[contains(@title,'Bowling')]")).isDisplayed(), "PM is not showing in List");
 		pm.ClickOn_Filter_Tab_Maintenance_HomePage();
 		pm.ClickOn_FilterbyClear_Button();
+		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Super MVP3 Maintenance'][normalize-space()='Super MVP3...'])[1]")).isDisplayed(), "PM is not showing in List");
+
 	}
 
 	@Test(priority = 21)

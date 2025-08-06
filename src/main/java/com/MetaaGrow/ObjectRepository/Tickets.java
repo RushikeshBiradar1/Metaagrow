@@ -44,12 +44,18 @@ public class Tickets {
 	@FindBy(xpath = "//a[.='PmChecklist']")private WebElement Filter_By_Select_Origin_PmChecklist;
 	@FindBy(xpath = "//input[@placeholder='Ticket No.']")private WebElement Filter_By_Ticket_No_TextField;
 	@FindBy(id = "addressInput")private WebElement Filter_By_Title_TextField;
+	@FindBy(xpath = "//input[@placeholder='Title']")private WebElement ClosedFilterByTitle;
+	
+	public WebElement getClosedFilterByTitle() {
+		return ClosedFilterByTitle;
+	}
+
 	@FindBy(xpath = "//span[normalize-space()='Apply']")private WebElement Filter_Apply_Button;
 	@FindBy(xpath = "//span[normalize-space()='Clear']")private WebElement Filter_Clear_Button;
 	@FindBy(xpath = "//span[@title='123']")private WebElement Dynamic_Click_On_Ticket_Name;
-	@FindBy(xpath = "(//select[@id='selectUser'])[1]")private WebElement Select_Ticket_Status_Dropdown_On_Ticket_InfoPage;
+	@FindBy(xpath = "(//select[@id='selectUser' and contains(@class, 'ng-valid')])[1]")private WebElement Select_Ticket_Status_Dropdown_On_Ticket_InfoPage;
 	@FindBy(xpath = "(//select[@id='selectUser'])[2]")private WebElement Select_Ticket_Priority_Dropdown_On_Ticket_InfoPage;
-	@FindBy(xpath = "//a[@name='ticketViewUpdate']")private WebElement Update_Button_On_Ticket_InfoPage;
+	@FindBy(xpath = "//a[@class='button btn-primary' and span[text()='Update']]")private WebElement Update_Button_On_Ticket_InfoPage;
 	@FindBy(xpath = "//div[@id='successPopUp']//button[@type='button'][normalize-space()='Ok']")private WebElement Ok_Button_On_Confirmation_Page;
 	@FindBy(xpath = "//span[normalize-space()='Forward Ticket']")private WebElement Forward_Ticket_Button_On_InfoPage;
 	@FindBy(xpath = "//select[@id='site']")private WebElement Department_Dropdown_On_Ticket_Forward_Page;
@@ -105,8 +111,43 @@ public class Tickets {
 	@FindBy(xpath = "//select[@formcontrolname='isBreakdown']")private WebElement TicketTypeDropdown;
 	@FindBy(xpath = "//input[@placeholder='Enter Remark']")private WebElement RemarkTextField;
 	@FindBy(xpath = "//button[@id='submitEmailPopup']")private WebElement SubmitButton_OnRemarkField;
-	@FindBy(xpath = "//button[@id='ticketViewOk']")private WebElement OkButton_onTicket_Status_changed_successfully;
+	@FindBy(xpath = "//div[@id='successPopUp']//button[@type='button'][normalize-space()='Ok']")private WebElement OkButton_onTicket_Status_changed_successfully;
 	@FindBy(xpath = "//textarea[@id='location_reason']")private WebElement DescriptionBoxOnForwardTicketPage;
+	public WebElement getClosedRemarkField() {
+		return ClosedRemarkField;
+	}
+	public WebElement getParkedRemarkField() {
+		return ParkedRemarkField;
+	}
+	public WebElement getNotValidRemarkField() {
+		return NotValidRemarkField;
+	}
+	public WebElement getOpenRemarkField() {
+		return OpenRemarkField;
+	}
+	public WebElement getClosedSubmitButton() {
+		return ClosedSubmitButton;
+	}
+	public WebElement getParkedSubmitButton() {
+		return ParkedSubmitButton;
+	}
+	public WebElement getNotValidSubmitButton() {
+		return NotValidSubmitButton;
+	}
+	public WebElement getOpenSubmitButton() {
+		return OpenSubmitButton;
+	}
+
+	@FindBy(xpath = "//div[@id=\"closedStatusModal\"]//input[@placeholder=\"Enter Remark\"]")private WebElement ClosedRemarkField;
+	@FindBy(xpath = "//div[@id=\"parkedStatusModal\"]//input[@placeholder=\"Enter Remark\"]")private WebElement ParkedRemarkField;
+	@FindBy(xpath = "//div[@id=\"notValidStatusModal\"]//input[@placeholder=\"Enter Remark\"]")private WebElement NotValidRemarkField;
+	@FindBy(xpath = "//div[@id=\"openStatusModal\"]//input[@placeholder=\"Enter Remark\"]")private WebElement OpenRemarkField;
+	@FindBy(xpath = "//div[@id=\"closedStatusModal\"]//button[@type=\"button\"][normalize-space()=\"Submit\"]")private WebElement ClosedSubmitButton;
+	@FindBy(xpath = "//div[@id=\"parkedStatusModal\"]//button[@type=\"button\"][normalize-space()=\"Submit\"]")private WebElement ParkedSubmitButton;
+	@FindBy(xpath = "//div[@id=\"notValidStatusModal\"]//button[@type=\"button\"][normalize-space()=\"Submit\"]")private WebElement NotValidSubmitButton;
+	@FindBy(xpath = "//div[@id=\"openStatusModal\"]//button[@type=\"button\"][normalize-space()=\"Submit\"]")private WebElement OpenSubmitButton;
+	
+	
 	
 	public WebElement getDescriptionBoxOnForwardTicketPage() {
 		return DescriptionBoxOnForwardTicketPage;
@@ -802,6 +843,45 @@ sel.selectByVisibleText(Text);
 	public void ClickOn_DescriptionBoxOnForwardTicketPage(String Enter_Description)
 	{
 		DescriptionBoxOnForwardTicketPage.sendKeys(Enter_Description);
+	}
+	
+	public void ClickOn_ClosedFilterByTitle(String Enter_Title)
+	{
+		ClosedFilterByTitle.sendKeys(Enter_Title);
+	}
+	
+	public void ClickOn_ClosedRemarkField(String Enter_Remark)
+	{
+		ClosedRemarkField.sendKeys(Enter_Remark);
+	}
+	public void ClickOn_ParkedRemarkField(String Enter_Parked_Remark)
+	{
+		ParkedRemarkField.sendKeys(Enter_Parked_Remark);
+	}
+	public void CLickon_NotValidRemarkField(String Enter_NotValid_Remark)
+	{
+		NotValidRemarkField.sendKeys(Enter_NotValid_Remark);
+	}
+	public void ClickOn_OpenRemarkField(String ENter_OpenRemark)
+	{
+		OpenRemarkField.sendKeys(ENter_OpenRemark);
+	}
+	public void ClickOn_ClosedSubmitButton()
+	{
+		ClosedSubmitButton.click();
+	}
+	public void CLickOn_ParkedSubmitButton()
+	{
+		ParkedSubmitButton.click();
+		
+	}
+	public void CLickOn_NotValidSubmitButton()
+	{
+		NotValidSubmitButton.click();
+	}
+	public void ClickOn_OpenSubmitButton()
+	{
+		OpenSubmitButton.click();
 	}
 	
 	public void End_Date(WebDriver driver, String targetMonth, String targetDay) {

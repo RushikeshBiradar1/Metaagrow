@@ -3,19 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Metaagrow.Assets.CreateAssetTest">
+      <class name="com.Metaagrow.Inspetions.FilterTest">
         <methods>
           <include name="afterMethod"/>
           <include name="afterTest"/>
-          <include name="LostToActiveAssetTest"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
           <include name="afterSuite"/>
           <include name="beforeClass"/>
           <include name="beforeTest"/>
+          <include name="ActiveSchedule_FilterByScheduleNameTest_TC_I14"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.Metaagrow.Assets.CreateAssetTest -->
+      </class> <!-- com.Metaagrow.Inspetions.FilterTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

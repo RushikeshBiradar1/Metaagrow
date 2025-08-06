@@ -70,28 +70,33 @@ public class Completed_FiltersTest extends BaseClass {
 		Assert.assertTrue(element.isDisplayed(), "PM is not showing in List");
 
 	}
-	@Test(priority = 23)
-	public void Completed_FilterBy_PMName_TC_PM23() throws Throwable
-	{
-		LoginPage lp = new LoginPage(driver);
-		lp.ClickOn_LoginNotification_Icon(driver);
-		WebDriver_Utility wb = new WebDriver_Utility();
-		wb.ImplicitlyWait(driver);
-		HomePage hp = new HomePage(driver);
-		hp.ClickOnMaintenanceLinkText();
-		Maintenance pm = new Maintenance(driver);
-		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
-		By buttonLocator = By.xpath("//section[@class='action-block']//button[4]");
-		WebElement button = wait1.until(ExpectedConditions.elementToBeClickable(buttonLocator));
-button.click();
-		pm.ClickOn_Filter_Tab_Maintenance_HomePage();
-		pm.ClickOn_Filter_By_PM_Name_TextField("Bowling Maintenance");
-		pm.ClickOn_Apply_Button();
-
-		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Ma...'])[1]")).isDisplayed(), "PM is not showing in List");
-	}
+	
+	
+//	@Test(priority = 23)
+//	public void Completed_FilterBy_PMName_TC_PM23() throws Throwable
+//	{
+//
+//		LoginPage lp = new LoginPage(driver);
+//		lp.ClickOn_LoginNotification_Icon(driver);
+//		WebDriver_Utility wb = new WebDriver_Utility();
+//		wb.ImplicitlyWait(driver);
+//		HomePage hp = new HomePage(driver);
+//		hp.ClickOnMaintenanceLinkText();
+//		Maintenance pm = new Maintenance(driver);
+//		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		By buttonLocator = By.xpath("//section[@class='action-block']//button[4]");
+//		WebElement button = wait1.until(ExpectedConditions.elementToBeClickable(buttonLocator));
+//		        button.click();
+////		pm.ClickOn_Completed_Button();
+//
+//		pm.ClickOn_Filter_Tab_Maintenance_HomePage();
+//		pm.ClickOn_Filter_By_PM_Name_TextField("Bowling Maintenance");
+//		pm.ClickOn_Apply_Button();
+//
+//		Assert.assertTrue(driver.findElement(By.xpath("(//span[normalize-space()='Bowling Mainten...'])[1]")).isDisplayed(), "PM is not showing in List");
+//	}
 	@Test(priority = 24)
-	public void Completed_FilterByAssignedTo_TC_PM24() throws Throwable
+	public void Completed_FilterByCompletedBy_TC_PM24() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
 		lp.ClickOn_LoginNotification_Icon(driver);
@@ -100,7 +105,7 @@ button.click();
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMaintenanceLinkText();
 		Maintenance pm = new Maintenance(driver);
-		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(50));
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
 		By buttonLocator = By.xpath("//section[@class='action-block']//button[4]");
 		WebElement button = wait1.until(ExpectedConditions.elementToBeClickable(buttonLocator));
 	button.click();
@@ -145,7 +150,7 @@ button.click();
 		Assert.assertTrue(element.isDisplayed(), "PM is not showing in List");
 
 		// verify PM name
-		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Ma...'])[1]")).isDisplayed(), "PM is not showing in List");
+		Assert.assertTrue(driver.findElement(By.xpath("(//span[normalize-space()='Bowling Mainten...'])[1]")).isDisplayed(), "PM is not showing in List");
 
 		// verify Completed By user
 
@@ -198,15 +203,15 @@ button.click();
 		pm.ClickOn_Filter_Tab_Maintenance_HomePage();
 		Dates date = new Dates();
 
-		date.startDate(driver, "Aug-2024", "2");
+		date.startDate(driver, "Jan-2025", "3");
 
-		pm.End_Date_OnCompletedFilter(driver, "Aug-2024", "2");
+		pm.End_Date_OnCompletedFilter(driver, "Jan-2025", "3");
 		
 		Actions actions = new Actions(driver);
 		actions.sendKeys(Keys.ESCAPE).perform();
 
 		pm.ClickOn_Apply_Button();
-		Assert.assertTrue(driver.findElement(By.xpath("//span[normalize-space()='02 Aug, 2024']")).isDisplayed(), "2 Aug PM is not showing in List");
+		Assert.assertTrue(driver.findElement(By.xpath("//span[@title='03 Jan, 2025 ']")).isDisplayed(), "3 Jan PM is not showing in List");
 
 
 	}

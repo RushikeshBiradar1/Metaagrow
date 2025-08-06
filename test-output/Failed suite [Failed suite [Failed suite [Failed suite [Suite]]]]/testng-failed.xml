@@ -4,25 +4,23 @@
   <listeners>
     <listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)(failed)(failed)(failed)(failed)">
+  <test thread-count="5" name="Asssets(failed)(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.Metaagrow.Users_And_Teams.Users_And_TeamsTest">
+      <class name="com.Metaagrow.Assets.CreateAssetTest">
         <methods>
           <include name="afterMethod"/>
-          <include name="ActivateSubUserTest_TC_U11"/>
           <include name="afterTest"/>
-          <include name="FilterByUserTest_TC_U17"/>
-          <include name="beforeTest"/>
-          <include name="FilterByPropertyTest_TC_U18"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
           <include name="afterSuite"/>
-          <include name="DeactivateUserTest_TC_U4"/>
           <include name="beforeClass"/>
-          <include name="DeactiavtePageUserNameFilterTest_TC_U23"/>
+          <include name="beforeTest"/>
+          <include name="CreateAssetWithAllField"/>
+          <include name="AssetTranferTest"/>
+          <include name="ReturnTranferAssetTest"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.Metaagrow.Users_And_Teams.Users_And_TeamsTest -->
+      </class> <!-- com.Metaagrow.Assets.CreateAssetTest -->
     </classes>
-  </test> <!-- Test(failed)(failed)(failed)(failed)(failed) -->
+  </test> <!-- Asssets(failed)(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Suite]]]]] -->

@@ -87,7 +87,7 @@ public class Inspections {
 	@FindBy(xpath = "//label[@for='8658check']")private WebElement Dynamic_Radio_Button_On_Manage_Schedule_Page;
 	@FindBy(xpath = "//span[normalize-space()='Print QR Code']")private WebElement Print_QR_Code_Button_On_Manage_Schedule;
 	@FindBy(xpath = "//button[normalize-space()='Ok']")private WebElement Ok_Button_On_Schedule_QR_Not_Mandatory;
-	@FindBy(xpath = "(//span[contains(text(), 'Redemption Compliance Audit')])[1]")private WebElement Dynamic_Schedule_Name_On_Manage_Schedule_Page;
+	@FindBy(xpath = "(//span[contains(text(), 'Redemption Audit')])[1]")private WebElement Dynamic_Schedule_Name_On_Manage_Schedule_Page;
 	@FindBy(xpath = "//span[normalize-space()='Edit Schedule']")private WebElement Edit_Schedule_Button_On_Manage_Schedule_InfoPage;
 	@FindBy(xpath ="//span[normalize-space()='Select Property']")private WebElement Filter_By_Property_On_Manage_Schedule_Page;
 	@FindBy(xpath = "(//input[@id='custom'])[1]")private WebElement Filter_By_Property_SearchBox_On_Manage_Schedule_Page;
@@ -141,7 +141,7 @@ public class Inspections {
 	@FindBy(xpath = "(//input[@class='owl-dt-timer-input'])[2]")private WebElement MinuteInboxField;
 	@FindBy(xpath = "//label[@for='check1111']")private WebElement NotifyIfNotCompletedOnTime_Checkbox;
 	@FindBy(xpath = "//select[@formcontrolname='notifyUser']")private WebElement UsersDropdown_OnNotifyIfNotCompletedOnTime;
-	@FindBy(xpath = "//input[@placeholder='Frequency']")private WebElement FrequencyTextField;
+	@FindBy(xpath = "//input[@placeholder=\"Frequency (Days)\"]")private WebElement FrequencyTextField;
 	@FindBy(xpath = "//select[@formcontrolname='frequencyUnit']")private WebElement SelectMeasurementDropdown;
 	@FindBy(xpath = "//input[@placeholder='Enter Custom Date']")private WebElement EnterCustomDateCalendar;
 	@FindBy(xpath = "//label[@for='check12']")private WebElement MonDayCheckbox;
@@ -1153,35 +1153,40 @@ public class Inspections {
 	
 	public void ClickOn_EnterCustomDateCalendar(WebDriver driver) throws Throwable
 	{
-		LocalDate today = LocalDate.now();
-		String targetMonthYear = today.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Aug-2024"
-		String targetDay = String.valueOf(today.getDayOfMonth()); // e.g., "21"
-		System.out.println(targetDay);
-		System.out.println(targetMonthYear);
-		// Click on the Start Date input field to open the date picker
-		driver.findElement(By.xpath("//input[@formcontrolname='selectCustomDate']")).click();
+		 LocalDate today = LocalDate.now();
+		 LocalDate tomorrow = today.plusDays(1); // Calculate tomorrow's date
+		 String targetMonthYear = tomorrow.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2025"
+		 String targetDay = String.valueOf(tomorrow.getDayOfMonth()); // e.g., "1"
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		 System.out.println(targetDay);
+		 System.out.println(targetMonthYear);
 
-		// Loop until the target month-year is displayed
-		boolean monthYearFound = false;
-		while (!monthYearFound) {
-			// Extract the text of the currently displayed month-year in the date picker
-			WebElement monthYearElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Adjust the XPath as needed
-			String displayedMonthYear = monthYearElement.getText().trim(); // Format should be "Aug-2024"
-			System.out.println(displayedMonthYear);
-			// Check if the displayed month-year matches the target month-year
-			if (displayedMonthYear.equals(targetMonthYear)) {
-				monthYearFound = true; // Exit the loop if the target month-year is reached
-			} else {
-				// Click on the right arrow to navigate to the next month (adjust if using left arrow)
-				WebElement nextMonthButton = driver.findElement(By.xpath("//button[@aria-label='Next month']")); // Adjust the XPath as needed
-				nextMonthButton.click();
-				Thread.sleep(1000); // Wait for the month-year to change
-			}
-		}
-		// Click on the day in the date picker
-		driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+		 // Click on the Start Date input field to open the date picker
+		 driver.findElement(By.xpath("//input[@formcontrolname='selectCustomDate']")).click();
+
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+		 // Loop until the target month-year is displayed
+		 boolean monthYearFound = false;
+		 while (!monthYearFound) {
+		     // Extract the text of the currently displayed month-year in the date picker
+		     WebElement monthYearElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Adjust the XPath as needed
+		     String displayedMonthYear = monthYearElement.getText().trim(); // Format should be "Feb-2025"
+		     System.out.println(displayedMonthYear);
+		     
+		     // Check if the displayed month-year matches the target month-year
+		     if (displayedMonthYear.equals(targetMonthYear)) {
+		         monthYearFound = true; // Exit the loop if the target month-year is reached
+		     } else {
+		         // Click on the right arrow to navigate to the next month (adjust if using left arrow)
+		         WebElement nextMonthButton = driver.findElement(By.xpath("//button[@aria-label='Next month']")); // Adjust the XPath as needed
+		         nextMonthButton.click();
+		         Thread.sleep(1000); // Wait for the month-year to change
+		     }
+		 }
+
+		 // Click on the day in the date picker
+		 driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
 	}
 	public void ClickOn_MonDayCheckbox()
 	{
@@ -1242,5 +1247,43 @@ public class Inspections {
 	public void CLickOn_UpcomingButton()
 	{
 		UpcomingButton.click();
+	}
+	
+	public void SelectTomorrowStartadte(WebDriver driver) throws Throwable
+	{
+		 LocalDate today = LocalDate.now();
+		 LocalDate tomorrow = today.plusDays(1); // Calculate tomorrow's date
+		 String targetMonthYear = tomorrow.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2025"
+		 String targetDay = String.valueOf(tomorrow.getDayOfMonth()); // e.g., "1"
+
+		 System.out.println(targetDay);
+		 System.out.println(targetMonthYear);
+
+		 // Click on the Start Date input field to open the date picker
+		 driver.findElement(By.xpath("//input[@formcontrolname='startDate']")).click();
+
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+		 // Loop until the target month-year is displayed
+		 boolean monthYearFound = false;
+		 while (!monthYearFound) {
+		     // Extract the text of the currently displayed month-year in the date picker
+		     WebElement monthYearElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Adjust the XPath as needed
+		     String displayedMonthYear = monthYearElement.getText().trim(); // Format should be "Feb-2025"
+		     System.out.println(displayedMonthYear);
+		     
+		     // Check if the displayed month-year matches the target month-year
+		     if (displayedMonthYear.equals(targetMonthYear)) {
+		         monthYearFound = true; // Exit the loop if the target month-year is reached
+		     } else {
+		         // Click on the right arrow to navigate to the next month (adjust if using left arrow)
+		         WebElement nextMonthButton = driver.findElement(By.xpath("//button[@aria-label='Next month']")); // Adjust the XPath as needed
+		         nextMonthButton.click();
+		         Thread.sleep(1000); // Wait for the month-year to change
+		     }
+		 }
+
+		 // Click on the day in the date picker
+		 driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
 	}
 }

@@ -62,7 +62,9 @@ public class TicketInfoPageTest extends BaseClass {
 //		driver.findElement(By.xpath("(//span[@class='emailEllapsis'])[1]")).click();
 //		Ticket_Title.click();
 		tkt.ClickOn_Forward_Ticket_Button_On_InfoPage();
+		Thread.sleep(2000);
 		tkt.ClickOn_Select_User_Or_Team_DropdownOn_Ticket_Forward_Page_By_VisibleText();
+		
 		wb.SelectMultiUserCheckBox(driver, "Rishikesh");
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
 		tkt.ClickOn_Select_User_Or_Team_DropdownOn_Ticket_Forward_Page_By_VisibleText();
@@ -71,10 +73,10 @@ public class TicketInfoPageTest extends BaseClass {
 		tkt.ClickOn_Forward_Button();
 		
 		
-		 WebElement OkButton = driver.findElement(By.xpath("//button[@id='ticketViewOk']"));
+		 WebElement OkButton = driver.findElement(By.xpath("//div[@id=\"successPopUp\"]//button[@type=\"button\"][normalize-space()=\"Ok\"]"));
 		 // Optionally, check if the page has loaded correctly
 		    try {
-		        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@id='ticketViewOk']"))); // Replace with an element that indicates successful loading
+		        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id=\"successPopUp\"]//button[@type=\"button\"][normalize-space()=\"Ok\"]"))); // Replace with an element that indicates successful loading
 		    } catch (TimeoutException e) {
 		        Assert.fail("The expected element did not become visible after clicking OK.");
 		    }
@@ -148,12 +150,13 @@ public class TicketInfoPageTest extends BaseClass {
 
 //		e.click();
 		driver.findElement(By.xpath("(//span[@class='emailEllapsis'])[1]")).click();
+		  wait.until(ExpectedConditions.elementToBeClickable(tkt.getSelect_Ticket_Status_Dropdown_On_Ticket_InfoPage()));
 		 tkt.ClickOn_Select_Ticket_Status_Dropdown_On_Ticket_InfoPage_By_VisibleText("Closed");
 		 Thread.sleep(2000);
-		    tkt.ClickOn_RemarkTextField("Ticket status changed to Closed ");
-		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getSubmitButton_OnRemarkField()));
+		    tkt.ClickOn_ClosedRemarkField("Ticket status changed to Closed ");
+		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getClosedSubmitButton()));
 
-		    tkt.ClickOn_SubmitButton_OnRemarkField();
+		    tkt.ClickOn_ClosedSubmitButton();
 
 		    System.out.println("Checking if Ok button is clickable...");
 		    WebElement okButton = tkt.getOkButton_onTicket_Status_changed_successfully();
@@ -193,10 +196,10 @@ public class TicketInfoPageTest extends BaseClass {
 		driver.findElement(By.xpath("(//span[@class='emailEllapsis'])[1]")).click();
 		 tkt.ClickOn_Select_Ticket_Status_Dropdown_On_Ticket_InfoPage_By_VisibleText("Parked");
 		 Thread.sleep(2000);
-		    tkt.ClickOn_RemarkTextField("Ticket status changed to Parked ");
-		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getSubmitButton_OnRemarkField()));
+		    tkt.ClickOn_ParkedRemarkField("Ticket status changed to Parked ");
+		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getParkedSubmitButton()));
 
-		    tkt.ClickOn_SubmitButton_OnRemarkField();
+		    tkt.CLickOn_ParkedSubmitButton();
 //		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getOkButton_onTicket_Status_changed_successfully()));
 		    System.out.println("Checking if Ok button is clickable...");
 		    WebElement okButton = tkt.getOkButton_onTicket_Status_changed_successfully();
@@ -247,10 +250,10 @@ public class TicketInfoPageTest extends BaseClass {
 		 tkt.ClickOn_Select_Ticket_Status_Dropdown_On_Ticket_InfoPage_By_VisibleText("Not Valid");
 		 Thread.sleep(2000);
 		 
-		    tkt.ClickOn_RemarkTextField("Ticket status changed to Not Valid ");
-		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getSubmitButton_OnRemarkField()));
+		    tkt.CLickon_NotValidRemarkField("Ticket status changed to Not Valid ");
+		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getNotValidSubmitButton()));
 
-		    tkt.ClickOn_SubmitButton_OnRemarkField();
+		    tkt.CLickOn_NotValidSubmitButton();
 //		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getOkButton_onTicket_Status_changed_successfully()));
 		    System.out.println("Checking if Ok button is clickable...");
 		    WebElement okButton = tkt.getOkButton_onTicket_Status_changed_successfully();
@@ -259,7 +262,7 @@ public class TicketInfoPageTest extends BaseClass {
 		    wait.until(ExpectedConditions.elementToBeClickable(okButton));
 		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getOkButton_onTicket_Status_changed_successfully())).click();
 
-		    tkt.ClickOn_OkButton_onTicket_Status_changed_successfully();
+//		    tkt.ClickOn_OkButton_onTicket_Status_changed_successfully();
 		   driver.navigate().refresh();
 //		   String selectedStatus = tkt.getSelectedTicketStatus(); // Get the selected Status
 //		    Assert.assertEquals(selectedStatus, "Not Valid", "Status is not Chnaged to Not Valid.");
@@ -330,7 +333,7 @@ driver.findElement(By.xpath("(//span[@class='emailEllapsis'])[1]")).click();
 		    tkt.ClickOn_Update_Button_On_Ticket_InfoPage();
 		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getOkButton_onTicket_Status_changed_successfully())).click();
 
-		    tkt.ClickOn_OkButton_onTicket_Status_changed_successfully();
+		  //  tkt.ClickOn_OkButton_onTicket_Status_changed_successfully();
 		   
 
 	}

@@ -64,7 +64,7 @@ public class NotValidFilterTest extends BaseClass {
 		driver.findElement(By.xpath("(//li[@id='custom']//a[.='"+RaisedBy+"'])[1]")).click();
 		tkt.ClickOn_Filter_Apply_Button();
 
-		WebElement RaisedByName = driver.findElement(By.xpath("(//span[contains(text(),'Rishikesh')])[61]"));
+		WebElement RaisedByName = driver.findElement(By.xpath("//body[1]/app-root[1]/main[1]/div[1]/div[1]/div[2]/app-ticket-list[1]/section[3]/div[1]/ul[1]/li[12]/ul[1]/li[8]/span[1]"));
 
 
 		// Assert that the element is displayed
@@ -87,13 +87,13 @@ public class NotValidFilterTest extends BaseClass {
 		tkt.ClickOn_Not_Valid_Button();
 		tkt.CLockOn_Filter_Icon();
 		tkt.ClickoN_Filter_By_AssignedTo();
-		String AssignedTo ="Siraj";
+		String AssignedTo ="Ghassan Assi";
 		tkt.ClickoN_Filter_By_AssignedTo_SearchBox(AssignedTo);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//li[@id='custom']//a[.='"+AssignedTo+"'])[2]")));
 		driver.findElement(By.xpath("(//li[@id='custom']//a[.='"+AssignedTo+"'])[2]")).click();
 		tkt.ClickOn_Filter_Apply_Button();
 
-		WebElement AssignedToNameName = driver.findElement(By.xpath("(//ul[@class='tr'])[2]//li[.='Siraj']"));
+		WebElement AssignedToNameName = driver.findElement(By.xpath("(//span[@title='Ghassan Assi'])[1]"));
 
 		// Assert that the element is displayed
 		Assert.assertTrue(AssignedToNameName.isDisplayed(),"Only Assigned To Siraj is not displayed on the listing page.");
@@ -118,7 +118,7 @@ public class NotValidFilterTest extends BaseClass {
 		tkt.ClickOn_Filter_Apply_Button();
 		
 		
-				WebElement Adhoc_IssueName = driver.findElement(By.xpath("(//ul[contains(@class,'tr')])[32]//span[contains(text(),'Ad-Hoc Issue')]"));
+				WebElement Adhoc_IssueName = driver.findElement(By.xpath("//body[1]/app-root[1]/main[1]/div[1]/div[1]/div[2]/app-ticket-list[1]/section[3]/div[1]/ul[1]/li[12]/ul[1]/li[7]/span[1]"));
 
 				// Assert that the element is displayed
 				Assert.assertTrue(Adhoc_IssueName.isDisplayed(),"Ad-hoc Issue is not displayed on the listing page.");
@@ -141,7 +141,7 @@ public class NotValidFilterTest extends BaseClass {
 		tkt.CLockOn_Filter_Icon();
 		tkt.CLickOn_Filter_By_Ticket_No_TextField("0081");
 		tkt.ClickOn_Filter_Apply_Button();
-		WebElement TicketNo = driver.findElement(By.xpath("(//ul[contains(@class,'tr')])[2]//li[.='0081']"));
+		WebElement TicketNo = driver.findElement(By.xpath("//span[normalize-space()='0081']"));
 
 		// Assert that the element is displayed
 		Assert.assertTrue(TicketNo.isDisplayed(),"Ticket No 0081 is not displayed on the listing page.");
@@ -163,10 +163,11 @@ public class NotValidFilterTest extends BaseClass {
 		tkt.ClickOn_Not_Valid_Button();
 	
 		tkt.CLockOn_Filter_Icon();
-		tkt.ClickON_Filter_By_Title_TextField("Sound issue of soft play");
+		tkt.ClickOn_ClosedFilterByTitle("Sound issue of soft play");
 		Thread.sleep(2000);
 		tkt.ClickOn_Filter_Apply_Button();
-		WebElement Ticket_title = driver.findElement(By.xpath("(//ul[contains(@class,'tr')])[2]//li[.='Sound issue of soft play']"));
+		WebElement Ticket_title = driver.findElement(By.xpath("//span[@title=\"Sound issue of soft play\"]"));
+		wait.until(ExpectedConditions.visibilityOf(Ticket_title));
 		Assert.assertTrue(Ticket_title.isDisplayed(),"Ticket Title 'Sound issue of soft play' is not displayed on the listing page.");
 //		driver.navigate().refresh();
 		

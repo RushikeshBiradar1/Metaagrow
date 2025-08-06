@@ -163,21 +163,26 @@ public class PM_TemplatesFilters extends BaseClass {
 		Assert.assertTrue(driver.findElement(By.xpath("(//span[normalize-space()='Zombie Outbreak 1P'])[2]")).isDisplayed(), "PM is not showing for Zombie Outbreak 1P Asset in List");
 	}
 	@Test(priority = 34)
-	public void PMTemplateInactivePage_FilterByTemplateName_TC_PM40()
+	public void PMTemplateInactivePage_FilterByTemplateName_TC_PM40() throws InterruptedException
 	{
 		LoginPage lp = new LoginPage(driver);
 		lp.ClickOn_LoginNotification_Icon(driver);
 		WebDriver_Utility wb = new WebDriver_Utility();
 		wb.ImplicitlyWait(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		HomePage hp = new HomePage(driver);
+		wait.until(ExpectedConditions.elementToBeClickable(hp.getMaintenanceLinkText()));
 		hp.ClickOnMaintenanceLinkText();
 		Maintenance pm = new Maintenance(driver);
 		pm.ClickOn_PM_Template_Tab();
 		pm.ClikOn_Inactive_Button();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(pm.getFilter_Tab_Maintenance_HomePage()));
 		pm.ClickOn_Filter_Tab_Maintenance_HomePage();
 		pm.ClickOn_FilterByTemplateName_OnPMTemplate("General Maintenance");
 		pm.ClickOn_Apply_Button();
-		Assert.assertTrue(driver.findElement(By.xpath("//span[contains(text(),'General Maintenance')]")).isDisplayed(), "PM is not showing in List");
+		Thread.sleep(1000);
+		Assert.assertTrue(driver.findElement(By.xpath("(//span[contains(@title,'General Maintenance')])[1]")).isDisplayed(), "PM is not showing in List");
 		
 	}
 	@Test(priority = 35)

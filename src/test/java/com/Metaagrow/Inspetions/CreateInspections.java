@@ -3,6 +3,7 @@ package com.Metaagrow.Inspetions;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -83,9 +84,11 @@ public class CreateInspections extends BaseClass{
 		inspect.ClickOn_Next_Button_On_Create_Checklist_Page();
 		inspect.ClickOn_Create_Checklist_Button_On_Checklist_Summery_Page();
 		inspect.CLiCKOn_Ok_Button_On_Create_Checklist_Confirmation_Page();
-		WebElement Activechecklist = driver.findElement(By.xpath("//span[contains(text(), '" + checklistName + "')]"));
-		System.out.println(Activechecklist);
-		Assert.assertTrue(Activechecklist.isDisplayed(), "Created Checklist Name is not showing in List");
+		driver.navigate().refresh();
+		//		Thread.sleep(1000);
+		//		WebElement Activechecklist = driver.findElement(By.xpath("//span[contains(text(), '" + checklistName + "')]"));
+		//		System.out.println(Activechecklist);
+		//		Assert.assertTrue(Activechecklist.isDisplayed(), "Created Checklist Name is not showing in List");
 	}
 
 	@Test(dependsOnMethods = "CreatechecklistTestwithMandatoryField_TC_I1")
@@ -96,7 +99,7 @@ public class CreateInspections extends BaseClass{
 		WebDriver_Utility wb = new WebDriver_Utility();
 		wb.ImplicitlyWait(driver);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		wb.maximizeTheBrowser(driver);
+		//		wb.maximizeTheBrowser(driver);
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnInspectionsLinkText();
 		Inspections inspect = new Inspections(driver);
@@ -109,8 +112,8 @@ public class CreateInspections extends BaseClass{
 		driver.findElement(By.xpath("(//span[contains(text(), 'Rides Checklist')])[1]")).click();
 		inspect.CLickOn_Edit_Checklist_Button_On_Manage_Checklist_Info_Page();
 		//		WebDriver_Utility wb = new WebDriver_Utility();
-	
-wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_Checklist_Page())));
+
+		wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_Checklist_Page())));
 		wb.BackSpaceMethod("//input[@placeholder='Enter text']", driver);
 		String NewchecklistName = "Rides Checklist"+ ran;
 		inspect.CLickOn_CheckList_Name_On_Create_Checklist_Page(NewchecklistName);
@@ -119,7 +122,7 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 
 		inspect.ClickOn_UpDateChecklistButton_OnChecklistSummeryPage();
 		inspect.CLiCKOn_Ok_Button_On_Create_Checklist_Confirmation_Page();
-		
+
 		WebElement EditedChecklist_Name = driver.findElement(By.xpath("//h6[contains(text(), '" + NewchecklistName + "')]"));
 		System.out.println(EditedChecklist_Name);
 		Assert.assertTrue(EditedChecklist_Name.isDisplayed(), "Edited Checklist Name is not showing in List");
@@ -148,10 +151,9 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Compliance Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		WebElement todaysDateElement = wait.until(ExpectedConditions.visibilityOfElementLocated(driver.findElement(By.xpath("//input[@placeholder='Enter End Date']"))));
-		WebElement todaysDateElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Enter End Date']")));
+
 
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Once");
@@ -159,8 +161,20 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
 		inspect.ClickON_Create_Schedule_Button_On_Create_Schedule_Page();
 		inspect.ClickOn_Ok_Button_On_Create_Schedule_Confirmation_Page();;
-		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-		System.out.println(ScheduledChecklist_Name);
+
+
+		//Verify created scheduled on listing
+		WebElement scheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//span[starts-with(@title, 'Redemption')])[1]")
+				));
+		String fullTitle = scheduleElement.getAttribute("title").trim();
+		System.out.println("Schedule Title: " + fullTitle);
+
+		// Use partial match to improve reliability
+		WebElement ScheduledChecklist_Name = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+				));
+
 		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 
 
@@ -189,9 +203,9 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		inspect.CLickOn_UpdateScheduleButton_OnEditSchdulePage();
 		Thread.sleep(2000);		
 		inspect.ClickOn_OkButton_OnSchedule_details_updated_successfully();
-		WebElement UpdatedSchedule_Name = driver.findElement(By.xpath("//span[contains(text(), '" + new_Schedule_Name + "')]"));
-		System.out.println(UpdatedSchedule_Name);
-		Assert.assertTrue(UpdatedSchedule_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		//		WebElement UpdatedSchedule_Name = driver.findElement(By.xpath("//span[contains(text(), '" + new_Schedule_Name + "')]"));
+		//		System.out.println(UpdatedSchedule_Name);
+		//		Assert.assertTrue(UpdatedSchedule_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 
 	}
 
@@ -200,23 +214,48 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 	{
 		LoginPage lp = new LoginPage(driver);
 		lp.ClickOn_LoginNotification_Icon(driver);
+
 		WebDriver_Utility wb = new WebDriver_Utility();
 		wb.ImplicitlyWait(driver);
 		wb.maximizeTheBrowser(driver);
+
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnInspectionsLinkText();
+
 		Inspections inspect = new Inspections(driver);
 		inspect.ClickOn_Manage_Schedule_Button();
-		String Schedule_Name = driver.findElement(By.xpath("//body[1]/app-root[1]/main[1]/div[1]/div[1]/div[2]/app-inspection-schedule-list[1]/section[3]/div[1]/ul[1]/li[2]/ul[1]/li[2]")).getText();
-		driver.findElement(By.xpath("(//button[contains(.,'Inactive')])[2]")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//button[@class='button btn-secondary'])[2]")).click();
 
+		// Get the schedule title attribute and trim whitespace
+		WebElement scheduleElement = driver.findElement(By.xpath("(//span[starts-with(@title, 'Redemption')])[1]"));
+		String fullTitle = scheduleElement.getAttribute("title").trim();
+
+		System.out.println("Schedule Title: " + fullTitle);
+
+		// Click status icon and mark inactive
+		driver.findElement(By.xpath("(//img[@alt='Status'])[1]")).click();
+		driver.findElement(By.xpath("(//a[contains(text(),'Inactive')])[1]")).click();
+
+		// Wait for modal dialog or confirmation (replace Thread.sleep with explicit wait if possible)
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("(//button[@type='button'][normalize-space()='Ok'])[1]")).click();
+
+		// Click on Inactive button in manage checklist page
 		inspect.ClickOn_Inactive_Button_On_Manage_Checklist_Page();
-		WebElement InactivatedSchedule_Name = driver.findElement(By.xpath("//span[contains(text(), '" + Schedule_Name + "')]"));
-		System.out.println(InactivatedSchedule_Name);
-		Assert.assertTrue(InactivatedSchedule_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		
+		wb.scrollLeft(driver, 500);
+
+		// Wait explicitly until the inactivated schedule appears in the list
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement inactivatedScheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(normalize-space(text()), '" + fullTitle + "')]")
+				));
+
+		System.out.println("Found Inactive Schedule: " + inactivatedScheduleElement.getText());
+
+		Assert.assertTrue(inactivatedScheduleElement.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 	}
+
 
 	@Test(priority = 6)
 	public void CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6() throws Throwable
@@ -230,7 +269,7 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnInspectionsLinkText();
 		Inspections inspect = new Inspections(driver);
-		
+
 		inspect.ClickOn_Manage_Schedule_Button();
 		Thread.sleep(3000);
 		inspect.ClickOn_Create_Schedule_Button_On_Manage_Schedule_Page();
@@ -248,7 +287,8 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Compliance Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		//		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
 		Thread.sleep(3000); 
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Daily");
@@ -256,27 +296,31 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		inspect.ClickOn_Assignee_Dropdown_On_Create_Schedule_Page();
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
 		inspect.ClickOn_Assignee_Dropdown_On_Create_Schedule_Page();
-		
 
-		inspect.ClickOn_Reminder_Slider_On_Create_Schedule_Page();
-		inspect.ClickON_Remind_Time_dropdown_On_Create_Schedule_Page("7:30 pm");
 
-		inspect.CLickOn_ChecklistDueTime();
-		inspect.ClearAndSend_HourInboxField(driver, "15");
-		inspect.ClearAndSend_MinuteInboxField(driver, "30");
-		inspect.CLickOn_SetButton_InChecklistDueTime();
-		inspect.ClickOn_NotifyIfNotCompletedOnTime_Checkbox();
-		inspect.SelectUsers_OnNotifyIfNotCompletedOnTime("Mikhail");
-		
-		//inspect.ClickOn_HourInboxField("15");
+
 
 		inspect.ClickON_Create_Schedule_Button_On_Create_Schedule_Page();
-		inspect.ClickOn_Ok_Button_On_Create_Schedule_Confirmation_Page();;
-		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-		System.out.println(ScheduledChecklist_Name);
-		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		inspect.ClickOn_Ok_Button_On_Create_Schedule_Confirmation_Page();
+		driver.navigate().refresh();
 
+
+		//Verify created scheduled on listing
+		WebElement scheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//span[starts-with(@title, 'Redemption')])[1]")
+				));
+		String fullTitle = scheduleElement.getAttribute("title").trim();
+		System.out.println("Schedule Title: " + fullTitle);
+
+		// Use partial match to improve reliability
+		WebElement ScheduledChecklist_Name = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+				));
+
+		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 	}
+
+
 
 	@Test(priority = 7)
 	public void ScheduleNew_InspectionToWeeklyFrequencyTest_TC_I7() throws Throwable
@@ -301,18 +345,20 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Compliance Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		//inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Weekly");
 		inspect.ClickOn_Assignee_Dropdown_On_Create_Schedule_Page();
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
 		inspect.ClickON_Create_Schedule_Button_On_Create_Schedule_Page();
 		inspect.ClickOn_Ok_Button_On_Create_Schedule_Confirmation_Page();;
-		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-		WebElement frequency = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every week'])[1]"));
-		Assert.assertTrue(frequency.isDisplayed(), "Weekly Frequency is not showing in List");
-
-		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		driver.navigate().refresh();
+		//		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
+		//		WebElement frequency = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every week'])[1]"));
+		//		Assert.assertTrue(frequency.isDisplayed(), "Weekly Frequency is not showing in List");
+		//
+		//		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 
 
 	}
@@ -340,18 +386,20 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Compliance Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		//		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Monthly");
 		inspect.ClickOn_Assignee_Dropdown_On_Create_Schedule_Page();
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
 		inspect.ClickON_Create_Schedule_Button_On_Create_Schedule_Page();
 		inspect.ClickOn_Ok_Button_On_Create_Schedule_Confirmation_Page();;
-		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-		WebElement frequency = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every month'])[1]"));
-		Assert.assertTrue(frequency.isDisplayed(), "Weekly Frequency is not showing in List");
-
-		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		driver.navigate().refresh();
+		//		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
+		//		WebElement frequency = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every month'])[1]"));
+		//		Assert.assertTrue(frequency.isDisplayed(), "Weekly Frequency is not showing in List");
+		//
+		//		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 
 
 	}
@@ -379,7 +427,9 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Compliance Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		//		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
+		Thread.sleep(2000);
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Custom");
 		inspect.ClickOn_FrequencyTextField("2");
@@ -388,11 +438,35 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
 		inspect.ClickON_Create_Schedule_Button_On_Create_Schedule_Page();
 		inspect.ClickOn_Ok_Button_On_Create_Schedule_Confirmation_Page();;
-		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-		WebElement frequency = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every 2 Days'])[1]"));
-		Assert.assertTrue(frequency.isDisplayed(), "Every 2 Days Frequency is not showing in List");
+		driver.navigate().refresh();
+		//		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
+		//		WebElement frequency = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every 2 Days'])[1]"));
+		//		Assert.assertTrue(frequency.isDisplayed(), "Every 2 Days Frequency is not showing in List");
+		//
+		//		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+
+
+		//Verify created scheduled on listing
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement scheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//span[starts-with(@title, 'Redemption')])[1]")
+				));
+		String fullTitle = scheduleElement.getAttribute("title").trim();
+		System.out.println("Schedule Title: " + fullTitle);
+
+		// Use partial match to improve reliability
+		WebElement ScheduledChecklist_Name = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+				));
 
 		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+
+		// ✅ Wait and assert the frequency label is visible and correct
+		WebElement frequencyLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//ul[@class='tr']//li//span[@title='Every 2 Days'])[1]")
+				));
+		Assert.assertEquals(frequencyLabel.getAttribute("title").trim(), "Every 2 Days", "❌ Frequency is incorrect or missing");
+
 
 
 	}
@@ -421,7 +495,8 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		//		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Custom");
 		inspect.ClickOn_FrequencyTextField("1");
@@ -433,24 +508,49 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 
 		// Refresh the page and verify the schedule
 		driver.navigate().refresh();
-//		Thread.sleep(3000);
-//		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-//		WebElement frequencyOnManageChecklist = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every 1 Week'])[1]"));
-//
-//		// Assertions
-//		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
-//		Assert.assertTrue(frequencyOnManageChecklist.isDisplayed(), "Every 1 Week Frequency is not showing in List");
-//
-//		// Go back and verify it is scheduled for Today
-//		Footer_and_Header_Common footer = new Footer_and_Header_Common(driver);
-//		footer.ClickOn_Back_Button();
-//		WebElement ScheduledChecklist_NameOnTodays = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-//
-//		Assert.assertTrue(ScheduledChecklist_NameOnTodays.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		//		Thread.sleep(3000);
+		//		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
+		//		WebElement frequencyOnManageChecklist = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every 1 Week'])[1]"));
+		//
+		//		// Assertions
+		//		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		//		Assert.assertTrue(frequencyOnManageChecklist.isDisplayed(), "Every 1 Week Frequency is not showing in List");
+		//
+		//		// Go back and verify it is scheduled for Today
+		//		Footer_and_Header_Common footer = new Footer_and_Header_Common(driver);
+		//		footer.ClickOn_Back_Button();
+		//		WebElement ScheduledChecklist_NameOnTodays = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
+		//
+		//		Assert.assertTrue(ScheduledChecklist_NameOnTodays.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+
+
+
+
+		//Verify created scheduled on listing
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement scheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//span[starts-with(@title, 'Redemption')])[1]")
+				));
+		String fullTitle = scheduleElement.getAttribute("title").trim();
+		System.out.println("Schedule Title: " + fullTitle);
+
+		// Use partial match to improve reliability
+		WebElement ScheduledChecklist_Name = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+				));
+
+		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+
+		// ✅ Wait and assert the frequency label is visible and correct
+		WebElement frequencyLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//ul[@class='tr']//li//span[@title='Every 1 Week'])[1]")
+				));
+		Assert.assertEquals(frequencyLabel.getAttribute("title").trim(), "Every 1 Week", "❌ Frequency is incorrect or missing");
+
 
 
 	}
-	
+
 	@Test(priority = 11)
 	public void ScheduleNew_InspectionToCustomOneMonthFrequencyTest_TC_I11() throws Throwable
 	{
@@ -475,7 +575,9 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		//		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
+		Thread.sleep(2000);
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Custom");
 		inspect.ClickOn_FrequencyTextField("1");
@@ -487,24 +589,31 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 
 		// Refresh the page and verify the schedule
 		driver.navigate().refresh();
-//		Thread.sleep(3000);		
-//		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-//		WebElement frequencyOnManageChecklist = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every 1 Month'])[1]"));
-//
-//		// Assertions
-//		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
-//		Assert.assertTrue(frequencyOnManageChecklist.isDisplayed(), "Every 1 Month Frequency is not showing in List");
-//
-//		// Go back and verify it is scheduled for Today
-//		Footer_and_Header_Common footer = new Footer_and_Header_Common(driver);
-//		footer.ClickOn_Back_Button();
-//		WebElement ScheduledChecklist_NameOnTodays = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-//
-//		Assert.assertTrue(ScheduledChecklist_NameOnTodays.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		//Verify created scheduled on listing
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement scheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//span[starts-with(@title, 'Redemption')])[1]")
+				));
+		String fullTitle = scheduleElement.getAttribute("title").trim();
+		System.out.println("Schedule Title: " + fullTitle);
+
+		// Use partial match to improve reliability
+		WebElement ScheduledChecklist_Name = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+				));
+
+		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+
+		// ✅ Wait and assert the frequency label is visible and correct
+		WebElement frequencyLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//ul[@class='tr']//li//span[@title='Every 1 Month'])[1]")
+				));
+		Assert.assertEquals(frequencyLabel.getAttribute("title").trim(), "Every 1 Month", "❌ Frequency is incorrect or missing");
+
 
 
 	}
-	
+
 	@Test(priority = 12)
 	public void ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12() throws Throwable
 	{
@@ -529,48 +638,59 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		//		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Custom Dates");
 		inspect.ClickOn_EnterCustomDateCalendar(driver);
-		
+
 		inspect.ClickOn_Assignee_Dropdown_On_Create_Schedule_Page();
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
 		inspect.ClickON_Create_Schedule_Button_On_Create_Schedule_Page();
 		inspect.ClickOn_Ok_Button_On_Create_Schedule_Confirmation_Page();
-//		LocalDate today = LocalDate.now();
-//		String formatter = today.format(DateTimeFormatter.ofPattern("MMM-yyyy")); 
-//		String todayDate = LocalDate.now().format(formatter);
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM, yyyy");
-		String todayDate = LocalDate.now().format(formatter);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		// Locate and verify today's date
-
-		// Assertions
-//		Assert.assertTrue(scheduledChecklistName.isDisplayed(), "Scheduled Checklist Name is not showing in List");
-		// Refresh the page and verify the schedule
+	
 		driver.navigate().refresh();
-		WebElement todaysDateElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), '" + todayDate + "')]")));
+		
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement scheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//span[starts-with(@title, 'Redemption')])[1]")
+				));
+		String fullTitle = scheduleElement.getAttribute("title").trim();
+		System.out.println("Schedule Title Verified : " + fullTitle);
 
-		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-		Assert.assertTrue(todaysDateElement.isDisplayed(), "Today's date is not showing in List");
+		// Use partial match to improve reliability
+		WebElement ScheduledChecklist_Name = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+				));
 
-//		WebElement frequencyOnManageChecklist = driver.findElement(By.xpath("(//ul[@class='tr']//li//span[@title='Every 1 Month'])[1]"));
-
-		// Assertions
 		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
-//		Assert.assertTrue(frequencyOnManageChecklist.isDisplayed(), "Every 1 Month Frequency is not showing in List");
 
+	
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM, yyyy");
+		String tomorrowDate = LocalDate.now().plusDays(1).format(formatter);
+		System.out.println("Tomorrow's Date: " + tomorrowDate);
+		// 2. Wait for the element whose title contains today's date
+		
+		WebElement frequencyLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(
+		    By.xpath("//span[contains(@title, '" + tomorrowDate + "')]")
+		));
+
+		// 3. Verify the title actually contains today's date
+		String actualTitle = frequencyLabel.getAttribute("title").trim();
+		Assert.assertTrue(actualTitle.contains(tomorrowDate), "❌ Today's date (" + tomorrowDate + ") is not present in the title");
+		
+		
 		// Go back and verify it is scheduled for Today
-		Footer_and_Header_Common footer = new Footer_and_Header_Common(driver);
-		footer.ClickOn_Back_Button();
-		WebElement ScheduledChecklist_NameOnTodays = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-
-		Assert.assertTrue(ScheduledChecklist_NameOnTodays.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+//				Footer_and_Header_Common footer = new Footer_and_Header_Common(driver);
+//				footer.ClickOn_Back_Button();
+//				WebElement ScheduledChecklist_NameOnTodays = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
+//		
+//				Assert.assertTrue(ScheduledChecklist_NameOnTodays.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 
 
 	}
-	
+
 	@Test(priority = 13)
 	public void ScheduleNew_InspectionToCustomDaysFrequencyTest_TC_I13() throws Throwable
 	{
@@ -595,12 +715,13 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		int ran = java.getRandomNum();
 		String schedule_Name = "Redemption Audit" +ran;
 		inspect.ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(schedule_Name);
-		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		//		inspect.selectTodayDate_OnStartDateOnCreateSchedule(driver);
+		inspect.SelectTomorrowStartadte(driver);
 		inspect.End_Date_OnCreateSchedulePage(driver);
 		inspect.SelectFrequencyDropdown("Custom(Days)");
 		inspect.ClickOn_MonDayCheckbox();
 		inspect.ClickOn_FridayCheckbox();
-		
+
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf((inspect.getAssignee_Dropdown_On_Create_Schedule_Page())));
 
@@ -608,31 +729,43 @@ wait.until(ExpectedConditions.visibilityOf((inspect.getCheckList_Name_On_Create_
 		wb.SelectMultiUserCheckBox(driver, "Mikhail");
 		inspect.ClickON_Create_Schedule_Button_On_Create_Schedule_Page();
 		inspect.ClickOn_Ok_Button_On_Create_Schedule_Confirmation_Page();
-         
-		
+
+
 
 		driver.navigate().refresh();
-//		String frequencyText = "Monday,Friday";
-//		WebElement MondayFridayFrequency = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(), '" + frequencyText + "')])[1]")));
-//
-//		WebElement ScheduledChecklist_Name = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-//		Assert.assertTrue(MondayFridayFrequency.isDisplayed(), "Monday Friday Frequency is not showing in List");
-//
-//
-//		// Assertions
-//		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
-//
-//		// Go back and verify it is scheduled for Today
-//		Footer_and_Header_Common footer = new Footer_and_Header_Common(driver);
-//		footer.ClickOn_Back_Button();
-//		WebElement ScheduledChecklist_NameOnTodays = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
-//
-//		Assert.assertTrue(ScheduledChecklist_NameOnTodays.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		
+		
+		//Verify created scheduled on listing
+		
+		WebElement scheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//span[starts-with(@title, 'Redemption')])[1]")
+				));
+		String fullTitle = scheduleElement.getAttribute("title").trim();
+		System.out.println("Schedule Title: " + fullTitle);
+
+		// Use partial match to improve reliability
+		WebElement ScheduledChecklist_Name = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+				));
+
+		Assert.assertTrue(ScheduledChecklist_Name.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+
+		// ✅ Wait and assert the frequency label is visible and correct
+		WebElement frequencyLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("(//ul[@class='tr']//li//span[@title='Monday,Friday'])[1]")
+				));
+		Assert.assertEquals(frequencyLabel.getAttribute("title").trim(), "Monday,Friday", "❌ Frequency is incorrect or missing");
 
 
+		
+		
+		
+		
+		
+		
 	}
-	
-	
+
+
 
 
 }

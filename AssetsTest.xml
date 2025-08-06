@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	  <listeners>
+    <listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"/>
+  </listeners>
+  <test thread-count="5" name="Asssets">
+    <classes>
+      <class name="com.Metaagrow.Assets.CreateAssetTest"/>
+      <class name="com.Metaagrow.Assets.PAT_Test"/>
+    </classes>
+  </test> <!-- Asssets -->
+</suite> <!-- Suite -->

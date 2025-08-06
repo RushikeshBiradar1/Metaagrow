@@ -129,7 +129,7 @@ public class TodaysFilterTest extends BaseClass {
 		hp.ClickOnTicketsLinkText();
 		Tickets tkt = new Tickets(driver);
 		tkt.CLockOn_Filter_Icon();
-	tkt.ClickON_Filter_By_Title_TextField("Security cameras of Lane 3 not working");
+	tkt.ClickOn_ClosedFilterByTitle("Security cameras of Lane 3 not working");
 		tkt.ClickOn_Filter_Apply_Button();
 	}
 	

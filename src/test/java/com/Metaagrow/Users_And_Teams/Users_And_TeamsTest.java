@@ -1,12 +1,16 @@
 package com.Metaagrow.Users_And_Teams;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -662,8 +666,46 @@ public class Users_And_TeamsTest extends BaseClass{
 			String selectedText = selectedOption.getText();
 		Thread.sleep(1000);
 		Assert.assertEquals( "2",selectedText,  "Expected Option is Not selected from the Show Rows dropdown");
-	
-
-		
 		}
-	}
+		
+		@Test
+		public void CeateSingleUserTest() throws Throwable
+		{
+			LoginPage lp = new LoginPage(driver);
+			lp.ClickOn_LoginNotification_Icon(driver);
+					    
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+			HomePage hp = new HomePage(driver);
+			hp.ClickOnSetupLinkText(driver);
+					    
+			Setup sp = new Setup(driver);
+			sp.ClickOnUsers_And_TeamsLinkText();
+
+			// Locate and click the "Add User" button
+			By addUserButton = By.xpath("//img[@alt='Reports Add']");
+			WebElement addButton = wait.until(ExpectedConditions.elementToBeClickable(addUserButton));
+			Thread.sleep(3000);
+			addButton.click();
+
+			// Wait for the dropdown to be visible
+			By singleUserOption = By.xpath("//ul[contains(@class, 'status-menu') and contains(@style, 'display: block')]//a[text()='Single']");
+
+			// Retry mechanism for stale element exception
+			int retries = 3;
+			for (int i = 0; i < retries; i++) {
+			    try {
+			        WebElement singleOption = wait.until(
+			            ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(singleUserOption))
+			        );
+			        singleOption.click();
+			        System.out.println("Successfully clicked on 'Single' option.");
+			        break; // Exit loop if click succeeds
+			    } catch (StaleElementReferenceException e) {
+			        System.out.println("Retry " + (i + 1) + ": StaleElementReferenceException occurred. Retrying...");
+			    }}}
+		
+
+}
+		
+	

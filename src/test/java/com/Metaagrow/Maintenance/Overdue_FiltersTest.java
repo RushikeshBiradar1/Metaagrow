@@ -133,7 +133,7 @@ public class Overdue_FiltersTest extends BaseClass {
 		pm.ClickOn_Filter_By_PM_Name_TextField("Bowling Maintenance");
 		pm.ClickOn_Apply_Button();
 
-		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Ma...'])[1]")).isDisplayed(), "PM is not showing in List");
+		Assert.assertTrue(driver.findElement(By.xpath("(//span[@title='Bowling Maintenance'][normalize-space()='Bowling Mainten...'])[1]")).isDisplayed(), "PM is not showing in List");
 		pm.ClickOn_Filter_Tab_Maintenance_HomePage();
 		pm.ClickOn_FilterbyClear_Button();
 	}

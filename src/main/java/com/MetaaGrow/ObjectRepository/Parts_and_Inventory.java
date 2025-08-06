@@ -1,15 +1,23 @@
 package com.MetaaGrow.ObjectRepository;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.MetaaGrow.Generic_Utility.BaseClass;
 
 public class Parts_and_Inventory extends BaseClass{
 	//Initiazation
-	public Parts_and_Inventory()
+	public Parts_and_Inventory(WebDriver driver)
 	{
 		PageFactory.initElements(driver, this);
 	}
@@ -39,7 +47,7 @@ public class Parts_and_Inventory extends BaseClass{
 	@FindBy(xpath = "//input[@placeholder='Price']")private WebElement Price_TextField_On_Update_quantity_Page;
 	@FindBy(xpath = "//select[@formcontrolname='partialId']")private WebElement Select_Status_Dropdown_On_Update_quantity_Page;
 	@FindBy(xpath = "//span[normalize-space()='Update']")private WebElement Update_Button_Update_quantity_Page;
-	@FindBy(css  = "div[id='successPopUp'] button[type='button']")private WebElement Ok_Button_parts_Update_Confirmation_Page;
+	@FindBy(css  = "//button[@id='okpopup']")private WebElement Ok_Button_parts_Update_Confirmation_Page;
 	@FindBy(xpath = "//label[@for='updateType']//span[@class='slider']")private WebElement Slider_On_Update_quantity_Page;
 	@FindBy(xpath = "//form[@class='ng-touched ng-invalid ng-dirty']//select[@id='selectUser']")private WebElement Select_Status_Dropdown_On_Decrease_quantity_Page;
 	@FindBy(xpath = "//input[@placeholder='Quantity']")private WebElement Quantity_TextBox_On_Decrease_quantity_Page;
@@ -93,10 +101,98 @@ public class Parts_and_Inventory extends BaseClass{
 	@FindBy(xpath = "//span[normalize-space()='Download Sample Sheet']")private WebElement Download_sample_sheet_Tab_On_Bulk_Upload;
 	@FindBy(xpath = "//input[@class='addFileDragInner']")private WebElement Click_Here_To_upload_File_Path;
 	@FindBy(xpath = "//button[normalize-space()='Upload']")private WebElement Upload_Button_On_Bulk_Upload_Page;
+    @FindBy(xpath = "//input[@formcontrolname='unitOfMeasure']")private WebElement UnitOfMeasure;
+    @FindBy(xpath = "//ul[@class='filter-disable-box action-buttons disabled']//button[@type='button']//span[.='Barcode']")private WebElement BarcodeButton;
+    @FindBy(xpath = "//div[@class='col-4 pr-2']//button[@class='button btn-primary']//span[normalize-space()='Print']")private WebElement PrintButton;
+    public WebElement getPrintButton() {
+		return PrintButton;
+	}
+	public WebElement getEnterQuantityTextField_OnBarcodePrintPage() {
+		return EnterQuantityTextField_OnBarcodePrintPage;
+	}
 
+	@FindBy(xpath = "(//textarea[@id='location_reason'])[1]")private WebElement TransferToTextFieldOn_TransferPartPage;
+    @FindBy(xpath = "(//textarea[@id='location_reason'])[2]")private WebElement ReasonOfTransferTextFieldOn_TransferPartPage;
+    @FindBy(xpath = "(//textarea[@id='location_reason'])[3]")private WebElement RemarkTextFieldOn_TransferPartPage;
+    @FindBy(xpath = "//label[normalize-space()='Notify if not returned in Time']")private WebElement NotifyCheckBoxOn_TransferPartPage;
+    @FindBy(xpath = "//select[@formcontrolname='notifyUsers']")private WebElement NotifyUserDropdownOn_TransferPartPage;
+    @FindBy(xpath = "(//input[@placeholder='Enter Quantity'])[2]")private WebElement EnterQuantityTextBoxOn_TransferPartPage;
+    @FindBy(xpath = "//span[normalize-space()='Next']")private WebElement NextButtonOn_TransferPartPage;
+    public WebElement getOKButton_OnPartsMovedSuccess_And_returnSuccess() {
+		return OKButton_OnPartsMovedSuccess_And_returnSuccess;
+	}
+	public WebElement getReturnFirstPartButton() {
+		return ReturnFirstPartButton;
+	}
+	public WebElement getReturnQuantityTextField_OnReturnPartsPage() {
+		return ReturnQuantityTextField_OnReturnPartsPage;
+	}
+	public WebElement getLostQuantityTextField_OnReturnPartsPage() {
+		return LostQuantityTextField_OnReturnPartsPage;
+	}
+	public WebElement getUpdateButton_OnReturnPartsPage() {
+		return UpdateButton_OnReturnPartsPage;
+	}
+
+	@FindBy(xpath = "//span[normalize-space()='Transfer']")private WebElement TransferButtonOn_ConfirmPage;
+    @FindBy(xpath = "//button[@id='backClicked']")private WebElement OKButton_OnPartsMovedSuccess_And_returnSuccess;
+    @FindBy(xpath = "(//a[contains(text(),'Return')])[1]")private WebElement ReturnFirstPartButton;
+    @FindBy(xpath = "(//input[@type='number'])[2]")private WebElement ReturnQuantityTextField_OnReturnPartsPage;
+    @FindBy(xpath = "(//input[@type='number'])[3]")private WebElement LostQuantityTextField_OnReturnPartsPage;
+    @FindBy(xpath = "//span[normalize-space()='Update']")private WebElement UpdateButton_OnReturnPartsPage;
+    @FindBy(xpath = "//button[normalize-space()='Confirm Changes']")private WebElement ConfirmButton_OnEditPartPage;
+    @FindBy(xpath = "(//button[@type='button'][normalize-space()='Ok'])[2]")private WebElement OkButton_EditConfirmPage;
+    @FindBy(xpath = "(//input[@placeholder='Enter'])[2]")private WebElement EnterQuantityTextField_OnBarcodePrintPage;
+    @FindBy(xpath = "//span[normalize-space()='Print']")private WebElement PrintButton_OnBarcodePrintPage;
+    
 
 	//Getters Method
 
+	public WebElement getConfirmButton_OnEditPartPage() {
+		return ConfirmButton_OnEditPartPage;
+	}
+	public WebElement getOkButton_EditConfirmPage() {
+		return OkButton_EditConfirmPage;
+	}
+	public WebElement getTransferToTextFieldOn_TransferPartPage() {
+		return TransferToTextFieldOn_TransferPartPage;
+	}
+	public WebElement getReasonOfTransferTextFieldOn_TransferPartPage() {
+		return ReasonOfTransferTextFieldOn_TransferPartPage;
+	}
+	public WebElement getRemarkTextFieldOn_TransferPartPage() {
+		return RemarkTextFieldOn_TransferPartPage;
+	}
+	public WebElement getNotifyCheckBoxOn_TransferPartPage() {
+		return NotifyCheckBoxOn_TransferPartPage;
+	}
+	public WebElement getNotifyUserDropdownOn_TransferPartPage() {
+		return NotifyUserDropdownOn_TransferPartPage;
+	}
+	public WebElement getEnterQuantityTextBoxOn_TransferPartPage() {
+		return EnterQuantityTextBoxOn_TransferPartPage;
+	}
+	public WebElement getNextButtonOn_TransferPartPage() {
+		return NextButtonOn_TransferPartPage;
+	}
+	public WebElement getTransferButtonOn_ConfirmPage() {
+		return TransferButtonOn_ConfirmPage;
+	}
+	public WebElement getOKButton_OnPartsMovedSuccess() {
+		return OKButton_OnPartsMovedSuccess_And_returnSuccess;
+	}
+	public WebElement getBarcodeButton() {
+		return BarcodeButton;
+	}
+	public WebElement getPrintButton_OnBarcodePrintPage() {
+		return PrintButton_OnBarcodePrintPage;
+	}
+	public WebElement getActivity_Logs_Tab_OnLogs_Page() {
+		return Activity_Logs_Tab_OnLogs_Page;
+	}
+	public WebElement getUnitOfMeasure() {
+		return UnitOfMeasure;
+	}
 	public WebElement getTransferred_Tab() {
 		return Transferred_Tab;
 	}
@@ -634,6 +730,10 @@ public class Parts_and_Inventory extends BaseClass{
    {
 	   Part_No_TextFiled_On_Add_SinglePart_page.sendKeys(Part_No);
    }
+   public void clearPart_No_TextFiled_On_Add_SinglePart_page()
+   {
+	   Part_No_TextFiled_On_Add_SinglePart_page.clear();
+   }
    public void ClickOn_Serial_No_TextFiled_On_Add_SinglePart_page(String Serial_No)
    {
 	   Serial_No_TextFiled_On_Add_SinglePart_page.sendKeys(Serial_No);
@@ -717,12 +817,257 @@ sel.selectByIndex(Index);
            e.printStackTrace();
        }
    }
+   public void ClickOnUnitOfMeasure(String Enter_UnitOfMeasure)
+   {
+	   UnitOfMeasure.sendKeys(Enter_UnitOfMeasure);
+   }
+   public void ClickOn_BarcodeButton()
+   {
+	   BarcodeButton.click();
+   }
+   public void ClickOn_PrintButton_OnBarcodePrintPage()
+   {
+	   PrintButton_OnBarcodePrintPage.click();
+   }
+   public void ClickOn_TransferToTextFieldOn_TransferPartPage(String ENter_TransferToLocation)
+   {
+	   TransferToTextFieldOn_TransferPartPage.sendKeys(ENter_TransferToLocation);
+   }
+   public void ClickOn_ReasonOfTransferTextFieldOn_TransferPartPage(String Enter_Reason)
+   {
+	   ReasonOfTransferTextFieldOn_TransferPartPage.sendKeys(Enter_Reason);
+   }
+   public void ClickOn_RemarkTextFieldOn_TransferPartPage(String ENter_Remark)
+   {
+	   RemarkTextFieldOn_TransferPartPage.sendKeys(ENter_Remark);
+   }
+   public void ClickOn_NotifyCheckBoxOn_TransferPartPage()
+   {
+	   NotifyCheckBoxOn_TransferPartPage.click();
+   }
+   public void SelectNotifyUserDropdownOn_TransferPartPage(String Text)
+   {
+	   Select sel=new Select(NotifyUserDropdownOn_TransferPartPage);
+	   sel.selectByVisibleText(Text);
+   }
+   public void ClickOn_EnterQuantityTextBoxOn_TransferPartPage(String Enter_Quantity)
+   {
+	   EnterQuantityTextBoxOn_TransferPartPage.sendKeys(Enter_Quantity);
+   }
+   public void ClickOn_NextButtonOn_TransferPartPage()
+   {
+	   NextButtonOn_TransferPartPage.click();
+   }
+   public void ClickOn_TransferButtonOn_ConfirmPage()
+   {
+	   TransferButtonOn_ConfirmPage.click();
+	   
+   }
+   public void Clickon_OKButton_OnPartsMovedSuccess_And_returnSuccess()
+   {
+	   OKButton_OnPartsMovedSuccess_And_returnSuccess.click();
+   }
+   public void ClickOn_ReturnFirstPartButton_OnTransferedPage()
+   {
+	   ReturnFirstPartButton.click();
+   }
+   public void ClickOn_ReturnQuantityTextField_OnReturnPartsPage(String Enter_ReturnQuantity)
+   {
+	   ReturnQuantityTextField_OnReturnPartsPage.sendKeys(Enter_ReturnQuantity);
+   }
+   public void ClickOn_LostQuantityTextField_OnReturnPartsPage(String Enter_LostQuantity)
+   {
+	   LostQuantityTextField_OnReturnPartsPage.sendKeys(Enter_LostQuantity);
+   }
+   public void ClickOn_UpdateButton_OnReturnPartsPage()
+   {
+	   UpdateButton_OnReturnPartsPage.click();
+   }
+   public void ClickOn_ConfirmChangesButton_OnEditPartPage()
+   {
+	   ConfirmButton_OnEditPartPage.click();
+   }
+   public void ClickOn_OkButton_EditConfirmPage()
+   {
+	   OkButton_EditConfirmPage.click();
+   }
    
-   
-   
-   
+   public void ClickOn_PrintButton()
+   {
+	   PrintButton.click();
+   }
+   public void EnterQuantityTextField_OnBarcodePrintPage(String Enter_Quantity)
+   {
+	   EnterQuantityTextField_OnBarcodePrintPage.sendKeys(Enter_Quantity);
+   }
+   public void DateOfTransfer(WebDriver driver) throws Throwable
+   {
+	   LocalDate today = LocalDate.now();
+		String targetMonthYear = today.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Aug-2024"
+		String targetDay = String.valueOf(today.getDayOfMonth()); // e.g., "21"
+		System.out.println(targetDay);
+		System.out.println(targetMonthYear);
+		// Click on the Start Date input field to open the date picker
+		driver.findElement(By.xpath("//input[@id='transferDate']")).click();
 
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
+		// Loop until the target month-year is displayed
+		boolean monthYearFound = false;
+		while (!monthYearFound) {
+			// Extract the text of the currently displayed month-year in the date picker
+			WebElement monthYearElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Adjust the XPath as needed
+			String displayedMonthYear = monthYearElement.getText().trim(); // Format should be "Aug-2024"
+			System.out.println(displayedMonthYear);
+			// Check if the displayed month-year matches the target month-year
+			if (displayedMonthYear.equals(targetMonthYear)) {
+				monthYearFound = true; // Exit the loop if the target month-year is reached
+			} else {
+				// Click on the right arrow to navigate to the next month (adjust if using left arrow)
+				WebElement nextMonthButton = driver.findElement(By.xpath("//button[@aria-label='Next month']")); // Adjust the XPath as needed
+				nextMonthButton.click();
+				Thread.sleep(1000); // Wait for the month-year to change
+			}
+		}
+		// Click on the day in the date picker
+		driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+	    
+   }
+   
+   public void SelectPurchaseDate(WebDriver driver) throws Throwable
+   {
+	   LocalDate today = LocalDate.now();
+		String targetMonthYear = today.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Aug-2024"
+		String targetDay = String.valueOf(today.getDayOfMonth()); // e.g., "21"
+		
+		System.out.println(targetMonthYear);
+		// Click on the Start Date input field to open the date picker
+		driver.findElement(By.xpath("//input[@id='purchaseDate']")).click();
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+		// Loop until the target month-year is displayed
+		boolean monthYearFound = false;
+		while (!monthYearFound) {
+			// Extract the text of the currently displayed month-year in the date picker
+			WebElement monthYearElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Adjust the XPath as needed
+			String displayedMonthYear = monthYearElement.getText().trim(); // Format should be "Aug-2024"
+			System.out.println(displayedMonthYear);
+			// Check if the displayed month-year matches the target month-year
+			if (displayedMonthYear.equals(targetMonthYear)) {
+				monthYearFound = true; // Exit the loop if the target month-year is reached
+			} else {
+				// Click on the right arrow to navigate to the next month (adjust if using left arrow)
+				WebElement nextMonthButton = driver.findElement(By.xpath("//button[@aria-label='Next month']")); // Adjust the XPath as needed
+				nextMonthButton.click();
+				Thread.sleep(1000); // Wait for the month-year to change
+			}
+		}
+		// Click on the day in the date picker
+		driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+   
+   
+ 
+
+   public void SelectUpcomingExpiryDate(WebDriver driver) throws Throwable
+   {
+	   LocalDate targetDate = LocalDate.now().plusDays(180);
+	    
+	    // Format the target month and day
+	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	    // Click on the Start Date input field to open the date picker
+	    driver.findElement(By.xpath("//input[@id='expiry']")).click();
+
+	    // Loop until the target month is displayed
+	    while (true) {
+	        // Extract the text of the currently displayed month in the date picker
+	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	        // Check if the displayed month matches the target month
+	        if (displayedMonth.equals(targetMonth)) {
+	            break; // Exit the loop if the target month is reached
+	        } else {
+	            // Click on the right arrow to navigate to the next month
+	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	        }
+	    }
+
+	    // Select the day
+	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+
+   
+   public void SelectUpcomingWarrantyExpiryDate(WebDriver driver) throws Throwable
+   {
+	   LocalDate targetDate = LocalDate.now().plusDays(180);
+	    
+	    // Format the target month and day
+	    String targetMonth = targetDate.format(DateTimeFormatter.ofPattern("MMM-yyyy")); // e.g., "Feb-2024"
+	    String targetDay = String.valueOf(targetDate.getDayOfMonth()); // Get the day as a string
+
+	    // Click on the Start Date input field to open the date picker
+	    driver.findElement(By.xpath("//input[@id='warrantyExpiry']")).click();
+
+	    // Loop until the target month is displayed
+	    while (true) {
+	        // Extract the text of the currently displayed month in the date picker
+	        String displayedMonth = driver.findElement(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]")).getText();
+
+	        // Check if the displayed month matches the target month
+	        if (displayedMonth.equals(targetMonth)) {
+	            break; // Exit the loop if the target month is reached
+	        } else {
+	            // Click on the right arrow to navigate to the next month
+	            driver.findElement(By.xpath("//button[@aria-label='Next month']//span[@class='owl-dt-control-content owl-dt-control-button-content']//*[name()='svg']")).click();
+	        }
+	    }
+
+	    // Select the day
+	    driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+   }
+   
+   public void ExpectedDateOfReturn(WebDriver driver) throws Throwable
+   {
+	 
+	// Click on the End Date input field to open the date picker
+			LocalDate today = LocalDate.now();
+			LocalDate endDate = today.plusDays(3);
+
+			String targetMonthYear = endDate.format(DateTimeFormatter.ofPattern("MMM-yyyy"));
+			String targetDay = String.valueOf(endDate.getDayOfMonth());
+
+			System.out.println("Target Day: " +targetDay);
+			System.out.println("Target Month-Year: " + targetMonthYear);
+
+			// Click on the End Date input field to open the date picker
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			WebElement endDateInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='returnDate']")));
+			endDateInput.click();
+
+			boolean monthYearFound = false;
+			while (!monthYearFound) {
+				// Extract the text of the currently displayed month-year in the date picker
+				WebElement monthYearElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Adjust the XPath as needed
+				String displayedMonthYear = monthYearElement.getText().trim(); // Format should be "Aug-2024"
+				System.out.println("Displayed Month-Year: " +displayedMonthYear);
+
+				// Check if the displayed month-year matches the target month-year
+				if (displayedMonthYear.equals(targetMonthYear)) {
+					monthYearFound = true; // Exit the loop if the target month-year is reached
+				} else {
+					// Click on the right arrow to navigate to the next month
+					WebElement nextMonthButton = driver.findElement(By.xpath("//button[@aria-label='Next month']")); // Adjust the XPath as needed
+					nextMonthButton.click();
+					Thread.sleep(1000); // Wait for the month-year to change
+				}
+			}
+
+			driver.findElement(By.xpath("//span[normalize-space()='" + targetDay + "']")).click();
+			System.out.println("Day " + targetDay + " selected.");
+   }
 
 
 

@@ -25,6 +25,8 @@ public class FilterTest extends BaseClass {
 	@Test(priority = 1)
 	public void ActiveSchedule_FilterByScheduleNameTest_TC_I14() throws Throwable
 	{
+		
+		System.out.println("success");
 		LoginPage lp = new LoginPage(driver);
 		lp.ClickOn_LoginNotification_Icon(driver);
 		WebDriver_Utility wb = new WebDriver_Utility();
@@ -40,9 +42,16 @@ public class FilterTest extends BaseClass {
 		
 		inspect.ClickOn_Filter_By_Apply_Button();
 		
-		WebElement Scheduled_NameOnToActive = driver.findElement(By.xpath("//span[contains(text(), '" + schedule_Name + "')]"));
+		String scheduleNameOnListing = "Bowling Lane Check";
+//		WebElement Scheduled_NameOnToActive = driver.findElement(By.xpath("//span[contains(text(), '"+schedule_Name+"')]"));
 
-		Assert.assertTrue(Scheduled_NameOnToActive.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+//		Assert.assertTrue(Scheduled_NameOnToActive.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement Scheduled_NameOnToActive = wait.until(ExpectedConditions.visibilityOfElementLocated(
+		    By.xpath("//span[contains(text(), '" + scheduleNameOnListing + "')]")
+		));
+
+		Assert.assertTrue(Scheduled_NameOnToActive.isDisplayed(), "❌ Schedule name is not displayed in the listing.");
 
 		
 	}

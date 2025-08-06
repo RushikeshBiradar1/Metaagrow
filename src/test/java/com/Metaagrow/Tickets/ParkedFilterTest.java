@@ -93,8 +93,10 @@ public class ParkedFilterTest extends BaseClass{
 		driver.findElement(By.xpath("(//li[@id='custom']//a[.='"+AssignedTo+"'])[2]")).click();
 		tkt.ClickOn_Filter_Apply_Button();
 
-		WebElement AssignedToNameName = driver.findElement(By.xpath("(//ul[@class='tr'])[2]//li[.='Siraj']"));
-
+		
+		WebElement AssignedToNameName = driver.findElement(By.xpath("//span[@title=\"Siraj\"]"));
+		wait.until(ExpectedConditions.visibilityOf(AssignedToNameName));
+		
 		// Assert that the element is displayed
 		Assert.assertTrue(AssignedToNameName.isDisplayed(),"High Priority is not displayed on the listing page.");
 
@@ -153,9 +155,12 @@ public class ParkedFilterTest extends BaseClass{
 		tkt.ClickOn_Parked_Button();
 	
 		tkt.CLockOn_Filter_Icon();
-		tkt.ClickON_Filter_By_Title_TextField("Damage Bowling Ball No680");
+		tkt.ClickOn_ClosedFilterByTitle("Damage Bowling Ball No680");
 		Thread.sleep(2000);
 		tkt.ClickOn_Filter_Apply_Button();
+		
+		WebElement tktTitle = driver.findElement(By.xpath("//span[@title=\"Damage Bowling Ball No680\"]"));
+		Assert.assertTrue(tktTitle.isDisplayed(), "Searched Tikit Title is not showing in the list");
 //		driver.navigate().refresh();
 		
 	}
@@ -177,7 +182,7 @@ tkt.ClickOn_Parked_Button();
 	   tkt.End_Date(driver, "Sep-2024", "20");
 	   tkt.ClickOn_Filter_Apply_Button();
 //	    Locate the span element
-	   WebElement Closed_On = driver.findElement(By.xpath("//span[contains(text(), '23 Sep, 2024 10:15 AM')]"));
+	   WebElement Closed_On = driver.findElement(By.xpath("//span[normalize-space()=\"20 Sep, 2024 06:45 PM\"]"));
 
 	   // Assert that the element is displayed
        Assert.assertTrue(Closed_On.isDisplayed(),"The date is not displayed on the listing page.");

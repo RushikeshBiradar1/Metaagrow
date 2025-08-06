@@ -14,6 +14,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.MetaaGrow.Generic_Utility.BaseClass;
+import com.MetaaGrow.Generic_Utility.Excel_Utility;
 import com.MetaaGrow.Generic_Utility.WebDriver_Utility;
 import com.MetaaGrow.ObjectRepository.Dates;
 import com.MetaaGrow.ObjectRepository.Footer_and_Header_Common;
@@ -397,6 +398,55 @@ public class MeterTest extends BaseClass{
 //		assert.assertTrue(By.xpath("//h2[normalize-space()='Triggers']").isDisplayed(),"trigger page is not opened");
 		
 	}
+	
+	
+
+	@Test(priority = 15)
+	public void AddMeter()
+	{
+		LoginPage lp = new LoginPage(driver);
+		lp.ClickOn_LoginNotification_Icon(driver);
+		WebDriver_Utility wb = new WebDriver_Utility();
+		wb.ImplicitlyWait(driver);
+		wb.maximizeTheBrowser(driver);
+		
+		HomePage hp = new HomePage(driver);
+		hp.ClickOnMetersLinkText();
+//		driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
+		Meters mtr = new Meters(driver);
+//		mtr.CLickOn_Add_New_Meter_Button();
+		;
+		
+		
+		
+	}
+	
+	@Test(priority = 8)
+	public void AddReadingTest__M8() throws Throwable {
+	    LoginPage lp = new LoginPage(driver);
+	    lp.ClickOn_LoginNotification_Icon(driver);
+
+	    WebDriver_Utility wb = new WebDriver_Utility();
+	    wb.ImplicitlyWait(driver);
+	    wb.maximizeTheBrowser(driver);
+
+	    HomePage hp = new HomePage(driver);
+	    hp.ClickOnMetersLinkText();
+
+	    Meters meter = new Meters(driver);
+//	    driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
+
+	    // Read meter value from Excel
+	    Excel_Utility excel = new Excel_Utility();
+	    String meterReading = excel.ReadDataFromExcel("testData.xlsx", "Sheet1", 0, 1); // Adjust path/sheet/index as needed
+
+	    meter.ClickOn_EnterReadingtextField(meterReading);
+	    Thread.sleep(6000);
+
+	    meter.Clickon_AddreadingButton();
+	    Thread.sleep(6000);
+	}
+
 	
 	
 }

@@ -18,6 +18,7 @@ import com.MetaaGrow.Generic_Utility.WebDriver_Utility;
 import com.MetaaGrow.ObjectRepository.Assets;
 import com.MetaaGrow.ObjectRepository.HomePage;
 import com.MetaaGrow.ObjectRepository.LoginPage;
+import com.MetaaGrow.ObjectRepository.Tickets;
 
 public class CreateAssetTest extends BaseClass{
 
@@ -127,7 +128,7 @@ public class CreateAssetTest extends BaseClass{
 		ast.ClickOn_No_Of_Services_On_AMC_DetailsPage("5");
 		ast.AMCStartDate(driver);
 		ast.AMCEndDate(driver);
-Thread.sleep(9000);
+		Thread.sleep(9000);
 		//confirmation process
 		ast.ClickOn_Next_Button();
 		ast.ClickOn_Create_Asset_Button();
@@ -251,7 +252,7 @@ Thread.sleep(9000);
 		//driver.findElement(By.xpath("(//*[contains(@class, 'emailEllapsis') and contains(@title, 'Magic Arrow')])[1]")).click();
 
 		//WebElement departmentNotification = driver.findElement(By.xpath("//button[normalize-space()='Skip']"));
-//		WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(5));
+		//		WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(5));
 		WebElement ActiveAsset = driver.findElement(By.xpath("(//select[contains(@class, 'activeStatus')])[1]"));
 		Select sel=new Select(ActiveAsset);
 		sel.selectByVisibleText("Breakdown");
@@ -269,7 +270,7 @@ Thread.sleep(9000);
 		ast.ClickOn_Enter_TextField_On_Raise_a_TicketPage("Switch Boaed Issue"+ran);
 		ast.ClickOn_Create_Button_On_Raise_a_TicketPage();
 		ast.ClickOn_Ok_Button_On_Confirmation_Page();
-		
+
 
 	}
 	@Test(priority = 6)
@@ -293,11 +294,11 @@ Thread.sleep(9000);
 		ast.ClickOn_RemarkSubmitButton();
 		Thread.sleep(2000);
 		ast.ClickOn_Ok_Button_On_Confirmation_Page();
-		
-		
-		
+
+
+
 	}
-	
+
 	@Test(priority = 7)
 	public void InactiveAssetTest() throws Throwable
 	{
@@ -315,10 +316,10 @@ Thread.sleep(9000);
 		sel.selectByVisibleText("Inactive");
 		Thread.sleep(2000);
 		ast.ClickOn_Ok_Button_On_Confirmation_Page();
-		
-		
+
+
 	}
-	
+
 	@Test(dependsOnMethods = "InactiveAssetTest")
 	public void InactiveToActiveAssetTest() throws Throwable
 	{
@@ -336,10 +337,10 @@ Thread.sleep(9000);
 		sel.selectByVisibleText("Active");
 		Thread.sleep(2000);
 		ast.ClickOn_Ok_Button_On_Confirmation_Page();
-		
+
 	}
-	
-	
+
+
 	@Test
 	public void ActiveToLostAssetTest() throws Throwable
 	{
@@ -357,16 +358,16 @@ Thread.sleep(9000);
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.visibilityOf(ActiveAsset));
-		
+
 		Select sel=new Select(ActiveAsset);
 		sel.selectByVisibleText("Lost");
 		ast.ClickOn_RemarkTextFieldOnAssetStatus("Lost");
 		ast.ClickOn_SaveButtonOnRemark();
 		Thread.sleep(2000);
 		ast.ClickOn_OkButton_LostSuccess();
-	
+
 	}
-	
+
 	@Test
 	public void LostToActiveAssetTest() throws Throwable
 	{
@@ -381,34 +382,221 @@ Thread.sleep(9000);
 		Assets ast = new Assets(driver);
 		ast.ClickOn_Lost_and_Discard_Button();
 		wb.scrollRight(driver, 900);
-		
+
 		WebElement LostAsset = driver.findElement(By.xpath("(//select[contains(@class, 'inactiveStatus selectDropDown ng-untouched ng-pristine ng-valid')])[1]"));
-try {
+		try {
+
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+			wait.until(ExpectedConditions.visibilityOf(LostAsset));
+			Select sel=new Select(LostAsset);
+
+			Thread.sleep(2000);
+			sel.selectByVisibleText("Active");
+			Thread.sleep(2000);
+			ast.ClickOn_OkButton_LostSuccess();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("not visible");
+		}
+
+
+	}
 	
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-	wait.until(ExpectedConditions.visibilityOf(LostAsset));
-	Select sel=new Select(LostAsset);
-	
-	Thread.sleep(2000);
-	sel.selectByVisibleText("Active");
-	Thread.sleep(2000);
-	ast.ClickOn_OkButton_LostSuccess();
-	
-} catch (Exception e) {
-	// TODO: handle exception
-	System.out.println("not visible");
-}
-	
-//		Select sel=new Select(LostAsset);
-//	
-//		Thread.sleep(2000);
-//		sel.selectByVisibleText("Active");
-//		Thread.sleep(2000);
-//		ast.ClickOn_OkButton_LostSuccess();
-		
+	@Test
+	public void RaiseTicketFromAssetTicketSubTabTest() throws Throwable
+	{
+		LoginPage lp = new LoginPage(driver);
+		lp.ClickOn_LoginNotification_Icon(driver);
+		WebDriver_Utility wb = new WebDriver_Utility();
+		wb.ImplicitlyWait(driver);
+		wb.maximizeTheBrowser(driver);
+
+		HomePage hp = new HomePage(driver);
+		hp.ClickOnAssetsLinkText();
+		Assets ast = new Assets(driver);
+		driver.findElement(By.xpath("(//li[@class='wdth-150 flex-1 text-wt-drk'])[1]")).click();
+		WebElement departmentNotification = driver.findElement(By.xpath("//button[normalize-space()='Skip']"));
+		WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(5));
+		try {
+			WebElement skipbutton = wait .until(ExpectedConditions.elementToBeClickable(departmentNotification));
+
+			// Check if the element is clickable but not clicked
+			if (departmentNotification.isEnabled()) {
+				// Click the element to mark it as clicked
+				departmentNotification.click();
+
+
+			} else {
+
+				departmentNotification.click();
+
+			}
+			}
+		catch (NoSuchElementException e) {
+			// TODO: handle exception
+			Assert.fail("Assertion Failed: Created Asset Name is not Showing on Listing");
+		}
+		ast.ClickOn_Tickets_Button();
+		ast.ClickOn_Raise_a_Ticket_Button_On_Asset_TicketsPage();
+		ast.SelectTicketType("General");
+
+		Thread.sleep(2000);
+        driver.findElement(By.xpath("//span[.='Select Department']")).click();
+          
+		Thread.sleep(2000);
+		wb.SelectMultiUserCheckBox(driver, "Technical");
+		wb.SelectMultiUserCheckBox(driver, "Operations");
+        driver.findElement(By.xpath("//span[.='Select Department']")).click();
+		ast.ClickOn_Select_User_Dropdown_On_Raise_a_TicketPage();
+		wb.SelectMultiUserCheckBox(driver, "Rishikesh");
+		wb.SelectMultiUserCheckBox(driver, "Mikhail");
+		ast.ClickOn_Select_User_Dropdown_On_Raise_a_TicketPage();
+		Java_Utility java = new Java_Utility();
+		int ran = java.getRandomNum();
+		ast.ClickOn_Enter_TextField_On_Raise_a_TicketPage("Switch Boaed Issue"+ran);
+		ast.ClickOn_Create_Button_On_Raise_a_TicketPage();
+		ast.ClickOn_Ok_Button_On_Confirmation_Page();
 		
 	}
+	
+	@Test
+	public void PartsAssociateTest() throws Throwable
+	{
+		LoginPage lp = new LoginPage(driver);
+		lp.ClickOn_LoginNotification_Icon(driver);
+		WebDriver_Utility wb = new WebDriver_Utility();
+		wb.ImplicitlyWait(driver);
+		wb.maximizeTheBrowser(driver);
+
+		HomePage hp = new HomePage(driver);
+		hp.ClickOnAssetsLinkText();
+		Assets ast = new Assets(driver);
+		driver.findElement(By.xpath("(//li[@class='wdth-150 flex-1 text-wt-drk'])[1]")).click();
+		WebElement departmentNotification = driver.findElement(By.xpath("//button[normalize-space()='Skip']"));
+		WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(5));
+		try {
+			WebElement skipbutton = wait .until(ExpectedConditions.elementToBeClickable(departmentNotification));
+
+			// Check if the element is clickable but not clicked
+			if (departmentNotification.isEnabled()) {
+				// Click the element to mark it as clicked
+				departmentNotification.click();
 
 
+			} else {
+
+				departmentNotification.click();
+
+			}
+			}
+		catch (NoSuchElementException e) {
+			// TODO: handle exception
+			Assert.fail("Assertion Failed: Created Asset Name is not Showing on Listing");
+		}
+		ast.ClickOn_Parts_Button();
+		ast.ClickOn_Associate_a_Part_Button();
+		ast.ClickOn_PartsDropdownOn_AttachPartsPage();
+		wb.SelectMultiUserCheckBox(driver, "Foul Line (74746)");
+		wb.SelectMultiUserCheckBox(driver, "Gears and belts");
+		ast.ClickoN_SaveButton_OnAttachPartsPage();
+		Thread.sleep(2000);
+		ast.ClickOn_OkButton_OnAsset_part_associated_successfully();
+		
+		WebElement PartName = driver.findElement(By.xpath("//span[.='Gears and belts']"));
+		
+		try {
+			wait.until(ExpectedConditions.visibilityOf(PartName));
+			Assert.assertTrue(PartName.isDisplayed(), "Associated Part Name is not Showing on Listing");
+		} catch (TimeoutException e) {
+			// TODO: handle exception
+			Assert.fail("Assertion Failed: Associated Part Name is not Showing on Listing");
+		}
+		catch (NoSuchElementException e) {
+			// TODO: handle exception
+			Assert.fail("Assertion Failed: Associated Part Name is not Showing on Listing");
+		}
+		
+	}
+	
+	@Test
+	public void AssetTranferTest() throws Throwable
+	{
+		LoginPage lp = new LoginPage(driver);
+		lp.ClickOn_LoginNotification_Icon(driver);
+		WebDriver_Utility wb = new WebDriver_Utility();
+		wb.ImplicitlyWait(driver);
+		wb.maximizeTheBrowser(driver);
+
+		HomePage hp = new HomePage(driver);
+		hp.ClickOnAssetsLinkText();
+		Assets ast = new Assets(driver);
+		driver.findElement(By.xpath("//label[@for='15718check']//img[1]")).click();
+		ast.ClickOn_Move_Button_On_All_AssetPage();
+		ast.DateOfTransfer_OnAssetTransfer(driver);
+		ast.ExpectedReturnDate_OnAssetTransfer(driver);
+		ast.ClickOn_Location_Reason_TExtBox_On_Transfer_AssetPage("Pune");
+		ast.ClickOn_Next_Button();
+		driver.findElement(By.xpath("//span[normalize-space()='Transfer']")).click();
+		Thread.sleep(2000);
+		WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(5));
+WebElement TransferSuccesMessege = driver.findElement(By.xpath("//div[@id='successPopUp']//p[contains(text(),'Asset(s) moved successfully')]"));
+		
+		try {
+			wait.until(ExpectedConditions.visibilityOf(TransferSuccesMessege));
+			Assert.assertTrue(TransferSuccesMessege.isDisplayed(), "Transfered Asset"
+					+ " Name is not Showing on Listing");
+		} catch (TimeoutException e) {
+			// TODO: handle exception
+			Assert.fail("Assertion Failed: Associated Part Name is not Showing on Listing");
+		}
+		catch (NoSuchElementException e) {
+			// TODO: handle exception
+			Assert.fail("Assertion Failed: Associated Part Name is not Showing on Listing");
+		}
+		ast.ClickOn_Ok_Button_On_Confirmation_Page();
+	
+		
+	}
+	
+	@Test(dependsOnMethods = "AssetTranferTest")
+	public void ReturnTranferAssetTest() throws Throwable
+	{
+		LoginPage lp = new LoginPage(driver);
+		lp.ClickOn_LoginNotification_Icon(driver);
+		WebDriver_Utility wb = new WebDriver_Utility();
+		wb.ImplicitlyWait(driver);
+		wb.maximizeTheBrowser(driver);
+
+		HomePage hp = new HomePage(driver);
+		hp.ClickOnAssetsLinkText();
+		Assets ast = new Assets(driver);
+		ast.ClickOn_In_Transit_Button();
+		wb.scrollRight(driver, 5000);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//img[@id='changBtn'])[1]")).click();
+		driver.findElement(By.xpath("(//a[contains(text(),'Mark as Return')])[1]")).click();
+		WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(5));
+WebElement AssetReturnSuccesMessege = driver.findElement(By.xpath("//div[@id='successPopUp']//p[contains(text(),'Asset(s) returned successfully')]"));
+		
+		try {
+			wait.until(ExpectedConditions.visibilityOf(AssetReturnSuccesMessege));
+			Assert.assertTrue(AssetReturnSuccesMessege.isDisplayed(), "Transfered Asset"
+					+ " Name is not Showing on Listing");
+		} catch (TimeoutException e) {
+			// TODO: handle exception
+			Assert.fail("Assertion Failed: Associated Part Name is not Showing on Listing");
+		}
+		catch (NoSuchElementException e) {
+			// TODO: handle exception
+			Assert.fail("Assertion Failed: Associated Part Name is not Showing on Listing");
+		}
+		ast.ClickOn_Ok_Button_On_Confirmation_Page();
+	
+		
+	}
+	
 }
+	
+
 
