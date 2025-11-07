@@ -197,6 +197,7 @@ public class BaseClass {
 			} else {
 				// Navigate to the URL if the sign-out image is not clickable or already clicked
 				driver.get("https://myworld.metaagrow.com/dashboard-checklist");
+//				
 
 				// Verify navigation success before proceeding
 				// Add code here to verify navigation success if needed

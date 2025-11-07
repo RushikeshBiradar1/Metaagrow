@@ -4,23 +4,21 @@
   <listeners>
     <listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"/>
   </listeners>
-  <test thread-count="5" name="Asssets(failed)(failed)">
+  <test thread-count="5" name="Test(failed)(failed)">
     <classes>
-      <class name="com.Metaagrow.Assets.CreateAssetTest">
+      <class name="com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest">
         <methods>
           <include name="afterMethod"/>
+          <include name="SendEmail"/>
           <include name="afterTest"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
           <include name="afterSuite"/>
           <include name="beforeClass"/>
           <include name="beforeTest"/>
-          <include name="CreateAssetWithAllField"/>
-          <include name="AssetTranferTest"/>
-          <include name="ReturnTranferAssetTest"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.Metaagrow.Assets.CreateAssetTest -->
+      </class> <!-- com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest -->
     </classes>
-  </test> <!-- Asssets(failed)(failed) -->
+  </test> <!-- Test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Suite]] -->

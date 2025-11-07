@@ -32,8 +32,8 @@ public class Inspections {
 	}
 
 	@FindBy(xpath = "//label[@for='301669check']")private WebElement Dynamic_Radio_Button_Schedule_Name;
-	@FindBy(xpath = "//span[normalize-space()='Download Pdf']")private WebElement Download_PDF_Button;
-	@FindBy(xpath = "//span[normalize-space()='Email']")private WebElement Email_Button;
+	@FindBy(xpath = "//button[contains(@class, 'downloadPermissionReport')]")private WebElement Download_PDF_Button;
+	@FindBy(xpath = "//button[contains(@class, 'emailPermissionReport')]")private WebElement Email_Button;
 	@FindBy(xpath = "//input[@placeholder='Enter email address']")private WebElement Email_Address_TextField;
 	@FindBy(xpath = "//button[normalize-space()='Send']")private WebElement Send_Button_On_Email;
 	@FindBy(xpath = "//button[@id='navigattohome']")private WebElement Ok_Button_On_Email_ConfirmationPage;

@@ -110,20 +110,21 @@ public class MeterTest extends BaseClass{
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMetersLinkText();
 		Meters meter = new Meters(driver);
+		Thread.sleep(2000);
 		meter.ClickOn_Filter_Icon();
 		meter.ClickOn_Filter_By_Asset();
-		meter.CLickOn_Filter_By_Asset_SearchBox("Ticket Carnival");
-		driver.findElement(By.xpath("//a[.='Ticket Carnival']")).click();
+		meter.CLickOn_Filter_By_Asset_SearchBox("Speed Driver");
+		driver.findElement(By.xpath("//a[.='Speed Driver']")).click();
 		meter.ClickOn_Filter_Apply_Button();
 
 		// Wait for the filter results to load
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		try {
 		    // Wait until the filtered element is visible
-		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[.='Ticket Carnival'])[2]")));
+		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[.='Speed Driver'])[2]")));
 		    
 		    // Assertion to check if the asset name is displayed
-		    Assert.assertTrue(driver.findElement(By.xpath("(//span[.='Ticket Carnival'])[2]")).isDisplayed(), 
+		    Assert.assertTrue(driver.findElement(By.xpath("(//span[.='Speed Driver'])[2]")).isDisplayed(), 
 		        "Selected Property & location is not showing on the listing page");
 		    
 		    System.out.println("Assertion passed: 'Ticket Carnival' is visible on the listing page.");
@@ -135,8 +136,6 @@ public class MeterTest extends BaseClass{
 		    Assert.fail("Assertion failed: 'Ticket Carnival' element is not found on the listing page.");
 		}
 
-//				Assert.assertTrue(driver.findElement(By.xpath("(//span[.='Ticket Carnival'])[2]")).isDisplayed(), "selected Property & location is not showing on listing page");
-//		meter.CLickOn_Filter_By_Asset_SearchBox("Ticket Carnival");
 
 	}
 	

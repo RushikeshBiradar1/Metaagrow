@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>12/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>47/4/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Apr 30 16:18:40 IST 2025</td>
+<td>Started on:</td><td>Fri Oct 31 14:17:38 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>261 seconds (261039 ms)</td>
+<tr><td>Total time:</td><td>694 seconds (694692 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,16 +75,69 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6()'><b>CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//li[span[normalize-space()=&apos;Foos Ball&apos;]]/preceding-sibling::li//input[@type=&apos;checkbox&apos;]&quot;}
-  (Session info: chrome=135.0.7049.96)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+<td title='com.Metaagrow.Inspetions.CreateInspections.InactiveScheduleTest_TC_I5()'><b>InactiveScheduleTest_TC_I5</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(normalize-space(text()), &apos;Redemption Compliance Audit925&apos;)] (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9ca574647d3637f5a2c473bddf745ca0, findElement {using=xpath, value=//li[span[normalize-space()=&apos;Foos Ball&apos;]]/preceding-sibling::li//input[@type=&apos;checkbox&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63081}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63081/devtoo..., se:cdpVersion: 135.0.7049.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9ca574647d3637f5a2c473bddf745ca0
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49953}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49953/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8c1481cc161dd69efcc15dd7d87b95c1
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.Metaagrow.Inspetions.CreateInspections.InactiveScheduleTest_TC_I5(CreateInspections.java:250)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1641292405", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1641292405'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //span[contains(normalize-space(text()), &apos;Redemption Compliance Audit925&apos;)] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49953}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49953/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8c1481cc161dd69efcc15dd7d87b95c1
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.Metaagrow.Inspetions.CreateInspections.InactiveScheduleTest_TC_I5(CreateInspections.java:250)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>14</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.SendEmail()'><b>SendEmail</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td><div><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=141.0.7390.125)
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b04be630ec372ef6026499decd2a3325, clickElement {id=f.CA26BB9333C05A7627C0841086D55316.d.4E882278FAD3A51890B4D17C06AEFEC8.e.209}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49781/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (b04be630ec372ef6026499decd2a3325)] -&gt; xpath: //button[@id=&apos;navigattohome&apos;]]
+Session ID: b04be630ec372ef6026499decd2a3325
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
@@ -92,23 +145,23 @@ Session ID: 9ca574647d3637f5a2c473bddf745ca0
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
-	at com.MetaaGrow.Generic_Utility.WebDriver_Utility.SelectMultiUserCheckBox(WebDriver_Utility.java:366)
-	at com.Metaagrow.Inspetions.CreateInspections.CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6(CreateInspections.java:242)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:242)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.click(Unknown Source)
+	at com.MetaaGrow.ObjectRepository.Inspections.ClickOn_Ok_Button_On_Email_ConfirmationPage(Inspections.java:598)
+	at com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.SendEmail(Inspection_ReportsAndGeneralTest.java:123)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1932618250", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1932618250'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//li[span[normalize-space()=&apos;Foos Ball&apos;]]/preceding-sibling::li//input[@type=&apos;checkbox&apos;]&quot;}
-  (Session info: chrome=135.0.7049.96)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+... Removed 35 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2025177759", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2025177759'><pre>org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=141.0.7390.125)
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [9ca574647d3637f5a2c473bddf745ca0, findElement {using=xpath, value=//li[span[normalize-space()=&apos;Foos Ball&apos;]]/preceding-sibling::li//input[@type=&apos;checkbox&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.96, chrome: {chromedriverVersion: 135.0.7049.114 (63fd8a7d9d0..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63081}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63081/devtoo..., se:cdpVersion: 135.0.7049.96, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9ca574647d3637f5a2c473bddf745ca0
+Command: [b04be630ec372ef6026499decd2a3325, clickElement {id=f.CA26BB9333C05A7627C0841086D55316.d.4E882278FAD3A51890B4D17C06AEFEC8.e.209}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49781/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (b04be630ec372ef6026499decd2a3325)] -&gt; xpath: //button[@id=&apos;navigattohome&apos;]]
+Session ID: b04be630ec372ef6026499decd2a3325
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -121,12 +174,15 @@ Session ID: 9ca574647d3637f5a2c473bddf745ca0
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
-	at com.MetaaGrow.Generic_Utility.WebDriver_Utility.SelectMultiUserCheckBox(WebDriver_Utility.java:366)
-	at com.Metaagrow.Inspetions.CreateInspections.CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6(CreateInspections.java:242)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:242)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.click(Unknown Source)
+	at com.MetaaGrow.ObjectRepository.Inspections.ClickOn_Ok_Button_On_Email_ConfirmationPage(Inspections.java:598)
+	at com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.SendEmail(Inspection_ReportsAndGeneralTest.java:123)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -157,7 +213,140 @@ Session ID: 9ca574647d3637f5a2c473bddf745ca0
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>17</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12()'><b>ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=141.0.7390.125)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8c1481cc161dd69efcc15dd7d87b95c1, getElementAttribute {id=f.AB7575CC6A388441A8002E6ACBCBB2E8.d.10F2C6E740B4F0DDFD529F71C2AAB4C4.e.3049, name=title}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49953}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49953/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (8c1481cc161dd69efcc15dd7d87b95c1)] -&gt; xpath: (//span[starts-with(@title, &apos;Redemption&apos;)])[1]]
+Session ID: 8c1481cc161dd69efcc15dd7d87b95c1
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:242)
+	at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:150)
+	at com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12(CreateInspections.java:659)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace369237870", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace369237870'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+  (Session info: chrome=141.0.7390.125)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [8c1481cc161dd69efcc15dd7d87b95c1, getElementAttribute {id=f.AB7575CC6A388441A8002E6ACBCBB2E8.d.10F2C6E740B4F0DDFD529F71C2AAB4C4.e.3049, name=title}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49953}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49953/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (8c1481cc161dd69efcc15dd7d87b95c1)] -&gt; xpath: (//span[starts-with(@title, &apos;Redemption&apos;)])[1]]
+Session ID: 8c1481cc161dd69efcc15dd7d87b95c1
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:242)
+	at org.openqa.selenium.remote.RemoteWebElement.getAttribute(RemoteWebElement.java:150)
+	at com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12(CreateInspections.java:659)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>15</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.Previous_FilterByAssetNameTest_TC_I23()'><b>Previous_FilterByAssetNameTest_TC_I23</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: (//span[contains(text(), &apos;Bowling Lane&apos;)])[3] (tried for 3 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52313}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52313/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2e48937a73671b86f05ea5cf549f8f5e
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.Metaagrow.Inspetions.FilterTest.Previous_FilterByAssetNameTest_TC_I23(FilterTest.java:309)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1445147982", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1445147982'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: (//span[contains(text(), &apos;Bowling Lane&apos;)])[3] (tried for 3 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52313}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52313/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2e48937a73671b86f05ea5cf549f8f5e
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.Metaagrow.Inspetions.FilterTest.Previous_FilterByAssetNameTest_TC_I23(FilterTest.java:309)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>16</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -167,65 +356,240 @@ Session ID: 9ca574647d3637f5a2c473bddf745ca0
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToWeeklyFrequencyTest_TC_I7()'><b>ScheduleNew_InspectionToWeeklyFrequencyTest_TC_I7</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
-<td></td>
-<td>16</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
-<tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomOneMonthFrequencyTest_TC_I11()'><b>ScheduleNew_InspectionToCustomOneMonthFrequencyTest_TC_I11</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToMonthlyFrequencyTest_TC_I8()'><b>ScheduleNew_InspectionToMonthlyFrequencyTest_TC_I8</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
 <td></td>
 <td>15</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomOneWeekFrequencyTest_TC_I10()'><b>ScheduleNew_InspectionToCustomOneWeekFrequencyTest_TC_I10</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomDaysFrequencyTest_TC_I13()'><b>ScheduleNew_InspectionToCustomDaysFrequencyTest_TC_I13</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
 <td></td>
-<td>13</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>14</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.TC_039_verifyAvailableOptionsInShowRowsDropdown()'><b>TC_039_verifyAvailableOptionsInShowRowsDropdown</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>1</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.ActiveSchedule_FilterByAssignedToTest_TC_I16()'><b>ActiveSchedule_FilterByAssignedToTest_TC_I16</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.PaginationTest.TC_042_Pagination_Page2_LoadsCorrectly()'><b>TC_042_Pagination_Page2_LoadsCorrectly</b><br>Test class: com.Metaagrow.Inspetions.PaginationTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.PaginationTest@4c60d6e9</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.testDownloadPdfButtonDisabledWithoutSelection()'><b>testDownloadPdfButtonDisabledWithoutSelection</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>1</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.PaginationTest.TC_043_JumpToPage_Dropdown_Options()'><b>TC_043_JumpToPage_Dropdown_Options</b><br>Test class: com.Metaagrow.Inspetions.PaginationTest</td>
+<td></td>
+<td>2</td>
+<td>com.Metaagrow.Inspetions.PaginationTest@4c60d6e9</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionTest_TC_I3()'><b>ScheduleNew_InspectionTest_TC_I3</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td></td>
+<td>11</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.ActiveChecklist_FilterByChecklistNameTest_TC_I17()'><b>ActiveChecklist_FilterByChecklistNameTest_TC_I17</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>4</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
 <tr>
 <td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomTwoDayFrequencyTest_TC_I9()'><b>ScheduleNew_InspectionToCustomTwoDayFrequencyTest_TC_I9</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
 <td></td>
 <td>18</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.InactiveScheduleTest_TC_I5()'><b>InactiveScheduleTest_TC_I5</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td title='com.Metaagrow.Inspetions.FilterTest.ActiveSchedule_FilterByChecklistNameTest_TC_I15()'><b>ActiveSchedule_FilterByChecklistNameTest_TC_I15</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
 <td></td>
-<td>7</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>4</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomDaysFrequencyTest_TC_I13()'><b>ScheduleNew_InspectionToCustomDaysFrequencyTest_TC_I13</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td title='com.Metaagrow.Inspetions.FilterTest.ActiveChecklist_FilterByAll_And_ClearButtonTest_TC_I19()'><b>ActiveChecklist_FilterByAll_And_ClearButtonTest_TC_I19</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
 <td></td>
-<td>13</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
 <tr>
 <td title='com.Metaagrow.Inspetions.CreateInspections.EditChecklistName_TC_I2()'><b>EditChecklistName_TC_I2</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
 <td></td>
-<td>11</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>7</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToMonthlyFrequencyTest_TC_I8()'><b>ScheduleNew_InspectionToMonthlyFrequencyTest_TC_I8</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.downloadPdfAndVerifyInNewWindow()'><b>downloadPdfAndVerifyInNewWindow</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
 <td></td>
-<td>15</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>8</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.CreatechecklistTestwithMandatoryField_TC_I1()'><b>CreatechecklistTestwithMandatoryField_TC_I1</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td title='com.Metaagrow.Inspetions.FilterTest.Todays_FilterByAssetNameTest_TC_I20()'><b>Todays_FilterByAssetNameTest_TC_I20</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
 <td></td>
-<td>21</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>4</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12()'><b>ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.TC_043_JumpToPage_Dropdown_Options()'><b>TC_043_JumpToPage_Dropdown_Options</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
 <td></td>
-<td>14</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>2</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.PaginationTest.jumpToPage4AndVerify_TC_TKT45()'><b>jumpToPage4AndVerify_TC_TKT45</b><br>Test class: com.Metaagrow.Inspetions.PaginationTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.PaginationTest@4c60d6e9</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.ActiveSchedule_FilterByScheduleNameTest_TC_I14()'><b>ActiveSchedule_FilterByScheduleNameTest_TC_I14</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>4</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.TC_042_Pagination_Page2_LoadsCorrectly()'><b>TC_042_Pagination_Page2_LoadsCorrectly</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.Todays_FilterByUserTest_TC_I22()'><b>Todays_FilterByUserTest_TC_I22</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>5</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.PaginationTest.verifyRowCountUpdatesWhenDifferentValueSelected_TC_TKT41()'><b>verifyRowCountUpdatesWhenDifferentValueSelected_TC_TKT41</b><br>Test class: com.Metaagrow.Inspetions.PaginationTest</td>
+<td></td>
+<td>2</td>
+<td>com.Metaagrow.Inspetions.PaginationTest@4c60d6e9</td></tr>
 <tr>
 <td title='com.Metaagrow.Inspetions.CreateInspections.EditSCheduleNameTest_TC_I4()'><b>EditSCheduleNameTest_TC_I4</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
 <td></td>
-<td>10</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>8</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
 <tr>
-<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionTest_TC_I3()'><b>ScheduleNew_InspectionTest_TC_I3</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomOneWeekFrequencyTest_TC_I10()'><b>ScheduleNew_InspectionToCustomOneWeekFrequencyTest_TC_I10</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td></td>
+<td>14</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.Upcoming_FilterByScheduleNameTest_TC_I27()'><b>Upcoming_FilterByScheduleNameTest_TC_I27</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.TC_038_Default_ShowRows_Value()'><b>TC_038_Default_ShowRows_Value</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>1</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.jumpToPage4AndVerify_TC_TKT45()'><b>jumpToPage4AndVerify_TC_TKT45</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>4</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.PaginationTest.TC_041_Pagination_Numbers_Visible()'><b>TC_041_Pagination_Numbers_Visible</b><br>Test class: com.Metaagrow.Inspetions.PaginationTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.PaginationTest@4c60d6e9</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToCustomOneMonthFrequencyTest_TC_I11()'><b>ScheduleNew_InspectionToCustomOneMonthFrequencyTest_TC_I11</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
 <td></td>
 <td>15</td>
-<td>com.Metaagrow.Inspetions.CreateInspections@27406a17</td></tr>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.Todays_FilterByScheduleNameTest_TC_I21()'><b>Todays_FilterByScheduleNameTest_TC_I21</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>5</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.Upcoming_FilterByAssetNameTest_TC_I26()'><b>Upcoming_FilterByAssetNameTest_TC_I26</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.verifyRowCountUpdatesWhenDifferentValueSelected_TC_TKT41()'><b>verifyRowCountUpdatesWhenDifferentValueSelected_TC_TKT41</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>2</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.PaginationTest.TC_039_verifyAvailableOptionsInShowRowsDropdown()'><b>TC_039_verifyAvailableOptionsInShowRowsDropdown</b><br>Test class: com.Metaagrow.Inspetions.PaginationTest</td>
+<td></td>
+<td>1</td>
+<td>com.Metaagrow.Inspetions.PaginationTest@4c60d6e9</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.verifyEmailPopupCancelFunctionality()'><b>verifyEmailPopupCancelFunctionality</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>7</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.Upcoming_FilterByUserTest_TC_I28()'><b>Upcoming_FilterByUserTest_TC_I28</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>10</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.CreateInspections.CreatechecklistTestwithMandatoryField_TC_I1()'><b>CreatechecklistTestwithMandatoryField_TC_I1</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td></td>
+<td>17</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.TC_DISPLAY_007_VerifyHorizontalScrollFunctionality_Simple()'><b>TC_DISPLAY_007_VerifyHorizontalScrollFunctionality_Simple</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>4</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.Previous_FilterByScheduleNameTest_TC_I24()'><b>Previous_FilterByScheduleNameTest_TC_I24</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>13</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.verifyInvalidEmailValidationMessage()'><b>verifyInvalidEmailValidationMessage</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>4</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.CreateInspections.ScheduleNew_InspectionToWeeklyFrequencyTest_TC_I7()'><b>ScheduleNew_InspectionToWeeklyFrequencyTest_TC_I7</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td></td>
+<td>16</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.ActiveChecklist_FilterByDepartmentNameTest_TC_I18()'><b>ActiveChecklist_FilterByDepartmentNameTest_TC_I18</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.CreateInspections.CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6()'><b>CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6</b><br>Test class: com.Metaagrow.Inspetions.CreateInspections</td>
+<td></td>
+<td>23</td>
+<td>com.Metaagrow.Inspetions.CreateInspections@cb0755b</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.TC_041_Pagination_Numbers_Visible()'><b>TC_041_Pagination_Numbers_Visible</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>4</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.verifyScheduleNameChecklistNamePropertyAreDisplayed()'><b>verifyScheduleNameChecklistNamePropertyAreDisplayed</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>6</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.PaginationTest.TC_038_Default_ShowRows_Value()'><b>TC_038_Default_ShowRows_Value</b><br>Test class: com.Metaagrow.Inspetions.PaginationTest</td>
+<td></td>
+<td>3</td>
+<td>com.Metaagrow.Inspetions.PaginationTest@4c60d6e9</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.FilterTest.Previous_FilterByUserTest_TC_I25()'><b>Previous_FilterByUserTest_TC_I25</b><br>Test class: com.Metaagrow.Inspetions.FilterTest</td>
+<td></td>
+<td>13</td>
+<td>com.Metaagrow.Inspetions.FilterTest@79e4c792</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.verifyAllColumnHeadersAreVisible()'><b>verifyAllColumnHeadersAreVisible</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>2</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
+<tr>
+<td title='com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.TC_InspectionReport_Email_EmptyEmailValidation()'><b>TC_InspectionReport_Email_EmptyEmailValidation</b><br>Test class: com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</td>
+<td></td>
+<td>5</td>
+<td>com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest@196a42c3</td></tr>
 </table><p>
 </body>
 </html>

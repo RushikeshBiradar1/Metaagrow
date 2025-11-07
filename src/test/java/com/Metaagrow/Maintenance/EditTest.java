@@ -73,7 +73,7 @@ public class EditTest  extends com.MetaaGrow.Generic_Utility.BaseClass{
 
 	            // Wait for the month-year to change (use WebDriverWait to handle timing better)
 	            wait.until(ExpectedConditions.stalenessOf(monthYearElement)); // Wait for the element to go stale (ensure it's refreshed)
-	            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Wait until the new month-year is displayed
+	            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//spani8[@class='owl-dt-control-content owl-dt-control-button-content'])[2]"))); // Wait until the new month-year is displayed
 	        }
 	    }
 

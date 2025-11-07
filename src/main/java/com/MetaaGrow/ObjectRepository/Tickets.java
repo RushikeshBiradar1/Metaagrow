@@ -17,7 +17,7 @@ public class Tickets {
 
 	//Declaration
 	@FindBy(xpath = "//button[@id='ticketListClosedTickets']")private WebElement Closed_Button;
-	@FindBy(xpath = "//button[@id='ticketListParkedTickets']")private WebElement Parked_Button;
+	@FindBy(id = "ticketListParkedTickets")private WebElement Parked_Button;
 	@FindBy(xpath = "//button[@id='ticketListNotValidTickets']")private WebElement Not_Valid_Button;
 	@FindBy(xpath = "//button[@id='ticketListOpenTickets']")private WebElement Open_Button;
 	@FindBy(xpath = "//span[.='Filter']")private WebElement Filter_Icon;
@@ -69,7 +69,7 @@ public class Tickets {
 	@FindBy(xpath = "//span[normalize-space()='Forward']")private WebElement Forward_Button;
 	@FindBy(xpath = "//span[normalize-space()='Cancel']")private WebElement Cancel_Button;
 	@FindBy(xpath = "//textarea[@id='reply']")private WebElement Reply_TextField_On_Ticket_InfoPage;
-	@FindBy(xpath = "//a[normalize-space()='Submit']")private WebElement Submit_Button;
+	@FindBy(xpath = "//form//div[@class='d-flex gap-2']/button[text()='Submit' and contains(@class, 'btn-primary')]")private WebElement Submit_Button;
 	@FindBy(xpath = "//button[@id='ticketListNewTicket']")private WebElement New_Ticket_Button;
 	@FindBy(xpath = "//select[@id='site']")private WebElement Property_Dropdown_On_New_Ticket_Page;
 	@FindBy(xpath = "//span[.='Select Department']")private WebElement Select_Department_Dropdown_On_New_Ticket_Page;

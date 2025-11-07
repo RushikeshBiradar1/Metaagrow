@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,8 +39,8 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+            <a href="#" panel-name="suite-Failed_suite__Suite_" class="navigator-link">
+              <span class="suite-name border-failed">Failed suite [Suite]</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,37 +50,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\SynccIT\AppData\Local\Temp\testng-eclipse--980210858\testng-customsuite.xml</span>
+                  <a href="#" panel-name="test-xml-Failed_suite__Suite_" class="navigator-link ">
+                    <span>C:\Users\SynccIT\OneDrive\Desktop\2023-09 Eclipse\SMPL\test-output\testng-failed.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="testlist-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="testlist-Failed_suite__Suite_" class="navigator-link ">
                     <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="group-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="group-Failed_suite__Suite_" class="navigator-link ">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="times-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="times-Failed_suite__Suite_" class="navigator-link ">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="reporter-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="reporter-Failed_suite__Suite_" class="navigator-link ">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="ignored-methods-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="ignored-methods-Failed_suite__Suite_" class="navigator-link ">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="chronological-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="chronological-Failed_suite__Suite_" class="navigator-link ">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -93,21 +93,45 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Failed_suite__Suite_" class="hide-methods failed suite-Failed_suite__Suite_"> (hide)</a> <!-- hide-methods failed suite-Failed_suite__Suite_ -->
+                      <a href="#" panel-name="suite-Failed_suite__Suite_" class="show-methods failed suite-Failed_suite__Suite_"> (show)</a> <!-- show-methods failed suite-Failed_suite__Suite_ -->
+                    </span>
+                    <div class="method-list-content failed suite-Failed_suite__Suite_">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Failed_suite__Suite_" title="com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest" class="method navigator-link" hash-for-method="SendEmail">SendEmail</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Failed_suite__Suite_ -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
                     <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Failed_suite__Suite_" class="hide-methods passed suite-Failed_suite__Suite_"> (hide)</a> <!-- hide-methods passed suite-Failed_suite__Suite_ -->
+                      <a href="#" panel-name="suite-Failed_suite__Suite_" class="show-methods passed suite-Failed_suite__Suite_"> (show)</a> <!-- show-methods passed suite-Failed_suite__Suite_ -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content passed suite-Failed_suite__Suite_">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Metaagrow.Inspetions.FilterTest" class="method navigator-link" hash-for-method="ActiveSchedule_FilterByScheduleNameTest_TC_I14">ActiveSchedule_FilterByScheduleNameTest_TC_I14</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Failed_suite__Suite_" title="com.Metaagrow.Inspetions.CreateInspections" class="method navigator-link" hash-for-method="InactiveScheduleTest_TC_I5">InactiveScheduleTest_TC_I5</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Failed_suite__Suite_" title="com.Metaagrow.Inspetions.FilterTest" class="method navigator-link" hash-for-method="Previous_FilterByAssetNameTest_TC_I23">Previous_FilterByAssetNameTest_TC_I23</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Failed_suite__Suite_" title="com.Metaagrow.Inspetions.CreateInspections" class="method navigator-link" hash-for-method="ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12">ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Failed_suite__Suite_ -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -118,8 +142,48 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
-        <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+        <div panel-name="suite-Failed_suite__Suite_" class="panel Failed_suite__Suite_">
+          <div class="suite-Failed_suite__Suite_-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="SendEmail">
+                  </a> <!-- SendEmail -->
+                  <span class="method-name">SendEmail</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=141.0.7390.125)
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8.1&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [a4b0da6a451994d7609ce492527f0dbb, clickElement {id=f.AD93F2878B52AC079BA1CA6A51F1E427.d.D806B44FB287BF15A105C666B73AD932.e.207}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.125, chrome: {chromedriverVersion: 141.0.7390.122 (b477534e7e1..., userDataDir: C:\Users\SynccIT\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52830}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52830/devtoo..., se:cdpVersion: 141.0.7390.125, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (a4b0da6a451994d7609ce492527f0dbb)] -&gt; xpath: //button[@id=&apos;navigattohome&apos;]]
+Session ID: a4b0da6a451994d7609ce492527f0dbb
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:242)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy23.click(Unknown Source)
+	at com.MetaaGrow.ObjectRepository.Inspections.ClickOn_Ok_Button_On_Email_ConfirmationPage(Inspections.java:598)
+	at com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest.SendEmail(Inspection_ReportsAndGeneralTest.java:123)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 36 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Failed_suite__Suite_-class-failed -->
+          <div class="suite-Failed_suite__Suite_-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
               <span class="class-name">com.Metaagrow.Inspetions.FilterTest</span>
@@ -127,108 +191,219 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ActiveSchedule_FilterByScheduleNameTest_TC_I14">
-                  </a> <!-- ActiveSchedule_FilterByScheduleNameTest_TC_I14 -->
-                  <span class="method-name">ActiveSchedule_FilterByScheduleNameTest_TC_I14</span>
+                  <a name="Previous_FilterByAssetNameTest_TC_I23">
+                  </a> <!-- Previous_FilterByAssetNameTest_TC_I23 -->
+                  <span class="method-name">Previous_FilterByAssetNameTest_TC_I23</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
-        </div> <!-- panel Default_suite -->
-        <div panel-name="test-xml-Default_suite" class="panel">
+          </div> <!-- suite-Failed_suite__Suite_-class-passed -->
+          <div class="suite-Failed_suite__Suite_-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.Metaagrow.Inspetions.CreateInspections</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="InactiveScheduleTest_TC_I5">
+                  </a> <!-- InactiveScheduleTest_TC_I5 -->
+                  <span class="method-name">InactiveScheduleTest_TC_I5</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12">
+                  </a> <!-- ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12 -->
+                  <span class="method-name">ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Failed_suite__Suite_-class-passed -->
+        </div> <!-- panel Failed_suite__Suite_ -->
+        <div panel-name="test-xml-Failed_suite__Suite_" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\SynccIT\AppData\Local\Temp\testng-eclipse--980210858\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\SynccIT\OneDrive\Desktop\2023-09 Eclipse\SMPL\test-output\testng-failed.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
+&lt;suite name=&quot;Failed suite [Suite]&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.MetaaGrow.Generic_Utility.ITestListener&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Test(failed)&quot;&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;afterMethod&quot;/&gt;
+          &lt;include name=&quot;SendEmail&quot;/&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+          &lt;include name=&quot;afterClass&quot;/&gt;
+          &lt;include name=&quot;setExtent&quot;/&gt;
+          &lt;include name=&quot;afterSuite&quot;/&gt;
+          &lt;include name=&quot;beforeClass&quot;/&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;beforeMethod&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest --&gt;
       &lt;class name=&quot;com.Metaagrow.Inspetions.FilterTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;ActiveSchedule_FilterByScheduleNameTest_TC_I14&quot;/&gt;
+          &lt;include name=&quot;afterMethod&quot;/&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+          &lt;include name=&quot;afterClass&quot;/&gt;
+          &lt;include name=&quot;setExtent&quot;/&gt;
+          &lt;include name=&quot;afterSuite&quot;/&gt;
+          &lt;include name=&quot;beforeClass&quot;/&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;Previous_FilterByAssetNameTest_TC_I23&quot;/&gt;
+          &lt;include name=&quot;beforeMethod&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- com.Metaagrow.Inspetions.FilterTest --&gt;
+      &lt;class name=&quot;com.Metaagrow.Inspetions.CreateInspections&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;afterMethod&quot;/&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+          &lt;include name=&quot;ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12&quot;/&gt;
+          &lt;include name=&quot;afterClass&quot;/&gt;
+          &lt;include name=&quot;setExtent&quot;/&gt;
+          &lt;include name=&quot;afterSuite&quot;/&gt;
+          &lt;include name=&quot;beforeClass&quot;/&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;beforeMethod&quot;/&gt;
+          &lt;include name=&quot;InactiveScheduleTest_TC_I5&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.Metaagrow.Inspetions.CreateInspections --&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Default test --&gt;
-&lt;/suite&gt; &lt;!-- Default suite --&gt;
+  &lt;/test&gt; &lt;!-- Test(failed) --&gt;
+&lt;/suite&gt; &lt;!-- Failed suite [Suite] --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="testlist-Default_suite" class="panel">
+        <div panel-name="testlist-Failed_suite__Suite_" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Tests for Default suite</span>
+            <span class="header-content">Tests for Failed suite [Suite]</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (1 class)</span>
+                <span class="test-name">Test(failed) (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="group-Default_suite" class="panel">
+        <div panel-name="group-Failed_suite__Suite_" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Groups for Default suite</span>
+            <span class="header-content">Groups for Failed suite [Suite]</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="times-Default_suite" class="panel">
+        <div panel-name="times-Failed_suite__Suite_" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Times for Default suite</span>
+            <span class="header-content">Times for Failed suite [Suite]</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="times-div">
               <script type="text/javascript">
-suiteTableInitFunctions.push('tableData_Default_suite');
-function tableData_Default_suite() {
+suiteTableInitFunctions.push('tableData_Failed_suite__Suite_');
+function tableData_Failed_suite__Suite_() {
 var data = new google.visualization.DataTable();
 data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'ActiveSchedule_FilterByScheduleNameTest_TC_I14')
-data.setCell(0, 2, 'com.Metaagrow.Inspetions.FilterTest')
-data.setCell(0, 3, 4222);
-window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+data.setCell(0, 1, 'SendEmail')
+data.setCell(0, 2, 'com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest')
+data.setCell(0, 3, 17844);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12')
+data.setCell(1, 2, 'com.Metaagrow.Inspetions.CreateInspections')
+data.setCell(1, 3, 14400);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'Previous_FilterByAssetNameTest_TC_I23')
+data.setCell(2, 2, 'com.Metaagrow.Inspetions.FilterTest')
+data.setCell(2, 3, 5701);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'InactiveScheduleTest_TC_I5')
+data.setCell(3, 2, 'com.Metaagrow.Inspetions.CreateInspections')
+data.setCell(3, 3, 5495);
+window.suiteTableData['Failed_suite__Suite_']= { tableData: data, tableDiv: 'times-div-Failed_suite__Suite_'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 seconds</span>
-              <div id="times-div-Default_suite">
-              </div> <!-- times-div-Default_suite -->
+              <span class="suite-total-time">Total running time: 43 seconds</span>
+              <div id="times-div-Failed_suite__Suite_">
+              </div> <!-- times-div-Failed_suite__Suite_ -->
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="reporter-Default_suite" class="panel">
+        <div panel-name="reporter-Failed_suite__Suite_" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Reporter output for Default suite</span>
+            <span class="header-content">Reporter output for Failed suite [Suite]</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="ignored-methods-Default_suite" class="panel">
+        <div panel-name="ignored-methods-Failed_suite__Suite_" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">14 ignored methods</span>
+            <span class="header-content">48 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
+              <span class="ignored-class-name">com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">downloadPdfAndVerifyInNewWindow</span>
+                <br/>
+                <span class="ignored-method-name">verifyRowCountUpdatesWhenDifferentValueSelected_TC_TKT41</span>
+                <br/>
+                <span class="ignored-method-name">TC_038_Default_ShowRows_Value</span>
+                <br/>
+                <span class="ignored-method-name">testDownloadPdfButtonDisabledWithoutSelection</span>
+                <br/>
+                <span class="ignored-method-name">TC_042_Pagination_Page2_LoadsCorrectly</span>
+                <br/>
+                <span class="ignored-method-name">jumpToPage4AndVerify_TC_TKT45</span>
+                <br/>
+                <span class="ignored-method-name">TC_043_JumpToPage_Dropdown_Options</span>
+                <br/>
+                <span class="ignored-method-name">verifyScheduleNameChecklistNamePropertyAreDisplayed</span>
+                <br/>
+                <span class="ignored-method-name">TC_DISPLAY_007_VerifyHorizontalScrollFunctionality_Simple</span>
+                <br/>
+                <span class="ignored-method-name">TC_InspectionReport_Email_EmptyEmailValidation</span>
+                <br/>
+                <span class="ignored-method-name">verifyAllColumnHeadersAreVisible</span>
+                <br/>
+                <span class="ignored-method-name">TC_039_verifyAvailableOptionsInShowRowsDropdown</span>
+                <br/>
+                <span class="ignored-method-name">verifyInvalidEmailValidationMessage</span>
+                <br/>
+                <span class="ignored-method-name">verifyEmailPopupCancelFunctionality</span>
+                <br/>
+                <span class="ignored-method-name">TC_041_Pagination_Numbers_Visible</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
               <span class="ignored-class-name">com.Metaagrow.Inspetions.FilterTest</span>
               <div class="ignored-methods-div">
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
                 <span class="ignored-method-name">ActiveChecklist_FilterByDepartmentNameTest_TC_I18</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
                 <br/>
                 <span class="ignored-method-name">ActiveChecklist_FilterByAll_And_ClearButtonTest_TC_I19</span>
                 <br/>
-                <span class="ignored-method-name">Previous_FilterByAssetNameTest_TC_I23</span>
-                <br/>
-                <span class="ignored-method-name">Todays_FilterByScheduleNameTest_TC_I21</span>
+                <span class="ignored-method-name">ActiveSchedule_FilterByScheduleNameTest_TC_I14</span>
                 <br/>
                 <span class="ignored-method-name">Todays_FilterByUserTest_TC_I22</span>
+                <br/>
+                <span class="ignored-method-name">Todays_FilterByScheduleNameTest_TC_I21</span>
                 <br/>
                 <span class="ignored-method-name">Previous_FilterByUserTest_TC_I25</span>
                 <br/>
@@ -240,6 +415,10 @@ return data;
                 <br/>
                 <span class="ignored-method-name">Upcoming_FilterByAssetNameTest_TC_I26</span>
                 <br/>
+                <span class="ignored-method-name">setExtent</span>
+                <br/>
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
                 <span class="ignored-method-name">Upcoming_FilterByUserTest_TC_I28</span>
                 <br/>
                 <span class="ignored-method-name">Todays_FilterByAssetNameTest_TC_I20</span>
@@ -250,50 +429,148 @@ return data;
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.Metaagrow.Inspetions.CreateInspections</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">CreatechecklistTestwithMandatoryField_TC_I1</span>
+                <br/>
+                <span class="ignored-method-name">afterTest</span>
+                <br/>
+                <span class="ignored-method-name">EditChecklistName_TC_I2</span>
+                <br/>
+                <span class="ignored-method-name">ScheduleNew_InspectionToWeeklyFrequencyTest_TC_I7</span>
+                <br/>
+                <span class="ignored-method-name">ScheduleNew_InspectionToCustomTwoDayFrequencyTest_TC_I9</span>
+                <br/>
+                <span class="ignored-method-name">ScheduleNew_InspectionToCustomDaysFrequencyTest_TC_I13</span>
+                <br/>
+                <span class="ignored-method-name">beforeTest</span>
+                <br/>
+                <span class="ignored-method-name">ScheduleNew_InspectionTest_TC_I3</span>
+                <br/>
+                <span class="ignored-method-name">CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6</span>
+                <br/>
+                <span class="ignored-method-name">setExtent</span>
+                <br/>
+                <span class="ignored-method-name">afterSuite</span>
+                <br/>
+                <span class="ignored-method-name">ScheduleNew_InspectionToCustomOneMonthFrequencyTest_TC_I11</span>
+                <br/>
+                <span class="ignored-method-name">ScheduleNew_InspectionToCustomOneWeekFrequencyTest_TC_I10</span>
+                <br/>
+                <span class="ignored-method-name">ScheduleNew_InspectionToMonthlyFrequencyTest_TC_I8</span>
+                <br/>
+                <span class="ignored-method-name">EditSCheduleNameTest_TC_I4</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="chronological-Default_suite" class="panel">
+        <div panel-name="chronological-Failed_suite__Suite_" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.Metaagrow.Inspetions.FilterTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setExtent</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">8 ms</span>
+                <span class="method-start">239 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">18 ms</span>
+                <span class="method-start">252 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod</span>
-                <span class="method-start">5005 ms</span>
+                <span class="method-start">12810 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">ActiveSchedule_FilterByScheduleNameTest_TC_I14</span>
-                <span class="method-start">5406 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">SendEmail</span>
+                <span class="method-start">13256 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterMethod([TestResult name=ActiveSchedule_FilterByScheduleNameTest_TC_I14 status=SUCCESS method=FilterTest.Act...)</span>
-                <span class="method-start">9629 ms</span>
+                <span class="method-name">afterMethod([TestResult name=SendEmail status=FAILURE method=Inspection_ReportsAndGeneralTest.SendEmail()[pri:0,...)</span>
+                <span class="method-start">31117 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">10853 ms</span>
+                <span class="method-start">35502 ms</span>
               </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.Metaagrow.Inspetions.FilterTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">35848 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">47659 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">Previous_FilterByAssetNameTest_TC_I23</span>
+                <span class="method-start">48097 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=Previous_FilterByAssetNameTest_TC_I23 status=SUCCESS method=FilterTest.Previous_Fil...)</span>
+                <span class="method-start">53799 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">57781 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.Metaagrow.Inspetions.CreateInspections</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">58030 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">67339 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">InactiveScheduleTest_TC_I5</span>
+                <span class="method-start">67763 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=InactiveScheduleTest_TC_I5 status=SUCCESS method=CreateInspections.InactiveSchedule...)</span>
+                <span class="method-start">73259 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">77177 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12</span>
+                <span class="method-start">77775 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod([TestResult name=ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12 status=SUCCESS method=Creat...)</span>
+                <span class="method-start">92176 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">95543 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest</div> <!-- chronological-class-name -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">11251 ms</span>
+                <span class="method-start">95865 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">afterSuite</span>
-                <span class="method-start">11289 ms</span>
+                <span class="method-start">96301 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

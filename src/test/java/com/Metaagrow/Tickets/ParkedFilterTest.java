@@ -44,7 +44,7 @@ public class ParkedFilterTest extends BaseClass{
 
 	}
 	@Test()
-	public void RaisedByTest_TC_TKT26() throws Throwable
+	public void FilterRaisedByTest_TC_TKT26() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
 		WebDriver_Utility wb = new WebDriver_Utility();
@@ -102,7 +102,7 @@ public class ParkedFilterTest extends BaseClass{
 
 	}
 	@Test()
-	public void OriginTest_TC_TKT28() throws Throwable
+	public void FilterOriginTest_TC_TKT28() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
 		WebDriver_Utility wb = new WebDriver_Utility();

@@ -144,6 +144,7 @@ public class TodaysFilterTest extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		hp.ClickOnTicketsLinkText();
 		Tickets tkt = new Tickets(driver);
+		Thread.sleep(1000);
 		tkt.CLockOn_Filter_Icon();
 	   Dates date = new Dates();
 	   date.startDate(driver, "Sep-2024", "19");

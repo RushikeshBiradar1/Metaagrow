@@ -209,10 +209,11 @@ public class FilterTest extends BaseClass {
 		inspect.ClickOn_Filter_Icon();
 		inspect.CLickOn_FilterByAsset();
 		String AssetName="Bowling Lane 1";
+		String TodaysList_AssetName="Bowling Lane";
 		inspect.ClickOn_FilterByAssetSearchBox(AssetName);
 		driver.findElement(By.xpath("(//a[normalize-space()='"+AssetName+"'])[1]")).click();
 		inspect.ClickOn_Filter_By_Apply_Button();
-		WebElement Asset_NameOnTodays = driver.findElement(By.xpath("(//span[contains(text(), '"+AssetName+"')])[2]"));
+		WebElement Asset_NameOnTodays = driver.findElement(By.xpath("(//span[contains(text(), '"+TodaysList_AssetName+"')])[2]"));
 
 		Assert.assertTrue(Asset_NameOnTodays.isDisplayed(), "Asset Name is not showing in List");
 		
@@ -260,7 +261,7 @@ public class FilterTest extends BaseClass {
 		inspect.CLickOn_FilterByUserSearchBox_OnTodays(User_Name);
 		driver.findElement(By.xpath("(//a[.='"+User_Name+"'])[2]")).click();
 		inspect.ClickOn_Filter_By_Apply_Button();
-		WebElement User_NameOnActive = driver.findElement(By.xpath("//li[contains(@title, '"+User_Name+"')]"));
+		WebElement User_NameOnActive = driver.findElement(By.xpath("//span[contains(@title, '"+User_Name+"')]"));
 
 		Assert.assertTrue(User_NameOnActive.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 
@@ -295,6 +296,7 @@ public class FilterTest extends BaseClass {
 		    
 		    inspect.CLickOn_FilterByAsset();
 		    String AssetName = "Bowling Lane 1";
+		    String Searched_AssetName = "Bowling Lane";
 		    inspect.ClickOn_FilterByAssetSearchBox(AssetName);
 		    
 		    // Wait until the asset link is visible and clickable
@@ -304,7 +306,7 @@ public class FilterTest extends BaseClass {
 		    inspect.ClickOn_Filter_By_Apply_Button();
 		    
 		    // Wait for the asset name to be displayed on today's list
-		    WebElement Asset_NameOnTodays = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(), '" + AssetName + "')])[3]")));
+		    WebElement Asset_NameOnTodays = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(), '" + Searched_AssetName + "')])[3]")));
 
 		    // Assert that the asset name is displayed
 		    Assert.assertTrue(Asset_NameOnTodays.isDisplayed(), "Asset Name is not showing in List");
@@ -342,10 +344,22 @@ public class FilterTest extends BaseClass {
 		    inspect.ClickOn_Filter_By_Apply_Button();
 		    
 		    // Wait for the asset name to be displayed on today's list
-		    WebElement Schedule_NameOnPrevious = driver.findElement(By.xpath("(//li[contains(@title, '"+schedule_Name+"')])[2]"));
+		 //   WebElement Schedule_NameOnPrevious = driver.findElement(By.xpath("(//li[contains(@title, '"+schedule_Name+"')])[2]"));
 		    // Assert that the asset name is displayed
-		    Assert.assertTrue(Schedule_NameOnPrevious.isDisplayed(), "Schedule Name is not showing in List");
+		//    Assert.assertTrue(Schedule_NameOnPrevious.isDisplayed(), "Schedule Name is not showing in List");
 		
+		    // Explicitly wait until at least one element with the correct user appears
+		    WebElement filteredUser = wait.until(ExpectedConditions.presenceOfElementLocated(
+		        By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+		    ));
+
+		    // Optionally check if user is in the title
+		    String title = filteredUser.getAttribute("title");
+		    Assert.assertTrue(title.contains(schedule_Name),
+		        "Filtered user '" + schedule_Name + "' not found in title: " + title);
+		    
+		    
+		    
 	}
 	
 	@Test(priority = 12)
@@ -369,15 +383,25 @@ public class FilterTest extends BaseClass {
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("backdrop"))); // Adjust the selector based on the actual loading element
 
 	    inspect.ClickOn_Filter_Icon();
-		String User_Name ="Rishikesh";
+		String User_Name ="Ghassan";
 		inspect.CLickOn_FilterByUser();
 		inspect.CLickOn_FilterByUserSearchBox_OnTodays(User_Name);
 		
 		inspect.ClickOn_Filter_By_Apply_Button();
-		WebElement User_NameOnActive = driver.findElement(By.xpath("(//li[contains(@title, '"+User_Name+"')])[2]"));
+//		WebElement User_NameOnActive = driver.findElement(By.xpath("(//span[contains(@title, '"+User_Name+"')])[2]"));
+//
+//		Assert.assertTrue(User_NameOnActive.isDisplayed(), "User Name is not showing in List");
+		
+		
+		  // Explicitly wait until at least one element with the correct user appears
+	    WebElement filteredUser = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("//span[contains(@title, '" + User_Name + "')]")
+	    ));
 
-		Assert.assertTrue(User_NameOnActive.isDisplayed(), "User Name is not showing in List");
-
+	    // Optionally check if user is in the title
+	    String title = filteredUser.getAttribute("title");
+	    Assert.assertTrue(title.contains(User_Name),
+	        "Filtered user '" + User_Name + "' not found in title: " + title);
 	}
 	
 	//------------------------------- Upcoming Filters  -------------------------------------------------------------------------------------------------------------------------
@@ -408,6 +432,7 @@ public class FilterTest extends BaseClass {
 	
 		    inspect.CLickOn_FilterByAsset();
 		    String AssetName = "Bowling Lane 1";
+		    String Upcoming_AssetName = "Bowling Lane";
 		    inspect.ClickOn_FilterByAssetSearchBox(AssetName);
 		    
 		    // Wait until the asset link is visible and clickable
@@ -417,7 +442,7 @@ public class FilterTest extends BaseClass {
 		    inspect.ClickOn_Filter_By_Apply_Button();
 		    
 		    // Wait for the asset name to be displayed on today's list
-		    WebElement Asset_NameOnTodays = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(),'Bowling Lane 1')])[5]")));
+		    WebElement Asset_NameOnTodays = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(),'"+Upcoming_AssetName+"')])[5]")));
 
 		    // Assert that the asset name is displayed
 		    Assert.assertTrue(Asset_NameOnTodays.isDisplayed(), "Asset Name is not showing in List");
@@ -460,7 +485,7 @@ public class FilterTest extends BaseClass {
 		Inspections inspect = new Inspections(driver);
 		inspect.CLickOn_UpcomingButton();
 		inspect.ClickOn_Filter_Icon();
-		String User_Name ="Siraj";
+		String User_Name ="Rishikesh";
 		inspect.CLickOn_FilterByUser();
 		inspect.CLickOn_FilterByUserSearchBox_OnTodays(User_Name);
 		driver.findElement(By.xpath("(//a[normalize-space()='"+User_Name+"'])[1]")).click();

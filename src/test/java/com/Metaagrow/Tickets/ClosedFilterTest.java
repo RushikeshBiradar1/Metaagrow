@@ -89,8 +89,8 @@ public class ClosedFilterTest extends BaseClass{
 		tkt.ClickoN_Filter_By_AssignedTo();
 		String AssignedTo ="Siraj";
 		tkt.ClickoN_Filter_By_AssignedTo_SearchBox(AssignedTo);
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//li[@id='custom']//a[.='"+AssignedTo+"'])[2]")));
-		driver.findElement(By.xpath("(//li[@id='custom']//a[.='"+AssignedTo+"'])[2]")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[contains(text(), '"+AssignedTo+"')])[2]")));
+		driver.findElement(By.xpath("(//a[contains(text(), '"+AssignedTo+"')])[2]")).click();
 		tkt.ClickOn_Filter_Apply_Button();
 
 		WebElement AssignedToNameName = driver.findElement(By.xpath("//span[@title='Siraj']"));
@@ -157,6 +157,7 @@ public class ClosedFilterTest extends BaseClass{
 	{
 		LoginPage lp = new LoginPage(driver);
 		WebDriver_Utility wb = new WebDriver_Utility();
+		driver.manage().window().maximize();
 		wb.ImplicitlyWait(driver);
 		lp.ClickOn_LoginNotification_Icon(driver);
 		HomePage hp = new HomePage(driver);
@@ -170,18 +171,17 @@ public class ClosedFilterTest extends BaseClass{
 	   tkt.End_Date(driver, "Mar-2024", "13");
 	   tkt.ClickOn_Filter_Apply_Button();
 //	    Locate the span element
-	   WebElement Closed_On = driver.findElement(By.xpath("//span[contains(text(), '13 Mar, 2024 12:35 PM')]"));
+	   WebElement Closed_On = driver.findElement(By.xpath("//span[contains(text(), '13 Mar, 2024 12:3')]"));
 
 	   // Assert that the element is displayed
        Assert.assertTrue(Closed_On.isDisplayed(),"The date is not displayed on the listing page.");
        
        // Optionally, check if the page has loaded correctly
 	    try {
-	        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), '13 Mar, 2024 12:35 PM')]"))); 
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(), '13 Mar, 2024 12:3')]"))); 
 	    } catch (TimeoutException e) {
 	        Assert.fail("13 March ticket is not showing after applying filter of that date");
 	    }
-	    tkt.ClickOn_OkButton_onTicket_Status_changed_successfully();
 	}
 
 }

@@ -29,12 +29,12 @@ import org.openqa.selenium.WebDriver;
 	public class CreateSectionWisePm {	    
 	    /* --------- LOGIN / HEADER DETAILS --------- */
 	    private static final String BASE_URL   = "https://myworld.metaagrow.com/login-view";
-	    private static final String USERNAME   = "alex@gmail.com";
-	    private static final String PASSWORD   = "Alex@123";
+	    private static final String USERNAME   = "james.willaim@gmail.com";
+	    private static final String PASSWORD   = "Metaa@123";
 	 
-	    private static final String PROPERTY   = "Andheri";
-	    private static final String FREQUENCY  = "Monthly";
-	    private static final String START_DATE = "22/07/2025";
+	    private static final String PROPERTY   = "WonderWhirl-Theme Park (Mumbai)";
+	    private static final String FREQUENCY  = "Daily";
+	    private static final String START_DATE = "07/08/2025";
 	    private static final String END_DATE   = "31/12/2026";
 	 
 	    /* --------- USER FLAGS --------- */
@@ -60,7 +60,7 @@ import org.openqa.selenium.WebDriver;
 	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 	        JavascriptExecutor js = (JavascriptExecutor) driver;
 	 
-	        String templateName = "Z-Force" + System.currentTimeMillis();
+	        String templateName = "Gaming PC Station Maintenance";
 
 	        // Load sections & questions from Excel before starting
 	        loadSectionsFromExcel("./TestData/PMTest.xlsx");
@@ -259,7 +259,7 @@ import org.openqa.selenium.WebDriver;
 	    	        multi.click();
 
 	    	        WebElement working = w.until(ExpectedConditions.elementToBeClickable(
-	    	            row.findElement(By.xpath(".//button[.//span[normalize-space()='Working / Not Working']]"))));
+	    	            row.findElement(By.xpath(".//button[.//span[normalize-space()='Yes / No']]"))));
 	    	        working.click();
 
 	    	    } catch (UnhandledAlertException e) {
@@ -322,9 +322,15 @@ import org.openqa.selenium.WebDriver;
 
 	        // List of users you want to select
 	        List<String> userNamesToSelect = Arrays.asList(
-	            "Alex Stone",
-	            "Avery Adams",
-	            "Gandhi"
+	            "Ben Stokes",
+	            "Dwayne Bravo",
+	            "Harry Brook",
+	            "James William",
+	            "David Hussy",
+	            "Jacob Bathell",
+	            "James",
+	            "Jastin",
+	            "Steve Smith"
 	            // Add more names as needed
 	        );
 

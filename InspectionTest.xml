@@ -8,6 +8,11 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.Metaagrow.Inspetions.CreateInspections"/>
+            <class name="com.Metaagrow.Inspetions.FilterTest"/>
+             <class name="com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest"/>
+              <class name="com.Metaagrow.Inspetions.PaginationTest"/>
+
+
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

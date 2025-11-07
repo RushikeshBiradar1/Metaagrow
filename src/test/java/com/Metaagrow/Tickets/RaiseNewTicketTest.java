@@ -172,6 +172,7 @@ public class RaiseNewTicketTest extends BaseClass{
 		tkt.SelectTicketType("General");
 		wait.until(ExpectedConditions.elementToBeClickable(tkt.getProperty_Dropdown_On_New_Ticket_Page()));
 		tkt.Clickon_Property_Dropdown_On_New_Ticket_Page("Thane");
+		Thread.sleep(2000);
 		tkt.ClickON_Select_Department_Dropdown_On_New_Ticket_Page();
 		wb.SelectMultiUserCheckBox(driver, "Technical");
 		wb.SelectMultiUserCheckBox(driver, "Operations");

@@ -48,6 +48,7 @@ public class TicketInfoPageTest extends BaseClass {
 	@Test(priority = 2)
 	public void ForwardTicketTest_TC_TKT10() throws Throwable
 	{
+
 		LoginPage lp = new LoginPage(driver);
 		WebDriver_Utility wb = new WebDriver_Utility();
 		wb.ImplicitlyWait(driver);
@@ -62,11 +63,11 @@ public class TicketInfoPageTest extends BaseClass {
 //		driver.findElement(By.xpath("(//span[@class='emailEllapsis'])[1]")).click();
 //		Ticket_Title.click();
 		tkt.ClickOn_Forward_Ticket_Button_On_InfoPage();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		tkt.ClickOn_Select_User_Or_Team_DropdownOn_Ticket_Forward_Page_By_VisibleText();
 		
-		wb.SelectMultiUserCheckBox(driver, "Rishikesh");
-		wb.SelectMultiUserCheckBox(driver, "Mikhail");
+		wb.SelectMultiUserCheckBox(driver, "Agney");
+		wb.SelectMultiUserCheckBox(driver, "Siraj");
 		tkt.ClickOn_Select_User_Or_Team_DropdownOn_Ticket_Forward_Page_By_VisibleText();
 		String Description="I am forwarding the ticket titled Damage Bowling Ball No16 for your review and action.";
 		tkt.ClickOn_DescriptionBoxOnForwardTicketPage(Description);
@@ -260,6 +261,7 @@ public class TicketInfoPageTest extends BaseClass {
 		    System.out.println("Button displayed: " + okButton.isDisplayed());
 		    System.out.println("Button enabled: " + okButton.isEnabled());
 		    wait.until(ExpectedConditions.elementToBeClickable(okButton));
+		    Thread.sleep(1000);
 		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getOkButton_onTicket_Status_changed_successfully())).click();
 
 //		    tkt.ClickOn_OkButton_onTicket_Status_changed_successfully();
@@ -331,6 +333,7 @@ driver.findElement(By.xpath("(//span[@class='emailEllapsis'])[1]")).click();
 		 String selectedPriority = tkt.getSelectedTicketPriority(); // Get the selected priority
 		    Assert.assertEquals(selectedPriority, "Low", "Priority is not set to High.");
 		    tkt.ClickOn_Update_Button_On_Ticket_InfoPage();
+		    Thread.sleep(1000);
 		    wait.until(ExpectedConditions.elementToBeClickable(tkt.getOkButton_onTicket_Status_changed_successfully())).click();
 
 		  //  tkt.ClickOn_OkButton_onTicket_Status_changed_successfully();
