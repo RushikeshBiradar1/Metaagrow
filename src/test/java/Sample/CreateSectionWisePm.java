@@ -28,8 +28,8 @@ package Sample;
 	public class CreateSectionWisePm {	    
 	    /* --------- LOGIN / HEADER DETAILS --------- */
 	    private static final String BASE_URL   = "https://myworld.metaagrow.com/login-view";
-	    private static final String USERNAME   = "alex@gmail.com";
-	    private static final String PASSWORD   = "Alex@123";
+	    private static final String USERNAME   = "dhoni07@gmail.com";
+	    private static final String PASSWORD   = "Metaa@123";
 	 
 	    private static final String PROPERTY   = "SuperNova Gaming Hub";
 	    private static final String FREQUENCY  = "Monthly";
@@ -69,9 +69,9 @@ package Sample;
 	            System.out.println("1??  Opening login page …");
 	            driver.get(BASE_URL);
 	            driver.manage().window().maximize();
-	            driver.findElement(By.id("username")).sendKeys(USERNAME);
-	            driver.findElement(By.id("password")).sendKeys(PASSWORD);
-	            driver.findElement(By.cssSelector("button.btn-primary")).click();
+	            driver.findElement(By.id("email")).sendKeys(USERNAME);
+	            driver.findElement(By.id("password-input")).sendKeys(PASSWORD);
+	            driver.findElement(By.xpath("//button[@type='submit']")).click();
 	            dismissIfPresent(wait, By.xpath("//button[text()='Later']"), "   • subscription pop-up closed");
 	 
 	            /* 1??  Select one property From Overall Property Dropdown ------------------------------------------------ */

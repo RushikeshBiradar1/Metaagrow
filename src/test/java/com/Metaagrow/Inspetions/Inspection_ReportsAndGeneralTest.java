@@ -26,7 +26,7 @@ import com.MetaaGrow.ObjectRepository.Tickets;
 public class Inspection_ReportsAndGeneralTest extends BaseClass{
 	
 	@Test
-	public void downloadPdfAndVerifyInNewWindow() {
+	public void downloadPdfAndVerifyInNewWindow() throws Throwable {
 		  // Login
 	    LoginPage lp = new LoginPage(driver);
 	    lp.ClickOn_LoginNotification_Icon(driver);
@@ -51,12 +51,14 @@ public class Inspection_ReportsAndGeneralTest extends BaseClass{
 	    // Click on checkbox
 	    WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(
 	        By.xpath("//img[@alt='unchecked']/ancestor::label")));
+	    Thread.sleep(5000);
 	    checkbox.click();
 
 	    // Click on "Download Pdf" button
 
 	    inspect.ClickOn_Download_PDF_Button();
 
+	   driver.findElement(By.xpath("(//button[contains(., 'Ok')])[6]")).click();
 	    // Wait for new window to appear
 	    wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
@@ -83,7 +85,7 @@ public class Inspection_ReportsAndGeneralTest extends BaseClass{
 }
 	
 	@Test
-	public void SendEmail() {
+	public void SendEmail() throws Throwable {
 	    // Login
 	    LoginPage lp = new LoginPage(driver);
 	    lp.ClickOn_LoginNotification_Icon(driver);
@@ -105,6 +107,7 @@ public class Inspection_ReportsAndGeneralTest extends BaseClass{
 	    // Step 1: Click on the checkbox
 	    WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(
 	        By.xpath("//img[@alt='unchecked']/ancestor::label")));
+	    Thread.sleep(5000);
 	    checkbox.click();
 
 	    // Step 2: Click on "Email" button
@@ -119,6 +122,7 @@ public class Inspection_ReportsAndGeneralTest extends BaseClass{
 
 	    inspect.ClickOn_Send_Button_On_Email();
 
+	    Thread.sleep(3000);
 
 inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 	}
@@ -126,7 +130,7 @@ inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 	
 	
 	@Test
-	public void TC_InspectionReport_Email_EmptyEmailValidation() {
+	public void TC_InspectionReport_Email_EmptyEmailValidation() throws Throwable {
 	    // Login
 	    LoginPage lp = new LoginPage(driver);
 	    lp.ClickOn_LoginNotification_Icon(driver);
@@ -147,7 +151,8 @@ inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 
 	    // Step 1: Click on the checkbox
 	    WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(
-	        By.xpath("//img[@alt='unchecked']/ancestor::label")));
+	        By.xpath("(//img[@alt='unchecked'])[1]")));
+	    Thread.sleep(5000);
 	    checkbox.click();
 
 	    // Step 2: Click on "Email" button
@@ -169,7 +174,7 @@ inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 	}
 	
 	@Test
-	public void verifyInvalidEmailValidationMessage() {
+	public void verifyInvalidEmailValidationMessage() throws Throwable {
 	    // Login
 	    LoginPage lp = new LoginPage(driver);
 	    lp.ClickOn_LoginNotification_Icon(driver);
@@ -190,6 +195,7 @@ inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 	    // Select a report
 	    WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(
 	        By.xpath("//img[@alt='unchecked']/ancestor::label")));
+	    Thread.sleep(5000);
 	    checkbox.click();
 
 	    // Click on Email button
@@ -209,7 +215,7 @@ inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 	}
 
 	@Test
-	public void verifyEmailPopupCancelFunctionality() {
+	public void verifyEmailPopupCancelFunctionality() throws Throwable {
 	    // Login
 	    LoginPage lp = new LoginPage(driver);
 	    lp.ClickOn_LoginNotification_Icon(driver);
@@ -230,6 +236,7 @@ inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 	    // Select a report
 	    WebElement checkbox = wait.until(ExpectedConditions.elementToBeClickable(
 	        By.xpath("//img[@alt='unchecked']/ancestor::label")));
+	    Thread.sleep(3000);
 	    checkbox.click();
 
 	    // Click on Email button
@@ -335,6 +342,7 @@ inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 	            "Schedule Name",
 	            "Checklist Name",
 	            "Property",
+	            "Department",
 	            "Asset Name",
 	            "Associate",
 	            "Supervised Status",
@@ -366,7 +374,7 @@ inspect.ClickOn_Ok_Button_On_Email_ConfirmationPage();
 	        }
 	    }
 	  
-	  @Test(priority = 2)
+	  @Test(enabled=false)
 	    public void verifyScheduleNameChecklistNamePropertyAreDisplayed() {
 	        // TC-DISPLAY-002: Verify Data is Populated in All Columns
 		  

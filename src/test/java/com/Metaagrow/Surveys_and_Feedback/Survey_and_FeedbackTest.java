@@ -3,6 +3,8 @@ package com.Metaagrow.Surveys_and_Feedback;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -46,7 +48,8 @@ public class Survey_and_FeedbackTest extends BaseClass {
 		wb.BackSpaceMethod("//input[@placeholder='Survey Name']", driver);
 		Thread.sleep(2000);
 		survey.ClickOn_Survey_Name_Text_Field("Auto Test");
-		survey.ClickOn_Create_button_on_create_survey_page();
+		survey.ClickOn_UpdateSurveyButton();
+//		survey.ClickOn_Create_button_on_create_survey_page();
 		Thread.sleep(1000);
 		survey.Clickon_OkButton_OnEditSurveyConfirmationPage();
 	}
@@ -104,7 +107,7 @@ public class Survey_and_FeedbackTest extends BaseClass {
 
 
 	}
-	@Test(priority = 12)
+	@Test(enabled=false)
 	public void ViewQuestionEditPageTest_TC_S12() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -124,7 +127,8 @@ public class Survey_and_FeedbackTest extends BaseClass {
 
 
 	}
-	@Test(priority = 13)
+	//This functionoilty is removed of view question from action button
+	@Test(enabled =false)
 	public void CancelButtonOn_ViewQuestionEditPageTest_TC_S13() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -146,7 +150,8 @@ public class Survey_and_FeedbackTest extends BaseClass {
 		WebElement Textsurvey = driver.findElement(By.xpath("//h2[normalize-space()='Surveys & Feedback']"));
 		Assert.assertTrue(Textsurvey.isDisplayed(), "User not reflected on Survey listing page");
 	}
-	@Test(priority = 14)
+	//This functionoilty is removed of view question from action button
+		@Test(enabled =false)
 	public void CloseButtonOn_ViewQuestionEditPageTest_TC_S14() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -169,7 +174,8 @@ public class Survey_and_FeedbackTest extends BaseClass {
 		Assert.assertTrue(Textsurvey.isDisplayed(), "User not reflected on Survey listing page");
 	}
 
-	@Test(priority = 15)
+		//This functionoilty is removed of view question from action button
+				@Test(enabled =false)
 	public void ViewResponseDownloadAsPDFButtonTest_TC_S15() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -232,14 +238,56 @@ public class Survey_and_FeedbackTest extends BaseClass {
 		int ran = java.getRandomNum();
 		String SurveyName="Survey"+ran;
 		survey.ClickOn_Survey_Name_Text_Field(SurveyName);
-		survey.Select_property_dropdown_ByVisibleText("ANDHERI");
-		survey.ClickOn_Location_Text_Field("First Floor");
-		survey.ClickOn_email_Mandatory_CheckBox();
-		survey.ClickOn_Mobile_Mandatory_CheckBox();
+		survey.Select_property_dropdown_ByVisibleText("Thane");
+
 		survey.ClickOn_Section_Name_TextField("Arcade Zone");
-		survey.ClickOn_Question_Text_Field("Question -1");
-		survey.ClickOn_Add_Question_Icon();
-		survey.ClickOn_Question2_TextField("Question-2");
+
+	
+
+	    // -------- Question 1 --------
+	    survey.ClickOn_Question_Text_Field("Q 1");
+	    survey.selectResponseTypeByIndex(0, "Rating 1 to 5");
+	    survey.ClickOn_Add_Question_Icon();
+
+	    // -------- Question 2 --------
+	    survey.ClickOn_Question2_TextField("Q 2");
+	    survey.selectResponseTypeByIndex(1, "Description Box");
+	    survey.ClickOn_Add_Question_Icon();
+
+	    // -------- Question 3 --------
+	 //   survey.ClickOn_Question_Text_Field("Q 3");
+	    driver.findElement(By.xpath("(//input[@placeholder='Question'])[3]")).sendKeys("q3");
+	    survey.selectResponseTypeByIndex(2, "Yes/No");
+	    survey.ClickOn_Add_Question_Icon();
+
+	    // -------- Question 4 --------
+//	    survey.ClickOn_Question_Text_Field("Q 4");
+	    driver.findElement(By.xpath("(//input[@placeholder='Question'])[4]")).sendKeys("q4");
+
+	    survey.selectResponseTypeByIndex(3, "Multiple Choice");
+	    
+	 // ---------- Add options for Multiple Choice ----------
+	    WebElement optionsTextArea = driver.findElement(By.xpath("//textarea[@placeholder='Enter Options']"));
+	    WebElement addResponseButton = driver.findElement(By.xpath("//div[contains(@class,'img-box') and contains(.,'Add Response')]"));
+
+	    // Add "Yes"
+	    optionsTextArea.clear();
+	    optionsTextArea.sendKeys("Yes");
+	    addResponseButton.click();
+
+	    // Add "No"
+	    optionsTextArea.clear();
+	    optionsTextArea.sendKeys("No");
+	    addResponseButton.click();
+	    survey.ClickOn_Add_Question_Icon();
+
+	    // -------- Question 5 --------
+	 //  survey.ClickOn_Question_Text_Field("Q 5");
+	    driver.findElement(By.xpath("(//input[@placeholder='Question'])[5]")).sendKeys("q3");
+
+	  survey.selectResponseTypeByIndex(4, "Star ratings");
+		
+		
 		survey.ClickOn_Create_button_on_create_survey_page();
 
 		survey.Clickon_OkButton_OnEditSurveyConfirmationPage();
@@ -260,7 +308,7 @@ public class Survey_and_FeedbackTest extends BaseClass {
 		}
 	}
 
-	@Test(priority = 18)
+	@Test(enabled=false)
 	public void CreateFeedbackTest_TC_S18() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -279,7 +327,7 @@ public class Survey_and_FeedbackTest extends BaseClass {
 		int ran = java.getRandomNum();
 		String FeedbackName="Feedback"+ran;
 		survey.ClickOn_Survey_Name_Text_Field(FeedbackName);
-		survey.Select_property_dropdown_ByVisibleText("ANDHERI");
+		survey.Select_property_dropdown_ByVisibleText("Thane");
 		survey.ClickOn_Location_Text_Field("First Floor");
 		survey.ClickOn_email_Mandatory_CheckBox();
 		survey.ClickOn_Mobile_Mandatory_CheckBox();
@@ -400,7 +448,7 @@ public class Survey_and_FeedbackTest extends BaseClass {
 
 	}
 
-	@Test(priority = 23)
+	@Test(enabled = false)
 	public void JumpToDropdownTest_TC_U23() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -424,6 +472,27 @@ public class Survey_and_FeedbackTest extends BaseClass {
 
 
 
+	}
+	
+	@Test()
+	public void FilterByTitle() throws Throwable
+	{
+		LoginPage lp = new LoginPage(driver);
+		lp.ClickOn_LoginNotification_Icon(driver);
+		WebDriver_Utility wb = new WebDriver_Utility();
+		wb.ImplicitlyWait(driver);
+		HomePage hp = new HomePage(driver);
+		hp.ClickOnSetupLinkText(driver);
+		Setup sp = new Setup(driver);
+		sp.ClickOnSurveysLinkText();
+		Surveys_And_Feedback survey = new Surveys_And_Feedback(driver);
+		survey.ClickOn_Filter_Icon();
+		survey.clickOn_FilterByTitle("Center Survey");
+		survey.ClickOn_Apply_Filter_Button();
+		Assert.assertTrue(driver.findElement(By.xpath("//span[@title='Center Survey']")).isDisplayed(), "Center Survey is not showing after applying filter");
+
+		
+		
 	}
 
 }

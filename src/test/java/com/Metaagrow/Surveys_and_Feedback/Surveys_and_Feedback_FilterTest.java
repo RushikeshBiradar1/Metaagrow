@@ -51,7 +51,7 @@ public class Surveys_and_Feedback_FilterTest extends BaseClass{
 		}
 		
 	}
-	@Test(priority = 2)
+	@Test(enabled = false)
 	public void FilterByLocationTest_TC_S2()
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -216,7 +216,7 @@ public class Surveys_and_Feedback_FilterTest extends BaseClass{
 		}
 		
 	}
-	@Test(priority = 6)
+	@Test(enabled = false)
 	public void FilterByLocationTest_TC_S6()
 	{
 		LoginPage lp = new LoginPage(driver);

@@ -56,6 +56,19 @@ public class BaseClass {
 		wb.ImplicitlyWait(driver);
 		LoginPage lp = new LoginPage(driver);
 		lp.Login(USERNAME, PASSWORD);
+
+		// After login, the "Welcome back!" popup shows up (Angular renders it async).
+		// Wait for the Continue button and dismiss the popup so downstream tests
+		// start from a clean, fully-loaded dashboard state.
+		WebDriverWait welcomeWait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		try {
+		    WebElement continueBtn = welcomeWait.until(
+		            ExpectedConditions.elementToBeClickable(By.xpath("//button[@class='btn-continue']")));
+		    continueBtn.click();
+		} catch (TimeoutException e) {
+		    // Popup didn't show up this time (e.g. already dismissed) - safe to continue.
+		    System.out.println("Welcome popup / Continue button did not appear within timeout.");
+		}
 	}
 
 	@AfterMethod
@@ -213,7 +226,8 @@ public class BaseClass {
 		wb.ImplicitlyWait(driver);
 
 		// Proceed with sign-out
-		hp.ClickOnSignOutImgIcon();
+//		hp.Logout(driver);
+		hp.ClickOnSignOutImgIcon(driver);
 		hp.ClickOnLogoutLinkText(driver);
 	}
 

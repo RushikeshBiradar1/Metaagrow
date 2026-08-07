@@ -11,6 +11,7 @@
             <class name="com.Metaagrow.Inspetions.FilterTest"/>
              <class name="com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest"/>
               <class name="com.Metaagrow.Inspetions.PaginationTest"/>
+ <class name="com.Metaagrow.Inspetions.perform_Inspection"/>
 
 
     </classes>

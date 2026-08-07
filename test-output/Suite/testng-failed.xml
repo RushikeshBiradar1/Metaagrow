@@ -6,46 +6,72 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest">
-        <methods>
-          <include name="afterMethod"/>
-          <include name="SendEmail"/>
-          <include name="afterTest"/>
-          <include name="afterClass"/>
-          <include name="setExtent"/>
-          <include name="afterSuite"/>
-          <include name="beforeClass"/>
-          <include name="beforeTest"/>
-          <include name="beforeMethod"/>
-        </methods>
-      </class> <!-- com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest -->
-      <class name="com.Metaagrow.Inspetions.FilterTest">
+      <class name="com.Metaagrow.Tickets.TodaysFilterTest">
         <methods>
           <include name="afterMethod"/>
           <include name="afterTest"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
+          <include name="StartDateEndDateTest_TC_TKT17"/>
           <include name="afterSuite"/>
           <include name="beforeClass"/>
           <include name="beforeTest"/>
-          <include name="Previous_FilterByAssetNameTest_TC_I23"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.Metaagrow.Inspetions.FilterTest -->
-      <class name="com.Metaagrow.Inspetions.CreateInspections">
+      </class> <!-- com.Metaagrow.Tickets.TodaysFilterTest -->
+      <class name="com.Metaagrow.Tickets.ClosedFilterTest">
         <methods>
           <include name="afterMethod"/>
           <include name="afterTest"/>
-          <include name="ScheduleNew_InspectionToCustomDatesFrequencyTest_TC_I12"/>
+          <include name="RaisedByTest_TC_TKT19"/>
+          <include name="beforeTest"/>
+          <include name="TicketNoTest_TC_TKT22"/>
+          <include name="afterClass"/>
+          <include name="OriginTest_TC_TKT21"/>
+          <include name="setExtent"/>
+          <include name="afterSuite"/>
+          <include name="PriorityTest_TC_TKT18"/>
+          <include name="beforeClass"/>
+          <include name="TicketTitleTest_TC_TKT23"/>
+          <include name="AssignedToTest_TC_TKT20"/>
+          <include name="beforeMethod"/>
+          <include name="StartDateEndDateTest_TC_TKT24"/>
+        </methods>
+      </class> <!-- com.Metaagrow.Tickets.ClosedFilterTest -->
+      <class name="com.Metaagrow.Tickets.NotValidFilterTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="afterTest"/>
+          <include name="StartDateEndDateTest_TC_TKT38"/>
+          <include name="TicketTitleTest_TC_TKT37"/>
+          <include name="beforeTest"/>
+          <include name="OriginTest_TC_TKT35"/>
+          <include name="TicketNoTest_TC_TKT36"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
           <include name="afterSuite"/>
           <include name="beforeClass"/>
-          <include name="beforeTest"/>
+          <include name="RaisedByTest_TC_TKT33"/>
+          <include name="PriorityTest_TC_TKT32"/>
           <include name="beforeMethod"/>
-          <include name="InactiveScheduleTest_TC_I5"/>
         </methods>
-      </class> <!-- com.Metaagrow.Inspetions.CreateInspections -->
+      </class> <!-- com.Metaagrow.Tickets.NotValidFilterTest -->
+      <class name="com.Metaagrow.Tickets.ParkedFilterTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="afterTest"/>
+          <include name="afterClass"/>
+          <include name="setExtent"/>
+          <include name="TicketTitleTest_TC_TKT30"/>
+          <include name="afterSuite"/>
+          <include name="beforeClass"/>
+          <include name="FilterRaisedByTest_TC_TKT26"/>
+          <include name="beforeTest"/>
+          <include name="TicketNoTest_TC_TKT29"/>
+          <include name="beforeMethod"/>
+          <include name="PriorityTest_TC_TKT25"/>
+        </methods>
+      </class> <!-- com.Metaagrow.Tickets.ParkedFilterTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

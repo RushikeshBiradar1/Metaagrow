@@ -120,8 +120,9 @@ public class PartsTest extends BaseClass{
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnPartsandInventoryLinkText();
 		Parts_and_Inventory parts = new Parts_and_Inventory(driver);
-		driver.findElement(By.xpath("//label[@for='19129check']")).click();
+		driver.findElement(By.xpath("//label[@for='23639check']")).click();
 		parts.ClickOn_Transfer_Button();
+		Thread.sleep(2000);
 		parts.DateOfTransfer(driver);
 		
 		parts.ClickOn_TransferToTextFieldOn_TransferPartPage("UAE");
@@ -130,6 +131,7 @@ public class PartsTest extends BaseClass{
 		Thread.sleep(3000);
 		parts.ExpectedDateOfReturn(driver);
 		parts.ClickOn_EnterQuantityTextBoxOn_TransferPartPage("1");
+		Thread.sleep(2000);
 		parts.ClickOn_NextButtonOn_TransferPartPage();
 		parts.ClickOn_TransferButtonOn_ConfirmPage();
 		parts.Clickon_OKButton_OnPartsMovedSuccess_And_returnSuccess();
@@ -150,12 +152,13 @@ public class PartsTest extends BaseClass{
 		Parts_and_Inventory parts = new Parts_and_Inventory(driver);
 		parts.ClickOn_Transferred_Tab();
 		wb.scrollRight(driver, 8000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//img[@alt='Status'])[1]")).click();
 		parts.ClickOn_ReturnFirstPartButton_OnTransferedPage();
 		parts.ClickOn_ReturnQuantityTextField_OnReturnPartsPage("1");
 		parts.ClickOn_UpdateButton_OnReturnPartsPage();
 //		Thread.sleep(2000);
-		WebElement OKButton = driver.findElement(By.xpath("//button[@id='backClicked']"));
+		WebElement OKButton = driver.findElement(By.xpath("(//div[@class='modal-content' and .//p[contains(text(),'Part(s) returned successfully')]]//button[normalize-space()='Ok'])[1]"));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(OKButton));
@@ -222,7 +225,7 @@ public class PartsTest extends BaseClass{
 	 parts.clearPart_No_TextFiled_On_Add_SinglePart_page();
 	 parts.ClickOn_Part_No_TextFiled_On_Add_SinglePart_page("2001");
 	 parts.ClickOn_ConfirmChangesButton_OnEditPartPage();
-	WebElement Okbutton = driver.findElement(By.xpath("(//button[@type='button'][normalize-space()='Ok'])[2]"));
+	WebElement Okbutton = driver.findElement(By.xpath("(//div[@class='modal-content' and .//p[contains(text(),'Part(s) details updated successfully')]]//button[normalize-space()='Ok'])[1]"));
 	
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		try {

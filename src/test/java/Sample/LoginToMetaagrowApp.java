@@ -20,9 +20,9 @@ public class LoginToMetaagrowApp {
 			
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			driver.findElement(By.xpath("//button[@id='onesignal-slidedown-cancel-button']")).click();
-			driver.findElement(By.xpath("//input[@id='username']")).sendKeys("Rushi@gmail.com");
-			driver.findElement(By.xpath("//input[@id='password']")).sendKeys("sky@123");
-			driver.findElement(By.xpath("//button[@class='button btn-primary d-flex w-100']")).click();
+			driver.findElement(By.id("email")).sendKeys("dhoni07@gmail.com");
+			driver.findElement(By.id("password-input")).sendKeys("Metaa@123");
+			driver.findElement(By.xpath("//button[@type='submit']")).click();
 			//Reports
 //			driver.findElement(By.xpath("//span[text()='Reports']")).click();
 			Thread.sleep(2000);

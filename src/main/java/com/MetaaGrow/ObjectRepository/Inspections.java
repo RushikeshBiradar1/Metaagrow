@@ -14,122 +14,147 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.MetaaGrow.Generic_Utility.WebDriver_Utility;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class Inspections {
+	 private WebDriver driver; 
 	//Initialization
 	public Inspections(WebDriver driver)
 	{
+		  
+		 this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
 	//Declaration
 	
-	@FindBy(id = "previous")private WebElement Previous_Button;
-	@FindBy(xpath = "//button[normalize-space()='Today']")private WebElement Today_Button;
-	@FindBy(id = "upcoming")private WebElement UpcomingButton;
+	@FindBy(xpath = "//button[contains(text(),'Overdue')]")private WebElement Previous_Button;
+	@FindBy(xpath = "//button[contains(text(),'Today')]")private WebElement Today_Button;
+	@FindBy(xpath = "//button[contains(text(),'Upcoming')]")private WebElement UpcomingButton;
 	public WebElement getUpcomingButton() {
 		return UpcomingButton;
 	}
 
-	@FindBy(xpath = "//label[@for='301669check']")private WebElement Dynamic_Radio_Button_Schedule_Name;
-	@FindBy(xpath = "//button[contains(@class, 'downloadPermissionReport')]")private WebElement Download_PDF_Button;
-	@FindBy(xpath = "//button[contains(@class, 'emailPermissionReport')]")private WebElement Email_Button;
-	@FindBy(xpath = "//input[@placeholder='Enter email address']")private WebElement Email_Address_TextField;
-	@FindBy(xpath = "//button[normalize-space()='Send']")private WebElement Send_Button_On_Email;
-	@FindBy(xpath = "//button[@id='navigattohome']")private WebElement Ok_Button_On_Email_ConfirmationPage;
-	@FindBy(xpath = "//button[@id='cancelEmailPopup']")private WebElement Cancel_Button_On_Email;
-	@FindBy(xpath = "//span[.='Filter']")private WebElement Filter_Icon;
-	@FindBy(xpath = "//span[.='Select Property']")private WebElement Filter_By_Property;
-	@FindBy(xpath = "(//input[@name='autocomplete'])[1]")private WebElement Filter_By_Property_SearchBox;
-	@FindBy(xpath = "//a[.='CSML']")private WebElement Filter_By_Dynamic_Property_Name;
-	@FindBy(xpath = "//input[@placeholder='Schedule Name']")private WebElement Filter_By_Schedule_Name;
-	@FindBy(xpath = "//span[normalize-space()='Select User']")private WebElement Filter_By_Select_User_Button;
-	@FindBy(xpath = "(//input[@name='autocomplete'])[2]")private WebElement Filter_By_Select_User_SearchBox;
-	@FindBy(xpath = "//a[.='Anil']")private WebElement Filter_By_Dynamic_User;
-	@FindBy(xpath = "//span[normalize-space()='Apply']")private WebElement Filter_By_Apply_Button;
-	@FindBy(xpath = "//span[normalize-space()='Clear']")private WebElement Filter_By_Clear_Button;
-	@FindBy(xpath = "(//li[@title='Wwe'])[1]")private WebElement Filter_By_Dynamic_Schedule_Name;
-	@FindBy(xpath = "//span[@class='blue']")private WebElement Raise_Ticket_Icon_On_Info_Page;
+	@FindBy(xpath = "//label[for=\"check-1158757\"]")private WebElement Dynamic_Radio_Button_Schedule_Name;
+	@FindBy(xpath = "//span[normalize-space()='PDF']")private WebElement Download_PDF_Button;
+	@FindBy(xpath = "//span[normalize-space()='Email']")private WebElement Email_Button;
+	@FindBy(xpath = "//input[@id='placeholderInput']")private WebElement Email_Address_TextField;
+	@FindBy(xpath = "//button[.=' Send ']")private WebElement Send_Button_On_Email;
+	@FindBy(xpath = "//button[normalize-space()='OK']")private WebElement Ok_Button_On_Email_ConfirmationPage;
+	@FindBy(xpath = "//button[contains(normalize-space(),'Cancel')]")private WebElement Cancel_Button_On_Email;
+	@FindBy(xpath = "//button[.//span[normalize-space()='Filter']]")private WebElement Filter_Icon;
+	@FindBy(xpath = "//div[contains(@class,'ng-select-container')][.//div[normalize-space()='Select Property']]")private WebElement Filter_By_Property;
+	@FindBy(xpath = "//input[@placeholder='Search Property...']")private WebElement Filter_By_Property_SearchBox;
+	@FindBy(xpath = "//a[.='Australia']")private WebElement Filter_By_Dynamic_Property_Name;
+	@FindBy(xpath = "//input[@id='schedule']")private WebElement Filter_By_Schedule_Name;
+	@FindBy(xpath = "//div[contains(@class,'ng-select-container')][.//div[normalize-space()='Select Checklist Type']]")private WebElement FilterBy_ChecklistType;
+	
+	@FindBy(xpath = "//ng-select[@placeholder='Select User']")private WebElement Filter_By_Select_User_Button;
+	@FindBy(xpath = "//input[@placeholder='Search User...']")private WebElement Filter_By_Select_User_SearchBox;
+	@FindBy(xpath = "(//span[.='MS Dhoni'])[2]")private WebElement Filter_By_Dynamic_User;
+	@FindBy(xpath = "//button[normalize-space()='Apply']")private WebElement Filter_By_Apply_Button;
+	@FindBy(xpath = "//button[normalize-space()='Clear']")private WebElement Filter_By_Clear_Button;
+	
+	@FindBy(xpath = "//span[normalize-space()='Daily Bowling Opening Checklist']")private WebElement Filter_By_Dynamic_Schedule_Name;
+	@FindBy(xpath = "//button[.//span[normalize-space()='Raise Ticket']]")private WebElement Raise_Ticket_Icon_On_Info_Page;
 	@FindBy(xpath = "//span[normalize-space()='Close']")private WebElement Close_Button_On_InfoPage;
-	@FindBy(xpath = "(//img[@alt='Reports Add'])[2]")private WebElement Manage_Checklist_Button;
-	@FindBy(xpath = "//label[@for='3355check']")private WebElement Dynamic_Radio_Button_Name_On_Checklist_Page;
-	@FindBy(xpath = "//span[normalize-space()='Duplicate to another Property']")private WebElement Duplicate_To_Another_Property_Button;
+	
+
+	@FindBy(xpath = "//button[@id='inspectionDropdown']")private WebElement InspectionButton;
+	@FindBy(xpath = "//button[normalize-space()='Manage Checklists']")private WebElement Manage_Checklist_Button;
+	@FindBy(xpath = "//label[@for='check-7866']")private WebElement Dynamic_Radio_Button_Name_On_Checklist_Page;
+	@FindBy(xpath = "//button[.//span[normalize-space()='Duplicate to another property']]")private WebElement Duplicate_To_Another_Property_Button;
 	@FindBy(xpath = "//input[@type='text']")private WebElement Checklist_Name_TextField_On_Duplicate_Checklist_Page;
-	@FindBy(xpath = "//select[@id='Housekeeping']")private WebElement Deparment_Dropdown_On_Duplicate_Checklist_Page;
-	@FindBy(xpath = "//span[normalize-space()='Duplicate']")private WebElement Duplicate_On_Duplicate_Checklist_Page;
-	@FindBy(xpath = "//span[normalize-space()='Cancel']")private WebElement Cancel_On_Duplicate_Checklist_Page;
-	@FindBy(xpath = "//button[contains(text(),'Inactive')]")private WebElement Inactive_Button_On_Manage_Checklist_Page;
-	@FindBy(xpath = "//button[normalize-space()='Active']")private WebElement Active_Button_On_Manage_Checklist_Page;
-	@FindBy(xpath = "//input[@placeholder='Checklist Name']")private WebElement Filter_By_Checklist_Name_On_Manage_Checklist_Page;
-	@FindBy(xpath = "//span[.='Select department']")private WebElement Filter_by_Department_Dropdown_On_Manage_Checklist_Page;
-	@FindBy(xpath = "//input[@name='autocomplete']")private WebElement Filter_by_Department_SearchBox_On_Manage_Checklist_Page;
+	@FindBy(xpath = "//div[@aria-expanded='true']//input[@type='text']")private WebElement DepartmentTextField;
+	@FindBy(xpath = "//span[normalize-space()='Openers(Aus)']")private WebElement Deparment_Dropdown_On_Duplicate_Checklist_Page;
+	@FindBy(xpath = "//button[normalize-space()='Duplicate']")private WebElement Duplicate_On_Duplicate_Checklist_Page;
+	
+	@FindBy(xpath = "//button[normalize-space()='Cancel']")private WebElement Cancel_On_Duplicate_Checklist_Page;
+	@FindBy(xpath = "//div[@class='btn-group']//button[@class='button buttonBlack'][normalize-space()='Inactive']")private WebElement Inactive_Button_On_Manage_Checklist_Page;
+	@FindBy(xpath = "//div[@class='btn-group']//button[@class='button active'][normalize-space()='Active']")private WebElement Active_Button_On_Manage_Checklist_Page;
+	@FindBy(xpath = "//input[@id='checklist']")private WebElement Filter_By_Checklist_Name_On_Manage_Checklist_Page;
+	@FindBy(xpath = "//div[@role='combobox']")private WebElement Filter_by_Department_Dropdown_On_Manage_Checklist_Page;
+	@FindBy(xpath = "//input[@placeholder='Search Department...']")private WebElement SearchDepartmentTextField;
+	@FindBy(xpath = "//input[@placeholder='Search Department...']")private WebElement Filter_by_Department_SearchBox_On_Manage_Checklist_Page;
 	@FindBy(xpath = "//a[.='Operations']")private WebElement Filter_by_Dynamic_Department_name_On_Manage_Checklist_Page;
-	@FindBy(xpath = "//span[normalize-space()='Create Checklist']")private WebElement Create_Checklist_Button_On_Manage_Checklist_Page;
-	@FindBy(id = "createChecklistName")private WebElement CheckList_Name_On_Create_Checklist_Page;
-	@FindBy(xpath = "(//select[@name='department'])[1]")private WebElement Property_Dropdown_On_Create_Checklist_Page;
-	@FindBy(xpath = "(//select[@name='department'])[2]")private WebElement Department_Dropdown_On_Create_Checklist_Page;
-	@FindBy(xpath = "//input[@name='Section Name']")private WebElement Section_Name_TextBox_On_Create_Checklist_Page;
-	@FindBy(xpath = "//input[@placeholder='Enter Question Name']")private WebElement Question_Name_TextBox_On_Create_Checklist_Page;
-	@FindBy(xpath = "//span[.='Select Response']")private WebElement Select_Response_On_Create_Checklist_Page;
-	@FindBy(xpath = "//a[.='Text Field']")private WebElement Select_Response_TextField_On_Create_Checklist_Page;
+	@FindBy(xpath = "//button[@id='createChecklistDropdown']")private WebElement Create_Checklist_Button_On_Manage_Checklist_Page;
+	@FindBy(xpath = "//input[@placeholder='Enter Checklist Name']")private WebElement CheckList_Name_On_Create_Checklist_Page;
+	@FindBy(xpath = "//div[contains(@class,'ng-select-container') and .//div[normalize-space()='Select Property']]")private WebElement Property_Dropdown_On_Create_Checklist_Page;
+	@FindBy(xpath = "//div[contains(@class,'ng-select-container') and .//div[normalize-space()='Select Department']]")private WebElement Department_Dropdown_On_Create_Checklist_Page;
+	@FindBy(xpath = "//input[@placeholder='Section Name']")private WebElement Section_Name_TextBox_On_Create_Checklist_Page;
+	
+	
+	
+	
+	
+	@FindBy(xpath = "//input[@placeholder='Enter Question']")private WebElement Question_Name_TextBox_On_Create_Checklist_Page;
+	@FindBy(xpath = "//span[normalize-space()='Select Response Type']")private WebElement Select_Response_On_Create_Checklist_Page;
+	@FindBy(xpath = "//a[normalize-space()='Text Field']")private WebElement Select_Response_TextField_On_Create_Checklist_Page;
 	@FindBy(xpath = "//a[normalize-space()='Digital Signature']")private WebElement Select_Response_Digital_Signature_On_Create_Checklist_Page;
 	@FindBy(xpath = "//a[.='Multiple Choice']")private WebElement Select_Response_Multiple_Choice_On_Create_Checklist_Page;
-	@FindBy(xpath = "//img[@alt='checkbox check']")private WebElement Description_CheckBox_On_Create_Checklist_Page;
-	@FindBy(xpath = "//textarea[@placeholder='Enter Description']")private WebElement Description_TextBox_On_Create_Checklist_Page;
-	@FindBy(xpath = "//div[@class='img-box']//img[@alt='Add button']")private WebElement Add_Question_Icon_On_Create_Checklist_Page;
-	@FindBy(xpath = "//a[@title='Add new Section']//img[@alt='Add']")private WebElement Add_New_Section_Icon_On_Create_Checklist_Page;
-	@FindBy(xpath = "//div[contains(@class,'full-modal modal')]//div[@class='modal-footer']//span[.='Next']")private WebElement Next_Button_On_Create_Checklist_Page;
-	@FindBy(xpath = "//span[normalize-space()='Create Checklist']")private WebElement Create_Checklist_Button_On_Checklist_Summery_Page;
-	@FindBy(xpath = "//button[@id='backClicked']")private WebElement Ok_Button_On_Create_Checklist_Confirmation_Page;
+	@FindBy(xpath = "//input[@id='descCheck00']")private WebElement Description_CheckBox_On_Create_Checklist_Page;
+	@FindBy(xpath = "//textarea[@placeholder='Enter Description Details']")private WebElement Description_TextBox_On_Create_Checklist_Page;
+	@FindBy(xpath = "//button[normalize-space()='Add Question']")private WebElement Add_Question_Icon_On_Create_Checklist_Page;
+	@FindBy(xpath = "//span[@class='fw-semibold']")private WebElement Add_New_Section_Icon_On_Create_Checklist_Page;
+	@FindBy(xpath = "//button[@type='button' and normalize-space()='Next']")private WebElement Next_Button_On_Create_Checklist_Page;
+	@FindBy(xpath = "//button[normalize-space()='Create Checklist']")private WebElement Create_Checklist_Button_On_Checklist_Summery_Page;
+	@FindBy(xpath = "//button[normalize-space()='OK']")private WebElement Ok_Button_On_Create_Checklist_Confirmation_Page;
 	@FindBy(xpath = "//span[@title='November Checklist Of Bowling Asset']")private WebElement Dynamic_Name_On_Manage_Checklist_Page;
 	@FindBy(xpath = "//span[normalize-space()='Edit Checklist']")private WebElement Edit_Checklist_Button_On_Manage_Checklist_Info_Page;
-	@FindBy(xpath = "//span[normalize-space()='Manage Schedules']")private WebElement Manage_Schedule_Button;
-	@FindBy(xpath = "//label[@for='8658check']")private WebElement Dynamic_Radio_Button_On_Manage_Schedule_Page;
+	@FindBy(xpath = "//button[normalize-space()='Manage Schedules']")private WebElement Manage_Schedule_Button;
+	@FindBy(xpath = "//label[starts-with(@for,'check-')]//img[@alt='unchecked']")private WebElement Dynamic_Radio_Button_On_Manage_Schedule_Page;
 	@FindBy(xpath = "//span[normalize-space()='Print QR Code']")private WebElement Print_QR_Code_Button_On_Manage_Schedule;
 	@FindBy(xpath = "//button[normalize-space()='Ok']")private WebElement Ok_Button_On_Schedule_QR_Not_Mandatory;
-	@FindBy(xpath = "(//span[contains(text(), 'Redemption Audit')])[1]")private WebElement Dynamic_Schedule_Name_On_Manage_Schedule_Page;
+	@FindBy(xpath = "//span[contains(@class,'details-link')[1]")private WebElement Dynamic_Schedule_Name_On_Manage_Schedule_Page;
 	@FindBy(xpath = "//span[normalize-space()='Edit Schedule']")private WebElement Edit_Schedule_Button_On_Manage_Schedule_InfoPage;
+	
+	
+	
+	
+	
+	
+	
 	@FindBy(xpath ="//span[normalize-space()='Select Property']")private WebElement Filter_By_Property_On_Manage_Schedule_Page;
 	@FindBy(xpath = "(//input[@id='custom'])[1]")private WebElement Filter_By_Property_SearchBox_On_Manage_Schedule_Page;
 	@FindBy(xpath = "//a[normalize-space()='Xtreme Arcade & Bowling Zone']")private WebElement Filter_By_Dynamic_Property_Name_On_Manage_Schedule_Page;
-	@FindBy(xpath = "//input[@placeholder='Schedule Name']")private WebElement Filter_By_Schdeule_Name__On_Manage_Schedule_Page;
-	@FindBy(xpath = "//input[@placeholder='Checklist Name']")private WebElement Filter_By_Checklist_Name_On_Manage_Schedule_Page;
-	@FindBy(xpath = "//span[normalize-space()='Select Assigned To']")private WebElement Filter_By_Assigned_To_On_Manage_Schedule_Page;
-	@FindBy(xpath = "(//input[@id='custom'])[3]")private WebElement Filter_By_Assigned_To_SearchBox_On_Manage_Schedule_Page;
-	@FindBy(xpath = "//a[normalize-space()='Abdulla']")private WebElement Filter_By_Dynamic_Assigned_To_Name_On_Manage_Schedule_Page;
-	@FindBy(xpath = "//span[normalize-space()='Create Schedule']")private WebElement Create_Schedule_Button_On_Manage_Schedule_Page;
-	@FindBy(xpath = "//select[@formcontrolname='property']")private WebElement Property_Dropdown_On_Create_Schedule_Page;
-	@FindBy(xpath = "//select[@formcontrolname='inspection']")private WebElement Inspection_Dropdown_On_Create_Schedule_Page;
-	@FindBy(xpath = "//select[@formcontrolname='location']")private WebElement Location_Dropdown_On_Create_Schedule_Page;
-	@FindBy(xpath = "//input[@formcontrolname='name']")private WebElement Schedule_Name_TextBox_On_Create_Schedule_Page;
-	@FindBy(xpath = "//label[@for='transferType']//span[@class='slider']")private WebElement Schedule_Is_ENdles_Slider_On_Create_Schedule_Page;
-	@FindBy(xpath = "//select[@class='form-control ng-valid ng-touched ng-dirty']")private WebElement Select_Frequency_Dropdown_On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[normalize-space()='Daily']")private WebElement Select_Daily_Frequency__On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[normalize-space()='Once']")private WebElement Select_Once_Frequency_On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[normalize-space()='Monthly']")private WebElement Select_Monthly_Frequency_On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[normalize-space()='Monthly']")private WebElement Select_Custom_Frequency_On_Create_Schedule_Page;
-	@FindBy(xpath = "//input[@formcontrolname='frequencyNumber']")private WebElement Select_Response_Type_Frequency_TextField_On_Create_Schedule_Page;
-	@FindBy(xpath = "//span[.='Select Measurement']")private WebElement Select_Measurement_Button_On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[.='Day']")private WebElement Select_Day_Measurement_Button_On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[.='Week']")private WebElement Select_Week_Measurement_Button_On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[.='Month']")private WebElement Select_Month_Measurement_Button_On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[.='Year']")private WebElement Select_Year_Measurement_Button_On_Create_Schedule_Page;
-	@FindBy(xpath = "//a[.='Custom (Days)']")private WebElement Select_Custom_Days_Frequency_On_Create_Schedule_Page;
-	@FindBy(xpath = "//label[normalize-space()='Monday']")private WebElement Select_Dynamic_Day_Custom_Days_Frequency_On_Create_Schedule_Page;
+	@FindBy(xpath = "//input[@id='schedule']")private WebElement Filter_By_Schdeule_Name__On_Manage_Schedule_Page;
+	@FindBy(xpath = "//input[@id='checklist']")private WebElement Filter_By_Checklist_Name_On_Manage_Schedule_Page;
+	@FindBy(xpath = "//div[@aria-expanded='true']")private WebElement Filter_By_Assigned_To_On_Manage_Schedule_Page;
+	@FindBy(xpath = "//input[@placeholder='Search User...']")private WebElement Filter_By_Assigned_To_SearchBox_On_Manage_Schedule_Page;
+	@FindBy(xpath = "//span[@class='fw-medium text-dark lh-sm mb-1'][normalize-space()='MS Dhoni']")private WebElement Filter_By_Dynamic_Assigned_To_Name_On_Manage_Schedule_Page;
+	@FindBy(xpath = "//button[@class='h-button'][normalize-space()='Create Schedule']")private WebElement Create_Schedule_Button_On_Manage_Schedule_Page;
+	@FindBy(xpath = "//div[contains(@class,'ng-select-container')][.//div[normalize-space()='Select Property']]")private WebElement Property_Dropdown_On_Create_Schedule_Page;
+	@FindBy(xpath = "//div[normalize-space()='Select Inspection']/ancestor::div[contains(@class,'ng-select-container')]")private WebElement Inspection_Dropdown_On_Create_Schedule_Page;
+	@FindBy(xpath = "//div[normalize-space()='Select location']/ancestor::div[contains(@class,'ng-select-container')]")private WebElement Location_Dropdown_On_Create_Schedule_Page;
+	@FindBy(xpath = "//input[@placeholder='Enter Schedule Name']")private WebElement Schedule_Name_TextBox_On_Create_Schedule_Page;
+	@FindBy(xpath = "//input[@formcontrolname='isEndless']")private WebElement Schedule_Is_ENdles_Slider_On_Create_Schedule_Page;
+	@FindBy(xpath = "//div[normalize-space()='Select frequency']/ancestor::div[contains(@class,'ng-select-container')]")private WebElement Select_Frequency_Dropdown_On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[normalize-space()='Daily']")private WebElement Select_Daily_Frequency__On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[normalize-space()='Once']")private WebElement Select_Once_Frequency_On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[normalize-space()='Monthly']")private WebElement Select_Monthly_Frequency_On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[normalize-space()='Custom']")private WebElement Select_Custom_Frequency_On_Create_Schedule_Page;
+	@FindBy(xpath = "//input[@placeholder='Frequency']")private WebElement Select_Response_Type_Frequency_TextField_On_Create_Schedule_Page;
+	@FindBy(xpath = "//div[normalize-space()='Select Measurement']/ancestor::div[contains(@class,'ng-select-container')]")private WebElement Select_Measurement_Button_On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[normalize-space()='Day']")private WebElement Select_Day_Measurement_Button_On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[.='Week']")private WebElement Select_Week_Measurement_Button_On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[.='Month']")private WebElement Select_Month_Measurement_Button_On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[.='Year']")private WebElement Select_Year_Measurement_Button_On_Create_Schedule_Page;
+	@FindBy(xpath = "//span[normalize-space()='Custom(Days)']")private WebElement Select_Custom_Days_Frequency_On_Create_Schedule_Page;
+	@FindBy(xpath = "//input[@type='checkbox' and @value='Monday']")private WebElement Select_Dynamic_Day_Custom_Days_Frequency_On_Create_Schedule_Page;
 	@FindBy(xpath = "//label[normalize-space()='QR Scan Mandatory']")private WebElement QR_Scan_Mandatory_CheckBox_On_Create_Schedule_Page;
-	@FindBy(xpath = "//label[@for='check111']")private WebElement Random_Mandatory_Photo_CheckBox_On_Create_Schedule_Page;
-	@FindBy(xpath = "//form[@name='scheduleAdd']//div[@class='row']//button[@id='custom']")private WebElement Assignee_Dropdown_On_Create_Schedule_Page;
+	@FindBy(xpath = "//label[normalize-space()='Random Mandatory Photo']/preceding-sibling::input[@type='checkbox']")private WebElement Random_Mandatory_Photo_CheckBox_On_Create_Schedule_Page;
+	@FindBy(xpath = "//div[normalize-space()='Select User']/ancestor::div[contains(@class,'ng-select-container')]")private WebElement Assignee_Dropdown_On_Create_Schedule_Page;
 	@FindBy(xpath = "//label[@for='transferType2']//span[@class='slider']")private WebElement Reminder_Slider_On_Create_Schedule_Page;
 	@FindBy(xpath = "//select[@formcontrolname='reminderTime']")private WebElement Remind_Time_dropdown_On_Create_Schedule_Page;
-	@FindBy(xpath = "//span[normalize-space()='Create Schedule']")private WebElement Create_Schedule_Button_On_Create_Schedule_Page;
-	@FindBy(xpath = "//button[@id='backClicked']")private WebElement Ok_Button_On_Create_Schedule_Confirmation_Page;
+	@FindBy(xpath = "//button[contains(normalize-space(.),'Create Schedule')]")private WebElement Create_Schedule_Button_On_Create_Schedule_Page;
+	@FindBy(xpath = "//div[contains(@class,'modal-footer')]//button[normalize-space()='OK']")private WebElement Ok_Button_On_Create_Schedule_Confirmation_Page;
 	@FindBy(xpath = "//span[normalize-space()='Back']")private WebElement  Back_Button;
 	@FindBy(xpath = "//button[@class='button btn-primary ']//span[.='Update Checklist']")private WebElement UpDateChecklistButton_OnChecklistSummeryPage;
 //	@FindBy(className = "form-control ng-pristine ng-valid ng-touched")private WebElement SelectFrequencyDropdown;
 	@FindBy(xpath = "//select[@formcontrolname='selectFrequency']")private WebElement FrequencyDropdown;
-	@FindBy(xpath = "//button[@class='button btn-primary']//span[.='Update Schedule']")private WebElement UpdateScheduleButton_OnEditSchdulePage;
-	@FindBy(xpath = "//button[@id='backClicked']")private WebElement OkButton_OnSchedule_details_updated_successfully;
-	@FindBy(xpath = "//ul[@class='row']//button[@id='custom']")private WebElement AssetDropdownOn_CreateSchedulePage;
+	@FindBy(xpath = "//button[contains(normalize-space(.),'Edit Schedule')]")private WebElement UpdateScheduleButton_OnEditSchdulePage;
+	@FindBy(xpath = "(//button[@id='backClicked'])[3]")private WebElement OkButton_OnSchedule_details_updated_successfully;
+	@FindBy(xpath = "//div[normalize-space()='Select Asset']/ancestor::div[contains(@class,'ng-select-container')]")private WebElement AssetDropdownOn_CreateSchedulePage;
 	@FindBy(xpath = "//input[@placeholder='HH:MM']")private WebElement ChecklistDueTime;
 	@FindBy(xpath = "//button[@aria-label='Add a hour']")private WebElement AddHourIcon_InChecklistDueTime;
 	@FindBy(xpath = "//button[@aria-label='Minus a hour']")private WebElement MinusHourIcon_InChecklistDueTime;
@@ -151,14 +176,40 @@ public class Inspections {
 	@FindBy(xpath = "//label[@for='check16']")private WebElement FridayCheckbox;
 	@FindBy(xpath = "//label[@for='check17']")private WebElement SaturdayCheckbox;
 	@FindBy(xpath = "//label[@for='check18']")private WebElement SundayCheckbox;
-	@FindBy(xpath = "//div[@class='filter-button']//li[1]//button[1]")private WebElement FilterByAsset;
-	@FindBy(xpath = "(//input[@id='custom'])[1]")private WebElement FilterByAssetSearchBox;
+	@FindBy(xpath = "//div[@class=\"filter-button\"]//li[2]//button[1]")private WebElement FilterByAsset;
+	@FindBy(xpath = "(//input[@id='custom'])[2]")private WebElement FilterByAssetSearchBox;
 	@FindBy(xpath = "//span[.='Select User']")private WebElement FilterByUser;
 	@FindBy(xpath = "(//input[@id='custom'])[3]")private WebElement FilterByUserSearchBox_OnTodays;
 	@FindBy(xpath = "(//input[@id='custom'])[5]")private WebElement FilterByUserSearchBox_OnPrevious;
+	public WebElement getSearchInspectionFiled_OnScheduleForm() {
+		return SearchInspectionFiled_OnScheduleForm;
+	}
+
 	@FindBy(xpath = "(//input[@id='custom'])[3]")private WebElement FilterByUserSearchBox_OnUpcoming;
 	@FindBy(xpath = "//span[.='Filter']")private WebElement FilterButton_OnPrevious;
+	@FindBy(xpath = "//input[@placeholder='Search Inspection...']")private WebElement SearchInspectionFiled_OnScheduleForm;
 	
+	
+	
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
+	public WebElement getFilterBy_ChecklistType() {
+		return FilterBy_ChecklistType;
+	}
+	public WebElement getInspectionButton() {
+		return InspectionButton;
+	}
+	public WebElement getDepartmentTextField() {
+		return DepartmentTextField;
+	}
+	public WebElement getSearchDepartmentTextField() {
+		return SearchDepartmentTextField;
+	}
+	public By getBackdrop() {
+		return backdrop;
+	}
 	public WebElement getFilterButton_OnPrevious() {
 		return FilterButton_OnPrevious;
 	}
@@ -565,9 +616,40 @@ public class Inspections {
 	
 	
 	//Business Logic
+	
+	public void ClickOn_InspectionButton()
+	{
+		
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+	    // Wait until the backdrop disappears
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(
+	            By.cssSelector("div.backdrop")));
+
+	    // Wait until the button is clickable
+	    wait.until(ExpectedConditions.elementToBeClickable(InspectionButton));
+
+	    // Click the button
+	    InspectionButton.click();
+//		InspectionButton.click();
+	}
 	public void ClickOn_Previous_Button()
 	{
-		Previous_Button.click();
+
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+//	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+	    // Wait for overlay to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+
+	    WebElement btn = wait.until(
+	            ExpectedConditions.elementToBeClickable(Previous_Button)
+	    );
+
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+//		Previous_Button.click();
 	}
 	public void ClickOn_Today_Button()
 	{
@@ -603,7 +685,19 @@ public class Inspections {
 	}
 	public void ClickOn_Filter_Icon()
 	{
-		Filter_Icon.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+//	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+	    // Wait for overlay to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+
+	    WebElement btn = wait.until(
+	            ExpectedConditions.elementToBeClickable(Filter_Icon)
+	    );
+
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+//		Filter_Icon.click();
 	}
 	public void ClickOn_Filter_By_Property()
 	{
@@ -652,7 +746,17 @@ public class Inspections {
 	}
 	public void ClickOn_Manage_Checklist_Button()
 	{
-		Manage_Checklist_Button.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+	    // Wait for overlay to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+
+	    WebElement btn = wait.until(
+	            ExpectedConditions.elementToBeClickable(Manage_Checklist_Button)
+	    );
+
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+//		Manage_Checklist_Button.click();
 	}
 	public void ClickOn_Dynamic_Radio_Button_Name_On_Checklist_Page()
 	{
@@ -784,6 +888,8 @@ public class Inspections {
 	}
 	public void CLiCKOn_Ok_Button_On_Create_Checklist_Confirmation_Page()
 	{
+		WebDriver_Utility wb = new WebDriver_Utility();
+		wb.ExplicitlyWait(Ok_Button_On_Create_Checklist_Confirmation_Page);
 		Ok_Button_On_Create_Checklist_Confirmation_Page.click();
 	}
 	public void ClickOn_Dynamic_Name_On_Manage_Checklist_Page()
@@ -794,9 +900,26 @@ public class Inspections {
 	{
 		Edit_Checklist_Button_On_Manage_Checklist_Info_Page.click();
 	}
+	  // ✅ DECLARE backdrop
+    private By backdrop =
+            By.xpath("//div[contains(@class,'backdrop')]");
+
 	public void ClickOn_Manage_Schedule_Button()
 	{
-		Manage_Schedule_Button.click();
+		
+		    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+//		    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+		    // Wait for overlay to disappear
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+
+		    WebElement btn = wait.until(
+		            ExpectedConditions.elementToBeClickable(Manage_Schedule_Button)
+		    );
+
+		    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+//		Manage_Schedule_Button.click();
 	}
 	public void ClickOn_Dynamic_Radio_Button_On_Manage_Schedule_Page()
 	{
@@ -852,12 +975,30 @@ public class Inspections {
 	}
 	public void ClickOn_Create_Schedule_Button_On_Manage_Schedule_Page()
 	{
-		Create_Schedule_Button_On_Manage_Schedule_Page.click();
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+		    // Wait for the loading backdrop to disappear
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+
+		    // Wait until the PageFactory element is visible
+		    wait.until(ExpectedConditions.visibilityOf(Create_Schedule_Button_On_Manage_Schedule_Page));
+
+		    // Wait until it is clickable
+		    wait.until(ExpectedConditions.elementToBeClickable(Create_Schedule_Button_On_Manage_Schedule_Page));
+
+		    // Click using JavaScript
+		    ((JavascriptExecutor) driver).executeScript(
+		            "arguments[0].click();",
+		            Create_Schedule_Button_On_Manage_Schedule_Page);
 	}
 	public void ClickOn_Property_Dropdown_On_Create_Schedule_Page(String Text)
 	{
-		Select sel=new Select(Property_Dropdown_On_Create_Schedule_Page);
-		sel.selectByVisibleText(Text);
+//		Select sel=new Select(Property_Dropdown_On_Create_Schedule_Page);
+//		sel.selectByVisibleText(Text);
+		Property_Dropdown_On_Create_Schedule_Page.click();
+		Filter_By_Property_SearchBox.sendKeys("India");
+		driver.findElement(By.xpath("//ng-dropdown-panel//div[@role='option'][.//span[normalize-space()='INDIA']]")).click();
+		
 	}
 	public void ClickOn_Inspection_Dropdown_On_Create_Schedule_Page(String Text)
 	{
@@ -866,9 +1007,11 @@ public class Inspections {
 	}
 	public void ClickOn_Location_Dropdown_On_Create_Schedule_Page(String Text)
 	{
-		Select sel=new Select(Location_Dropdown_On_Create_Schedule_Page);
-		sel.selectByVisibleText(Text);
-	}
+//		Select sel=new Select(Location_Dropdown_On_Create_Schedule_Page);
+//		sel.selectByVisibleText(Text);
+		Location_Dropdown_On_Create_Schedule_Page.click();
+		driver.findElement(By.xpath("//ng-dropdown-panel//div[@role='option'][.//span[normalize-space()='Andheri West']]")).click();
+		}
 	public void ClickON_Schedule_Name_TextBox_On_Create_Schedule_Page(String Schedule_Name)
 	{
 		Schedule_Name_TextBox_On_Create_Schedule_Page.sendKeys(Schedule_Name);
@@ -1032,7 +1175,7 @@ public class Inspections {
 	public void End_Date_OnCreateSchedulePage(WebDriver driver) throws Throwable {
 		// Click on the End Date input field to open the date picker
 		LocalDate today = LocalDate.now();
-		LocalDate endDate = today.plusDays(3);
+		LocalDate endDate = today.plusDays(1);
 
 		String targetMonthYear = endDate.format(DateTimeFormatter.ofPattern("MMM-yyyy"));
 		String targetDay = String.valueOf(endDate.getDayOfMonth());
@@ -1246,7 +1389,26 @@ public class Inspections {
 	}
 	public void CLickOn_UpcomingButton()
 	{
-		UpcomingButton.click();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+//    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+    // Wait for overlay to disappear
+    wait.until(ExpectedConditions.invisibilityOfElementLocated(backdrop));
+
+    WebElement btn = wait.until(
+            ExpectedConditions.elementToBeClickable(UpcomingButton)
+    );
+
+    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+		
+//		UpcomingButton.click();
+	}
+	
+	public void SearchInspectionFiled_OnScheduleForm()
+	{
+		SearchInspectionFiled_OnScheduleForm.sendKeys("Bar Opening");
+		driver.findElement(By.xpath("//ng-dropdown-panel//div[@role='option'][.//span[normalize-space()='Bar Opening Checklist']]")).click();
 	}
 	
 	public void SelectTomorrowStartadte(WebDriver driver) throws Throwable

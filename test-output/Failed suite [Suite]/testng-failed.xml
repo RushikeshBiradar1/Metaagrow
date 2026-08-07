@@ -6,10 +6,9 @@
   </listeners>
   <test thread-count="5" name="Test(failed)(failed)">
     <classes>
-      <class name="com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest">
+      <class name="com.Metaagrow.Meter.MeterTest">
         <methods>
           <include name="afterMethod"/>
-          <include name="SendEmail"/>
           <include name="afterTest"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
@@ -17,8 +16,9 @@
           <include name="beforeClass"/>
           <include name="beforeTest"/>
           <include name="beforeMethod"/>
+          <include name="EditMeterTest_TC_M10"/>
         </methods>
-      </class> <!-- com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest -->
+      </class> <!-- com.Metaagrow.Meter.MeterTest -->
     </classes>
   </test> <!-- Test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Suite]] -->

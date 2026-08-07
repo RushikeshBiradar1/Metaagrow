@@ -1,5 +1,7 @@
 package com.MetaaGrow.ObjectRepository;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,7 +37,7 @@ public class Surveys_And_Feedback {
 	@FindBy(xpath = "//input[@formcontrolname='mobilemandatory']")private WebElement Mobile_Mandatory_CheckBox;
 	@FindBy(xpath = "(//span[@class='slider'])[2]")private WebElement Slider_Of_Single_And_Multiple_Question;
 	@FindBy(xpath = "//input[@name='groupName']")private WebElement Section_Name_TextField;
-	@FindBy(xpath = "(//input[@placeholder='Question'])[1]")private WebElement Question_Text_Field;
+	@FindBy(xpath = "(//input[@placeholder='Question'])")private WebElement Question_Text_Field;
 	@FindBy(xpath = "(//input[@placeholder='Question'])[2]")private WebElement Question2_TextField;
 	public WebElement getQuestion2_TextField() {
 		return Question2_TextField;
@@ -46,7 +48,7 @@ public class Surveys_And_Feedback {
 	@FindBy(xpath = "//img[@alt='Down']")private WebElement Add_New_Section_HideDropdown_Icon;
 	@FindBy(xpath = "(//input[@style='width: 18px;height: 18px;'])[2]")private WebElement Remove_Question_Icon;
 	@FindBy(xpath = "//span[normalize-space()='Cancel']")private WebElement cancel_button_on_create_survey_page;
-	@FindBy(xpath = "//span[.='Create']")private WebElement Create_button_on_create_survey_page;
+	@FindBy(xpath = "//span[.='Create Survey']")private WebElement Create_button_on_create_survey_page;
 	@FindBy(xpath = "//input[@placeholder='Enter Question']")private WebElement Single_Question_TExtField_For_Feedback;
 	@FindBy(xpath = "//span[.='Close']")private WebElement Close_Button_On_Create_SurveyPage;
 
@@ -56,7 +58,20 @@ public class Surveys_And_Feedback {
 	@FindBy(xpath = "(//a[contains(text(),'View Responses')])[1]")private WebElement SurveyViewResponsesLinkText;
 	@FindBy(xpath = "//button[@class='grad-bg add']")private WebElement DownloadButtonOnViewResponsesPage;
 	@FindBy(xpath = "//button[@id='dismissOk']")private WebElement OkButton_OnCreateSurveyPage;
+	@FindBy(xpath = "//select[contains(@class,'createChecklistDepartment')]")private List<WebElement> SelectResponseTypeDropdown;
+	@FindBy(xpath = "//span[.='Update Survey']")private WebElement UpdateSurveyButton;
+	@FindBy(xpath = "//input[@placeholder='Title ']")private WebElement FilterByTitle;
 	
+	
+	public WebElement getFilterByTitle() {
+		return FilterByTitle;
+	}
+	public WebElement getUpdateSurveyButton() {
+		return UpdateSurveyButton;
+	}
+	public List<WebElement> getSelectResponseTypeDropdown() {
+		return SelectResponseTypeDropdown;
+	}
 	public WebElement getOkButton_OnCreateSurveyPage() {
 		return OkButton_OnCreateSurveyPage;
 	}
@@ -334,5 +349,21 @@ public class Surveys_And_Feedback {
 	{
 		OkButton_OnCreateSurveyPage.click();
 	}
+	
+	// Select different response types for each question
+	public void selectResponseTypeByIndex(int index, String text) {
+        Select select = new Select(SelectResponseTypeDropdown.get(index));
+        select.selectByVisibleText(text);
+    }
+	public void ClickOn_UpdateSurveyButton()
+	
+	{
+		UpdateSurveyButton.click();
+	}
+	public void clickOn_FilterByTitle(String enter_SurveyTitle)
+	{
+		FilterByTitle.sendKeys(enter_SurveyTitle);
+	}
+
 	
 }

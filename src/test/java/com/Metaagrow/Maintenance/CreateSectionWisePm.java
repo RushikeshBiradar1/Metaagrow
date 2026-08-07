@@ -29,7 +29,7 @@ import org.openqa.selenium.WebDriver;
 	public class CreateSectionWisePm {	    
 	    /* --------- LOGIN / HEADER DETAILS --------- */
 	    private static final String BASE_URL   = "https://myworld.metaagrow.com/login-view";
-	    private static final String USERNAME   = "james.willaim@gmail.com";
+	    private static final String USERNAME   = "dhoni07@gmail.com";
 	    private static final String PASSWORD   = "Metaa@123";
 	 
 	    private static final String PROPERTY   = "WonderWhirl-Theme Park (Mumbai)";
@@ -70,9 +70,9 @@ import org.openqa.selenium.WebDriver;
 	            System.out.println("1??  Opening login page …");
 	            driver.get(BASE_URL);
 	            driver.manage().window().maximize();
-	            driver.findElement(By.id("username")).sendKeys(USERNAME);
-	            driver.findElement(By.id("password")).sendKeys(PASSWORD);
-	            driver.findElement(By.cssSelector("button.btn-primary")).click();
+	            driver.findElement(By.id("email")).sendKeys(USERNAME);
+	            driver.findElement(By.id("password-input")).sendKeys(PASSWORD);
+	            driver.findElement(By.xpath("//button[@type='submit']")).click();
 	            dismissIfPresent(wait, By.xpath("//button[text()='Later']"), "   • subscription pop-up closed");
 	 
 	            /* 1??  Select one property From Overall Property Dropdown ------------------------------------------------ */

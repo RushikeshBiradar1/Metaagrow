@@ -9,7 +9,15 @@ public class Reverse_String {
 	public static void main(String[] args) {
 
 		String a="MY NAME IS Rushikesh";
+//		for(int i=a.length()-1;i>=0;i--)
+//		{
+//			System.out.print(a.charAt(i));
+//		}
+		
+//		String rev = new StringBuilder(a).reverse().toString();
+//		System.out.println(rev);
 		for(int i=a.length()-1;i>=0;i--)
+			
 		{
 			System.out.print(a.charAt(i));
 		}

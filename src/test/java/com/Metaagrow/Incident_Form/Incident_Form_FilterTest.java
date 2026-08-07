@@ -259,8 +259,7 @@ driver.findElement(By.xpath("(//button[normalize-space()='Ok'])[1]"));
     inc.Clickon_CheckedByDropdown("ADAMS");
     inc.ClickOn_ReviewedByDropdown("Biradar");
     inc.ClickOn_ActionTextField("Yes hospitalize");
-    
-    
+   
 	Thread.sleep(8000);
 	inc.ClickOn_CancelButton();
 	}

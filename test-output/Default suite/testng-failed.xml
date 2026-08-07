@@ -3,19 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Metaagrow.Maintenance.CreateMaintenanceTest">
+      <class name="com.Metaagrow.Inspetions.CreateInspections">
         <methods>
           <include name="afterMethod"/>
           <include name="afterTest"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
-          <include name="createPMWithMndatoryField_PM28"/>
           <include name="afterSuite"/>
           <include name="beforeClass"/>
           <include name="beforeTest"/>
+          <include name="ScheduleNew_InspectionTest_TC_I3"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.Metaagrow.Maintenance.CreateMaintenanceTest -->
+      </class> <!-- com.Metaagrow.Inspetions.CreateInspections -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

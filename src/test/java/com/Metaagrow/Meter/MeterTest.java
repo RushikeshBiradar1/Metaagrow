@@ -5,9 +5,11 @@ import static org.testng.Assert.assertTrue;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -15,6 +17,7 @@ import org.testng.annotations.Test;
 
 import com.MetaaGrow.Generic_Utility.BaseClass;
 import com.MetaaGrow.Generic_Utility.Excel_Utility;
+import com.MetaaGrow.Generic_Utility.Java_Utility;
 import com.MetaaGrow.Generic_Utility.WebDriver_Utility;
 import com.MetaaGrow.ObjectRepository.Dates;
 import com.MetaaGrow.ObjectRepository.Footer_and_Header_Common;
@@ -50,7 +53,7 @@ public class MeterTest extends BaseClass{
 		hp.ClickOnMetersLinkText();
 		Meters meter = new Meters(driver);
 		meter.ClickOn_InactivePage_Button();
-		Assert.assertTrue(driver.findElement(By.xpath("(//span[.='Inactive'])[1]")).isDisplayed(), "Meter is not inactive");
+		Assert.assertTrue(driver.findElement(By.xpath(" (//button[.='Inactive '])[1]")).isDisplayed(), "Meter is not inactive");
 	}
 
 	@Test(enabled=false)
@@ -153,14 +156,14 @@ public class MeterTest extends BaseClass{
 		Meters meter = new Meters(driver);
 		meter.ClickOn_Filter_Icon();
 		meter.ClickOn_Filter_By_Asset();
-		meter.ClickOn_Filter_By_Meter_Name_TextField("26 Check Lane 4");
+		meter.ClickOn_Filter_By_Meter_Name_TextField("Karting AC unit");
 		meter.ClickOn_Filter_Apply_Button();
-		Assert.assertTrue(driver.findElement(By.xpath("//span[.='26 Check Lane 4']")).isDisplayed(), "selected meter is not showing on listing page");
+		Assert.assertTrue(driver.findElement(By.xpath("//span[.='Karting AC unit']")).isDisplayed(), "selected meter is not showing on listing page");
 
 		
 	}
 	
-	@Test(enabled=false)
+	@Test()
 	public void ActiverPageClearFilterTest_TC_M7() throws Throwable
 	{
 		LoginPage lp = new LoginPage(driver);
@@ -174,12 +177,14 @@ public class MeterTest extends BaseClass{
 		Meters meter = new Meters(driver);
 		meter.ClickOn_Filter_Icon();
 		meter.ClickOn_Filter_By_Asset();
-		meter.ClickOn_Filter_By_Meter_Name_TextField("26 Check Lane 4");
+		meter.ClickOn_Filter_By_Meter_Name_TextField("Karting AC unit");
 		meter.ClickOn_Filter_Apply_Button();
-		Assert.assertTrue(driver.findElement(By.xpath("//span[.='26 Check Lane 4']")).isDisplayed(), "selected meter is not showing on listing page");
+		Assert.assertTrue(driver.findElement(By.xpath("//span[.='Karting AC unit']")).isDisplayed(), "selected meter is not showing on listing page");
 
 		meter.ClickOn_Filter_Icon();
 		meter.ClickOn_Clear_Filter_Button();
+		Assert.assertTrue(driver.findElement(By.xpath("//span[.='OMNI Meter']")).isDisplayed(), "selected meter is not showing on listing page");
+
 	}
 	
 	@Test(priority = 8)
@@ -194,11 +199,16 @@ public class MeterTest extends BaseClass{
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMetersLinkText();
 		Meters meter = new Meters(driver);
-		driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
+		driver.findElement(By.xpath("//span[.='OMNI Meter']")).click();
 		
-		meter.ClickOn_EnterReadingtextField("2005");Thread.sleep(6000);
+		meter.ClickOn_EnterReadingtextField("2005");Thread.sleep(2000);
 		meter.Clickon_AddreadingButton();
-		Thread.sleep(6000);
+		Assert.assertTrue(
+			    driver.findElements(By.xpath("//span[contains(text(),'20,051 watt')]")).size() > 0,
+			    "❌ 20,051 watt text is NOT present"
+			);
+
+//		Thread.sleep(6000);
 		
 		
 	}
@@ -215,7 +225,7 @@ public class MeterTest extends BaseClass{
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMetersLinkText();
 		Meters meter = new Meters(driver);
-		driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
+		driver.findElement(By.xpath("//span[.='Karting AC unit']")).click();
 		meter.ClickOn_PrintQRButtonOnInfo();
 	Footer_and_Header_Common footer = new Footer_and_Header_Common(driver);
 	footer.ClickOn_Close_Button();
@@ -234,7 +244,7 @@ public class MeterTest extends BaseClass{
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMetersLinkText();
 		Meters meter = new Meters(driver);
-		driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
+		driver.findElement(By.xpath("//span[.='Karting AC unit']")).click();
 		meter.ClickOn_EditMeter();
 		Thread.sleep(3000);
 		meter.ClickOn_FrequencyOfMeasurementOnEditmeter();
@@ -244,24 +254,30 @@ public class MeterTest extends BaseClass{
 		Thread.sleep(3000);
 		meter.ClickOn_OkButton_OnEditedConfirmation();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		try {
-		    // Wait until the filtered element is visible
-		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body//app-root//div[@class='row']//div[@class='row']//div[@class='row']//li[3]//h6[.='Weekly']")));
-		    
-		    // Assertion to check if the asset name is displayed
-		    Assert.assertTrue(driver.findElement(By.xpath("//body//app-root//div[@class='row']//div[@class='row']//div[@class='row']//li[3]//h6[.='Weekly']")).isDisplayed(), 
-		        "Weekly Frequency is not showing on the Info page");
-		    
-		    System.out.println("Assertion passed: 'Weekly Frequency' is visible on the Info page.");
-		} catch (TimeoutException e) {
-		    // If the element is not visible after waiting, the assertion will fail
-		    Assert.fail("Assertion failed: 'Weekly Frequency' is not visible on the Info page.");
-		} catch (NoSuchElementException e) {
-		    // If the element is not found, fail the test
-		    Assert.fail("Assertion failed: 'Weekly Frequency' element is not found on the Info page.");
-		}
+//		try {
+//		    // Wait until the filtered element is visible
+//		    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body//app-root//div[@class='row']//div[@class='row']//div[@class='row']//li[3]//h6[.='Weekly']")));
+//		    
+//		    // Assertion to check if the asset name is displayed
+//		    Assert.assertTrue(driver.findElement(By.xpath("//body//app-root//div[@class='row']//div[@class='row']//div[@class='row']//li[3]//h6[.='Weekly']")).isDisplayed(), 
+//		        "Weekly Frequency is not showing on the Info page");
+//		    
+//		    System.out.println("Assertion passed: 'Weekly Frequency' is visible on the Info page.");
+//		} catch (TimeoutException e) {
+//		    // If the element is not visible after waiting, the assertion will fail
+//		    Assert.fail("Assertion failed: 'Weekly Frequency' is not visible on the Info page.");
+//		} catch (NoSuchElementException e) {
+//		    // If the element is not found, fail the test
+//		    Assert.fail("Assertion failed: 'Weekly Frequency' element is not found on the Info page.");
+//		}
 		//body//app-root//div[@class="row"]//div[@class="row"]//div[@class="row"]//li[3]//h6[.='Weekly']
+	
+		Assert.assertTrue(driver.findElement(By.xpath("//h6[text()='Weekly']")).isDisplayed());
+
+	
 	}
+	
+	
 	@Test(priority = 11)
 	public void HistoryTabTest_TC_M11() throws Throwable
 	{
@@ -274,7 +290,7 @@ public class MeterTest extends BaseClass{
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMetersLinkText();
 		Meters meter = new Meters(driver);
-		driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
+		driver.findElement(By.xpath("//span[.='Karting AC unit']")).click();
 	
 		meter.ClickOn_HistoryTab();
 		Thread.sleep(5000);
@@ -354,7 +370,7 @@ public class MeterTest extends BaseClass{
 		
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMetersLinkText();
-		driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
+		driver.findElement(By.xpath("//span[.='Karting AC unit']")).click();
 		Meters meter = new Meters(driver);
 		meter.ClickOn_HistoryTab();
 		meter.ClickOn_ExportButton();
@@ -373,7 +389,7 @@ public class MeterTest extends BaseClass{
 		
 		HomePage hp = new HomePage(driver);
 		hp.ClickOnMetersLinkText();
-		driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
+		driver.findElement(By.xpath("//span[.='Karting AC unit']")).click();
 		Meters meter = new Meters(driver);
 		meter.CLickOn_TriggerButtonOnInfo();
 		
@@ -401,7 +417,7 @@ public class MeterTest extends BaseClass{
 	
 
 	@Test(priority = 15)
-	public void AddMeter()
+	public void AddMeterTest_TC_M23()
 	{
 		LoginPage lp = new LoginPage(driver);
 		lp.ClickOn_LoginNotification_Icon(driver);
@@ -413,14 +429,45 @@ public class MeterTest extends BaseClass{
 		hp.ClickOnMetersLinkText();
 //		driver.findElement(By.xpath("//span[normalize-space()='Testing']")).click();
 		Meters mtr = new Meters(driver);
-//		mtr.CLickOn_Add_New_Meter_Button();
-		;
+		mtr.CLickOn_Add_New_Meter_Button();
+		Java_Utility java = new  Java_Utility();
 		
-		
-		
+		int ran = java.getRandomNum();
+		String meterName = "AUtomation Test-Meter" + ran;
+		mtr.CLickOn_Meter_Name_TextField(meterName);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+		wait.until(ExpectedConditions.elementToBeClickable(
+		        By.xpath("//button[contains(@class,'selectFreq')]"))).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(
+		        By.xpath("//li//a[text()='Meter']"))).click();
+		mtr.ClickOn_UOM_Dropdown();
+		mtr.CLickOn_Add_Custom_Unit_TextField("ltr");
+//		new Actions(driver).sendKeys(Keys.ENTER).perform();
+		mtr.ClickOn_Frequency_Measurement_Dropdown();
+		mtr.ClickOn_Monthly_Frequency_Of_Measurement();
+		mtr.Select_Property_DropdowBy_VisibleTextn("Magic Planet");
+//		mtr.ClickOn_Add_Another_Assignee_Icon();
+		wait.until(ExpectedConditions.elementToBeClickable(
+		        By.xpath("(//button[contains(@class,'form-control') and @id='custom'])[5]"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(
+		        By.xpath("//input[@placeholder='Search...']"))).sendKeys("Rishikesh");
+		wait.until(ExpectedConditions.elementToBeClickable(
+		        By.xpath("//a[text()='Select All']"))).click();
+		mtr.CLickOn_Next_Button();
+		mtr.ClickOn_Add_meter_button_on_confirmation_page();
+		mtr.ClickOn_OK_button_on_confirmation_page();
+
+		WebElement meter = wait.until(
+		        ExpectedConditions.visibilityOfElementLocated(
+		                By.xpath("//li[@class='wdth-150 text-wt-drk tableName']//span[text()='" + meterName + "']"))
+		);
+
+		Assert.assertTrue(meter.isDisplayed(), "Meter is NOT displayed in listing page");
 	}
 	
-	@Test(priority = 8)
+	@Test(enabled=false)
 	public void AddReadingTest__M8() throws Throwable {
 	    LoginPage lp = new LoginPage(driver);
 	    lp.ClickOn_LoginNotification_Icon(driver);

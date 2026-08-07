@@ -285,7 +285,7 @@ public class FilterTest extends BaseClass {
 		    Inspections inspect = new Inspections(driver);
 		    inspect.ClickOn_Previous_Button();
 
-		    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+		    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		    // Wait for any loading indicator (like a spinner) to disappear
 		    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("backdrop"))); // Adjust the selector based on the actual loading element
 
@@ -306,8 +306,8 @@ public class FilterTest extends BaseClass {
 		    inspect.ClickOn_Filter_By_Apply_Button();
 		    
 		    // Wait for the asset name to be displayed on today's list
-		    WebElement Asset_NameOnTodays = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(), '" + Searched_AssetName + "')])[3]")));
-
+		    WebElement Asset_NameOnTodays = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[@title='Bowling Lane 1'][normalize-space()='Bowling La..'])[1]")));
+                                                                                                              
 		    // Assert that the asset name is displayed
 		    Assert.assertTrue(Asset_NameOnTodays.isDisplayed(), "Asset Name is not showing in List");
 		
@@ -329,14 +329,14 @@ public class FilterTest extends BaseClass {
 		    Inspections inspect = new Inspections(driver);
 		    inspect.ClickOn_Previous_Button();
 
-		    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+		    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		    // Wait for any loading indicator (like a spinner) to disappear
-		    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("backdrop"))); // Adjust the selector based on the actual loading element
+//		    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("backdrop"))); // Adjust the selector based on the actual loading element
 
 		    inspect.ClickOn_Filter_Icon();
 		  
 		    
-		    inspect.CLickOn_FilterByAsset();
+		  //  inspect.CLickOn_FilterByAsset();
 		    String schedule_Name ="Bowling Lane Checklist-Bowling Lane 1";
 			inspect.ClickOn_Filter_By_Schdeule_Name__On_Manage_Schedule_Page(schedule_Name);
 		    
@@ -350,7 +350,7 @@ public class FilterTest extends BaseClass {
 		
 		    // Explicitly wait until at least one element with the correct user appears
 		    WebElement filteredUser = wait.until(ExpectedConditions.presenceOfElementLocated(
-		        By.xpath("//span[contains(@title, '" + schedule_Name + "')]")
+		        By.xpath("//li[contains(@title, '" + schedule_Name + "')]")
 		    ));
 
 		    // Optionally check if user is in the title
@@ -442,7 +442,7 @@ public class FilterTest extends BaseClass {
 		    inspect.ClickOn_Filter_By_Apply_Button();
 		    
 		    // Wait for the asset name to be displayed on today's list
-		    WebElement Asset_NameOnTodays = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(),'"+Upcoming_AssetName+"')])[5]")));
+		    WebElement Asset_NameOnTodays = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(),'Bowling')])[16]")));
 
 		    // Assert that the asset name is displayed
 		    Assert.assertTrue(Asset_NameOnTodays.isDisplayed(), "Asset Name is not showing in List");
@@ -466,9 +466,25 @@ public class FilterTest extends BaseClass {
 		inspect.ClickOn_Filter_By_Schdeule_Name__On_Manage_Schedule_Page("Bowling Lane Checklist-Bowling Lane 1");
 		
 		inspect.ClickOn_Filter_By_Apply_Button();
-		WebElement Scheduled_NameOnToActive = driver.findElement(By.xpath("(//li[contains(@title, '"+schedule_Name+"')])[5]"));
+		  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-		Assert.assertTrue(Scheduled_NameOnToActive.isDisplayed(), "Scheduled Checklist Name is not showing in List");
+		    // ✅ wait for loader / backdrop to disappear
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("backdrop")));
+
+		    // ✅ wait for filtered schedule to be visible
+		    WebElement scheduleElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+		        By.xpath("//span[@title='" + schedule_Name + "']")
+		    ));
+
+		    // ✅ strong assertion
+		    Assert.assertEquals(
+		        scheduleElement.getAttribute("title"),
+		        schedule_Name,
+		        "Scheduled Checklist Name is not showing in Upcoming list"
+		    );
+//		WebElement Scheduled_NameOnToActive = driver.findElement(By.xpath("//li[contains(@title, '"+schedule_Name+"')]"));
+//
+//		Assert.assertTrue(Scheduled_NameOnToActive.isDisplayed(), "Scheduled Checklist Name is not showing in List");
 
 		
 	}

@@ -78,6 +78,7 @@ public class PaginationTest extends BaseClass{
 	        actualOptions.add(option.getText().trim());
 	    }
 
+	    
 	    // Expected options
 	    List<String> expectedOptions = Arrays.asList("10", "20", "30", "40");
 

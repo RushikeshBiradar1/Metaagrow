@@ -96,7 +96,7 @@ public class Parts_and_Inventory extends BaseClass{
 	@FindBy(xpath = "//input[@formcontrolname='pricePerPice']")private WebElement Price_per_Piece_TextFiled_On_Add_SinglePart_page;
 	@FindBy(xpath = "//button[@type='submit']")private WebElement Add_Parts_Button_On_Add_SinglePart_page;
 	@FindBy(xpath = "//span[normalize-space()='Cancel']")private WebElement Cancel_Button_On_Add_SinglePart_page;
-	@FindBy(xpath = "//button[@id='backClicked']")private WebElement Ok_button_on_add_part_confirmation_page;
+	@FindBy(xpath = "//div[@class='modal-content']//p[normalize-space()='Part(s) added successfully']/ancestor::div[contains(@class,'modal-content')]//button[@id='backClicked']")private WebElement Ok_button_on_add_part_confirmation_page;
 	@FindBy(xpath = "//a[.='Bulk']")private WebElement Bulk_Upload_Tab;
 	@FindBy(xpath = "//span[normalize-space()='Download Sample Sheet']")private WebElement Download_sample_sheet_Tab_On_Bulk_Upload;
 	@FindBy(xpath = "//input[@class='addFileDragInner']")private WebElement Click_Here_To_upload_File_Path;
@@ -135,7 +135,7 @@ public class Parts_and_Inventory extends BaseClass{
 	}
 
 	@FindBy(xpath = "//span[normalize-space()='Transfer']")private WebElement TransferButtonOn_ConfirmPage;
-    @FindBy(xpath = "//button[@id='backClicked']")private WebElement OKButton_OnPartsMovedSuccess_And_returnSuccess;
+    @FindBy(xpath = "(//div[@class='modal-content' and .//p[contains(text(),'Part(s) moved successfully')]]//button[normalize-space()='Ok'])[1]")private WebElement OKButton_OnPartsMovedSuccess_And_returnSuccess;
     @FindBy(xpath = "(//a[contains(text(),'Return')])[1]")private WebElement ReturnFirstPartButton;
     @FindBy(xpath = "(//input[@type='number'])[2]")private WebElement ReturnQuantityTextField_OnReturnPartsPage;
     @FindBy(xpath = "(//input[@type='number'])[3]")private WebElement LostQuantityTextField_OnReturnPartsPage;

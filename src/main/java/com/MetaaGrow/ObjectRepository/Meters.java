@@ -26,7 +26,7 @@ public class Meters {
 	@FindBy(xpath = "//div[@class='form-group']//div[@class='form-group']//span[@id='custom']")private WebElement UOM_Dropdown;
 	@FindBy(name = "autocomplete")private WebElement UOM_search_Box;
 	@FindBy(xpath = "//input[@placeholder='Add Custom Unit']")private WebElement Add_Custom_Unit_TextField;
-	@FindBy(xpath = "//body/app-root/main[@class='main']/div[@class='container-fluid']/div[@class='row']/div[@class='col-lg px-0 overflow-auto main-box']/app-meter-add-new/div[@class='full-modal modal']/div[@role='document']/div[@class='modal-content']/div[@class='modal-body']/div[@class='tab-content transfer-type']/div[@role='tabpanel']/div/form[@name='meterDetailsForm']/ul[@class='row']/li[@class='col-6']/div[@class='form-group']/button[1]")private WebElement Frequency_Measurement_Dropdown;
+	@FindBy(xpath = "(//body/app-root/main[@class='main']/div[@class='container-fluid']/div[@class='row']/div[@class='col-lg px-0 overflow-auto main-box']/app-meter-add-new/div[@class='full-modal modal']/div[@role='document']/div[@class='modal-content']/div[@class='modal-body']/div[@class='tab-content transfer-type']/div[@role='tabpanel']/div/form[@name='meterDetailsForm']/ul[@class='row']/li[@class='col-6']/div[@class='form-group']/button[1])[2]")private WebElement Frequency_Measurement_Dropdown;
 	@FindBy(xpath = "//a[.='Custom']")private WebElement Custom_Frequency_Of_Measurement;
 	@FindBy(xpath = "//a[.='Once']")private WebElement Once_Frequency_Of_Measurement;
 	@FindBy(xpath = "//a[.='Daily']")private WebElement Daily_Frequency_Of_Measurement;
@@ -200,9 +200,9 @@ public class Meters {
 	}
 
 	@FindBy(xpath = "//span[normalize-space()='Edit']")private WebElement EditMeter;
-	@FindBy(xpath = "//body/app-root/main[@class='main']/div[@class='container-fluid']/div[@class='row']/div[@class='col-lg px-0 overflow-auto main-box']/app-meter-details/main[@class='main assets-details']/div[@class='container-fluid']/div[@class='row']/div[@class='col-lg px-0']/section[@class='info-section']/div[@class='round-shadow-box']/div[@class='row align-items-center']/div[@class='col-auto']/app-meter-details-edit/div[@id='duplicate']/div[@role='document']/div[@class='modal-content']/div[@class='modal-body']/form[@name='meterDetailsForm']/ul[@class='row']/li[@class='col-6']/div[@class='form-group']/button[1]")private WebElement FrequencyOfMeasurementOnEditmeter;
+	@FindBy(xpath = "(//body/app-root/main[@class='main']/div[@class='container-fluid']/div[@class='row']/div[@class='col-lg px-0 overflow-auto main-box']/app-meter-details/main[@class='main assets-details']/div[@class='container-fluid']/div[@class='row']/div[@class='col-lg px-0']/section[@class='info-section']/div[@class='round-shadow-box']/div[@class='row align-items-center']/div[@class='col-auto']/app-meter-details-edit/div[@id='duplicate']/div[@role='document']/div[@class='modal-content']/div[@class='modal-body']/form[@name='meterDetailsForm']/ul[@class='row']/li[@class='col-6']/div[@class='form-group']/button[1])[2]")private WebElement FrequencyOfMeasurementOnEditmeter;
 	@FindBy(xpath = "//a[normalize-space()='Weekly']")private WebElement WeeklyFrequency;
-	@FindBy(xpath = "//button[normalize-space()='Ok']")private WebElement OkButton_OnEditedConfirmation;
+	@FindBy(xpath = "(//button[normalize-space()='Ok'])[3]")private WebElement OkButton_OnEditedConfirmation;
 	
 	
 	

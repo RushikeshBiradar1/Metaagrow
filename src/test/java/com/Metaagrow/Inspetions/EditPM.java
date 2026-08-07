@@ -130,19 +130,15 @@ public class EditPM {
 
 	        WebElement usernameField = wait.until(ExpectedConditions
 
-	                .visibilityOfElementLocated(By.xpath("//input[@placeholder='Enter Username']")));
+	                .visibilityOfElementLocated(By.id("email")));
 
-	        usernameField.sendKeys("rushikesh@metaagrow.com");
+	        usernameField.sendKeys("dhoni07@gmail.com");
 	 
-	        WebElement passwordField = driver.findElement(By.xpath("//input[@placeholder='Enter Password']"));
+	        WebElement passwordField = driver.findElement(By.id("password-input"));
 
-	        passwordField.sendKeys("RKVFDC");
+	        passwordField.sendKeys("Metaa@123");
 	 
-	        WebElement loginButton = driver.findElement(By.xpath("//button[@class='button btn-primary d-flex w-100']"));
-
-	        loginButton.click();
-	 
-	        wait.until(ExpectedConditions.urlContains("myworld"));
+	        WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
 
 	    }
 	 

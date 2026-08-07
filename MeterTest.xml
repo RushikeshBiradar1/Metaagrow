@@ -4,9 +4,9 @@
 	<listeners>
 		<listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"></listener>
 	</listeners>
-  <test thread-count="5" name="Tickets">
+  <test thread-count="5" name="Test">
     <classes>
-       <class name="com.Metaagrow.Tickets.ClosedFilterTest"/>
+      <class name="com.Metaagrow.Meter.MeterTest"/>
     </classes>
-  </test> <!-- Maintenance -->
+  </test> <!-- Test -->
 </suite> <!-- Suite -->

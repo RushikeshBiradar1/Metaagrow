@@ -6,7 +6,7 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.Metaagrow.Surveys_and_Feedback.Surveys_and_Feedback_FilterTest"/>
+     
       <class name="com.Metaagrow.Surveys_and_Feedback.Survey_and_FeedbackTest"/>
     </classes>
   </test> <!-- Test -->

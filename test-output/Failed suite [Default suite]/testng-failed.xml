@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)(failed)">
+  <listeners>
+    <listener class-name="com.MetaaGrow.Generic_Utility.ITestListener"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)(failed)">
     <classes>
       <class name="com.Metaagrow.Inspetions.CreateInspections">
         <methods>
           <include name="afterMethod"/>
           <include name="afterTest"/>
-          <include name="CreatescheduleWithAllFieldsWithDailyFrequencyTest_TC_I6"/>
+          <include name="afterClass"/>
+          <include name="setExtent"/>
+          <include name="afterSuite"/>
+          <include name="beforeClass"/>
+          <include name="beforeTest"/>
+          <include name="ScheduleNew_InspectionToCustomOneWeekFrequencyTest_TC_I10"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- com.Metaagrow.Inspetions.CreateInspections -->
+      <class name="com.Metaagrow.Inspetions.perform_Inspection">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="afterTest"/>
+          <include name="testEditAndSubmitResponse"/>
           <include name="afterClass"/>
           <include name="setExtent"/>
           <include name="afterSuite"/>
@@ -15,7 +31,20 @@
           <include name="beforeTest"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- com.Metaagrow.Inspetions.CreateInspections -->
+      </class> <!-- com.Metaagrow.Inspetions.perform_Inspection -->
+      <class name="com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="afterTest"/>
+          <include name="afterClass"/>
+          <include name="downloadPdfAndVerifyInNewWindow"/>
+          <include name="setExtent"/>
+          <include name="afterSuite"/>
+          <include name="beforeClass"/>
+          <include name="beforeTest"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- com.Metaagrow.Inspetions.Inspection_ReportsAndGeneralTest -->
     </classes>
-  </test> <!-- Default test(failed)(failed) -->
+  </test> <!-- Test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->
